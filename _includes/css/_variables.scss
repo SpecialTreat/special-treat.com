@@ -12,8 +12,11 @@ $dark_parsnip_green: #309000; // rgb(48,144,0)
 $chaos_violet: #a00aa0; // rgb(160,10,160)
 $github_purple: #400440; // rgb(64,4,64)
 
-$navbar_opaque: #920000 !default; // rgb(146, 0, 0)
-$navbar_transparent: rgba(146, 0, 0, 0) !default;
+$home_bg_color: #920000 !default; // rgb(146, 0, 0)
+$home_bg_color_transparent: rgba(146, 0, 0, 0) !default; // #92000000
+
+$navbar_opaque: $home_bg_color !default;
+$navbar_transparent: $home_bg_color_transparent !default;
 
 $box_shadow_color: rgba(0, 0, 0, 0.5) !default;
 
@@ -37,6 +40,8 @@ $subtle-color:  lighten($text-color, 20%) !default;
 $link-color:            $company_primary !default;
 $link-hover-color:      lighten($link-color, 10%) !default;
 $link-hover-decoration: none !default;
+
+$body-bg: $home_bg_color !default;
 
 
 //-------------------------------------------------------------
