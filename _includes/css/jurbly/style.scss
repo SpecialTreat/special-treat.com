@@ -244,7 +244,7 @@ $cloud_count: 10;
 // Retina images
 //-------------------------------------------------------------
 
-.iphone-screen{background-image:url(#{$jurbly_images_path}/screenshot01.png)}
+.iphone-screen{background-image:url(#{$jurbly_images_path}/screenshot01.jpg)}
 .appstore-badge{background-image:url(#{$jurbly_images_path}/appstore_badge.png)}
 #email-logo{background-image:url(#{$jurbly_images_path}/email_logo.png)}
 #github-logo{background-image:url(#{$jurbly_images_path}/github_logo.png)}
@@ -258,7 +258,7 @@ only screen and (-o-min-device-pixel-ratio:2/1),
 only screen and (min-device-pixel-ratio:2),
 only screen and (min-resolution:192dpi),
 only screen and (min-resolution:2dppx) {
-    .iphone-screen{background-image:url(#{$jurbly_images_path}/screenshot01@2x.png)}
+    .iphone-screen{background-image:url(#{$jurbly_images_path}/screenshot01@2x.jpg)}
     .appstore-badge{background-image:url(#{$jurbly_images_path}/appstore_badge@2x.png)}
     #email-logo{background-image:url(#{$jurbly_images_path}/email_logo@2x.png)}
     #github-logo{background-image:url(#{$jurbly_images_path}/github_logo@2x.png)}
