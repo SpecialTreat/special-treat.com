@@ -1,0 +1,16 @@
+
+//-------------------------------------------------------------
+// Bootstrap color scheme
+//-------------------------------------------------------------
+
+$body-bg:        #51aae8;
+$body-bg-bottom: #7ec0ee;
+
+$text-shadow-color: rgba(0, 0, 0, 0.5);
+
+$navbar_transparent: rgba(0, 0, 64, 0);
+$navbar_opaque: rgba(0, 0, 64, 0.8);
+
+$navbar-default-toggle-icon-bar-hover-bg: $text-shadow-color;
+
+@import "jurbly/../variables";

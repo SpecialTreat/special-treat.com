@@ -1,0 +1,268 @@
+
+$background_color: #000;
+
+$normal_text: #f0f0f0;
+$subtle_text: #a0a0a0;
+$link_text: #c0c0c0;
+
+.calendar-icon,
+.time-icon {
+    vertical-align: -0.1em;
+}
+
+.discordian-calendar,
+.discordian-clock {
+
+    h1 {
+        font-size: 3em;
+        margin: 0 0 0.5em 0;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2.25em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    h2, h3 {
+        margin: 1em 0 0.5em 0;
+    }
+
+    > .text-center {
+        margin: 2.25em 0 2.25em 0
+    }
+
+    .subtle {
+        color: $subtle_text;
+    }
+
+    ol, ul {
+        margin-left: 1em;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol.references {
+        list-style: decimal;
+    }
+
+    .thud-time-list,
+    .non-thud-time-list,
+    .season-list,
+    .day-of-week-list,
+    .holyday-list {
+        margin-top: 0.5em;
+
+        li {
+            margin: 0 0 0.5em 0;
+        }
+    }
+
+    .holydays-apostle,
+    .holydays-season {
+        margin-bottom: 1em;
+    }
+
+    .holydays-apostle,
+    .holydays-season,
+    .holydays-sttibsday {
+        h3 {
+            margin: 0 0 0.5em 0;
+        }
+    }
+}
+
+.discordian-clock {
+    table {
+        padding: 0.1em 0 0.1em 0;
+    }
+
+    .discordian-to-std-units {
+        margin: 1em 0 0 1em;
+
+        .discordian-units {
+            white-space: nowrap;
+        }
+
+        .discordian-std-divider {
+            padding: 0 1em 0.5em 1em;
+            text-align: center;
+        }
+
+        td {
+            padding: 0 0 0.5em 0;
+        }
+    }
+
+    .discordian-to-std-scale {
+        margin: 0 auto;
+
+        th h2 {
+            font-size: 1.675em;
+            margin-bottom: 0.375em;
+        }
+
+        .discordian-std-divider {
+            padding: 2px 2.25em;
+        }
+
+        .discordian-std-divider:hover {
+            background-color: #fff;
+        }
+
+        .discordian-time-title,
+        .std-time-title {
+
+        }
+
+        .std-time-title {
+            text-align: left;
+        }
+
+        .discordian-time-title {
+            text-align: right;
+        }
+
+        .discordian-time {
+            text-align: right;
+            padding: 0 0.5em 0 0;
+        }
+
+        .std-time {
+            text-align: left;
+            padding: 0 0 0 0.5em;
+        }
+
+        tbody td {
+            background-color: #606060;
+            vertical-align: top;
+        }
+
+        tr.thud-minute td {
+
+        }
+
+        tr.thud-minute td,
+        tr.minute-on-the-hour td,
+        tr.minute td.discordian-std-divider {
+            border-top: 1px solid #484848;
+        }
+
+        tr.minute-final td.discordian-std-divider {
+            background-color: #585858;
+
+            &:hover {
+                border-top: 1px solid white;
+                background-color: #999;
+            }
+        }
+    }
+}
+
+.discordian-calendar {
+
+    .season-list,
+    .day-of-week-list,
+    .holyday-list {
+        list-style: lower-roman;
+
+        li {
+            color: $subtle_text;
+            span {
+                color: $normal_text;
+            }
+        }
+    }
+
+    .gregorian-to-discordian-calendar {
+        margin: 0 auto;
+        position: relative;
+
+        th {
+            text-align: center;
+        }
+
+        th h2 {
+            font-size: 1.75em;
+            margin-bottom: 0.5em;
+        }
+
+        th h3 {
+            font-size: 1.15em;
+            margin-bottom: 0.25em;
+        }
+
+        td.month-title,
+        td.season-title {
+            width: 20%;
+        }
+
+        td.month-title {
+            text-align: right;
+            padding-right: 0.5em;
+        }
+        td.season-title {
+            text-align: left;
+            padding-left: 0.5em;
+        }
+
+        td.month-title h3,
+        td.season-title h3 {
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        tr.week {
+        }
+
+        td.month-even.day-even,
+        td.season-even.day-even {
+            background-color: #636363;
+            border-bottom: 1px solid #484848;
+        }
+
+        td.month-even.day-odd,
+        td.season-even.day-odd {
+            background-color: #606060;
+            border-bottom: 1px solid #484848;
+        }
+
+        td.month-odd.day-even,
+        td.season-odd.day-even {
+            background-color: #2b2b2b;
+            border-bottom: 1px solid #000;
+        }
+
+        td.month-odd.day-odd,
+        td.season-odd.day-odd {
+            background-color: #282828;
+            border-bottom: 1px solid #000;
+        }
+
+        td.day,
+        .month-season-divider {
+            vertical-align: top;
+            height: 2.25em;
+            width: 2.25em;
+
+            .day-number {
+                font-size: 0.75em;
+                padding-left: 4px;
+            }
+        }
+
+        td.day:hover, td.day.active {
+            background-color: #fff;
+
+            .day-number {
+                color: #000;
+            }
+        }
+    }
+}
+

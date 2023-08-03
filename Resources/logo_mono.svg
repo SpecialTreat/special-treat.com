@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="1920px"
+   version="1.1"
+   width="1920px"
+   id="svg13465"
+   sodipodi:docname="logo_mono_simplified.svg"
+   inkscape:export-filename=""
+   inkscape:export-xdpi="7.1999998"
+   inkscape:export-ydpi="7.1999998"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13467"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.44619953"
+     inkscape:cx="682.43012"
+     inkscape:cy="926.71545"
+     inkscape:window-width="1792"
+     inkscape:window-height="1067"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg13465" />
+  <defs
+     id="defs12251" />
+  <path
+     id="rect12253"
+     d="M 960,80 V 40 h -80 v 40 z m -120,40 v 40 h 120 v 40 h 40 v -40 h 80 v -40 h -80 V 80 h -40 v 40 z m 240,40 v 40 h 40 v -40 z m 40,240 h 40 v -40 h 80 v -40 h -80 V 200 h -40 z m 120,-40 v 40 h 40 v -40 z m 40,240 v -40 h 40 v -40 -40 h 40 v -40 h -40 v -40 h -40 v 40 40 h -40 v 40 h -80 v 40 H 760 v -40 h -80 v -40 h -40 v -40 -40 h -40 v 40 h -40 v 40 h 40 v 40 40 h 40 v 40 h 80 v 40 h 480 v -40 z m 80,-120 v 40 h 40 v -40 z m 40,40 v 40 h 40 v -40 z m 0,280 v -40 h 40 v -40 h 40 v -40 h 40 v -40 h -40 v -40 -40 h -40 v 40 40 h -40 v 40 h -40 v 40 h -80 v 40 H 640 v -40 h -80 v -40 h -40 v -40 h -40 v -80 h -40 v 80 h -40 v 40 h 40 v 40 h 40 v 40 h 40 v 40 h 80 v 40 h 720 v -40 z m 120,-120 v 40 h 40 v -40 z m 40,40 v 40 h 40 V 720 Z M 320,760 h -40 v 160 h 40 v 40 h 80 v 40 h 120 v 40 h 880 v -40 h 120 v -40 h 80 v -40 h 40 V 760 h -40 v 80 h -40 v 40 h -80 v 40 h -120 v 40 H 560 V 920 H 440 v -40 h -80 v -40 h -40 z m 80,280 v -40 h -40 v 280 h 40 v 280 h 40 v 120 h 40 v 80 h 40 v 40 h 40 v 40 h 80 v 40 h 640 v -40 h 80 v -40 h 40 v -40 h 40 v -80 h 40 v -120 h 40 v -280 h 40 v -280 h -40 v 40 h -120 v 40 H 520 v -40 z M 320,760 h 40 v -40 h -40 z m 40,-40 h 40 V 680 H 360 Z M 480,560 h 40 v -40 h -40 z m 40,-40 h 40 V 480 H 520 Z M 640,400 h 40 v -40 h -40 z m 40,-80 v 40 h 80 v 40 h 40 V 200 H 760 V 320 Z M 800,200 h 40 v -40 h -40 z m 0,200 v 40 h 40 v -40 z m 40,40 v 40 h 240 v -40 z m 240,0 h 40 v -40 h -40 z M 920,320 v -40 h 40 v -40 h -80 v 40 h -40 v 40 z M 640,1400 v -40 h -40 v -200 h 40 v -40 h 160 v 40 h 40 v 200 h -40 v 40 z m 0,-240 v 120 h 40 v -40 h 40 v -80 z m 480,240 v -40 h -40 v -200 h 40 v -40 h 160 v 40 h 40 v 200 h -40 v 40 z m 0,-240 v 120 h 40 v -40 h 40 v -80 z m -480,560 v -40 h -40 v -40 h -40 v -200 h 800 v 200 h -40 v 40 h -40 v 40 h -80 v 40 H 720 v -40 z m 40,-240 v 80 h 560 v -80 z m 440,240 v -40 h -40 v -40 H 840 v 40 h -40 v 40 z"
+     sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+</svg>

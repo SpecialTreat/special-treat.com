@@ -1,0 +1,129 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="iOS,iPhone,iPad,App,Apps,Parsnip,OCR,Tesseract,Scan,Image,Text">
+  <meta name="description" content="Parsnip, everyday OCR">
+  <meta name="author" content="Special Treat, LLC">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Parsnip</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Parsnip">
+  <meta name="application-name" content="Parsnip">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="msapplication-TileColor" content="#309000">
+  <meta name="theme-color" content="#000">
+
+  <style type="text/css">
+{% capture style_css %}
+{% include css/parsnip/style.scss %}
+{% endcapture %}
+{{ style_css | scssify }}
+  </style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/latest/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/latest/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body data-offset="50" data-spy="scroll" data-target="#top-navbar">
+
+{% capture navbar_links %}
+<li><a class="smoothScroll" href="/Jurbly/">Jurbly</a></li>
+<li><a class="smoothScroll" href="/ChaosClock/">Chaos Clock</a></li>
+<li><a class="smoothScroll" href="#privacy">Privacy</a></li>
+<li><a class="smoothScroll" href="#contact">Contact</a></li>
+{% endcapture %}
+{% include _navbar.html navbar_brand_link="/" navbar_links=navbar_links %}
+
+<div id="home" name="home" class="section section-image">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-left text-center">
+        <h1><div id="parsnip-logo" class="background-image"><span class="spacer"></span></div> PARSNIP</h1>
+        <div class="description">
+          <p>Open source OCR for iOS</p>
+          <p>Scan printed text for:</p>
+          <ul>
+            <li>phone numbers</li>
+            <li>addresses</li>
+            <li>web sites</li>
+            <li>contacts</li>
+            <li>and more...</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-md-right text-center">
+        <div class="iphone background-image md-pull-left">
+          <span class="spacer"></span>
+          <div id="slides" class="iphone-screen carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <div id="screenshot01" class="screenshot background-image item active"><span class="spacer"></span></div>
+              <div id="screenshot02" class="screenshot background-image item"><span class="spacer"></span></div>
+              <div id="screenshot03" class="screenshot background-image item"><span class="spacer"></span></div>
+              <div id="screenshot04" class="screenshot background-image item"><span class="spacer"></span></div>
+              <div id="screenshot05" class="screenshot background-image item"><span class="spacer"></span></div>
+            </div>
+            <ol class="carousel-indicators">
+              <li data-target="#slides" data-slide-to="0" class="active"></li>
+              <li data-target="#slides" data-slide-to="1"></li>
+              <li data-target="#slides" data-slide-to="2"></li>
+              <li data-target="#slides" data-slide-to="3"></li>
+              <li data-target="#slides" data-slide-to="4"></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-left text-center">
+        <div class="badge-container md-pull-right">
+            <a
+                class="badge-link"
+                href="https://github.com/SpecialTreat/Parsnip"
+                aria-label="Parsnip source code on GitHub">
+                <div class="github-badge background-image"></div>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a id="background-copyright" href="http://www.flickr.com/photos/wwarby/">Photo Copyright © 2014 William Warby</a>
+</div>
+
+{% include _privacy.html section_class="" %}
+{% include _contact.html section_class="" %}
+{% include _footer.html %}
+
+<script type="text/javascript">
+{% include js/jquery.min.js %}
+</script>
+<script type="text/javascript">
+{% include js/jquery.scrollTo.min.js %}
+</script>
+<script type="text/javascript">
+{% include js/jquery.localScroll.min.js %}
+</script>
+<script type="text/javascript">
+{% include js/bootstrap-custom.min.js %}
+</script>
+<script type="text/javascript">
+{% include js/main.js %}
+</script>
+
+</body>
+</html>

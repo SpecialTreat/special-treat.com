@@ -1,0 +1,376 @@
+
+@import "chaosclock/variables";
+@import "chaosclock/../style";
+
+
+$chaosclock_images_path: "#{$images_path}/chaosclock";
+
+
+//-------------------------------------------------------------
+// Global styles
+//-------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+    font-variant: small-caps;
+}
+
+
+//-------------------------------------------------------------
+// Sections
+//-------------------------------------------------------------
+
+$chaosclock-logo-height: 100px;
+$chaosclock-logo-width: 100px;
+
+.section {
+    padding: 100px 0;
+
+    hr {
+        background-color: #303030;
+        @include gradient-horizontal-three-colors(#000, #303030, 50%, #000);
+    }
+}
+
+.section-separator {
+    position: relative;
+
+    padding: ($chaosclock-logo-height / 2) 0;
+    margin: 0;
+
+    hr {
+        display: block;
+        height: 1px;
+        margin: 0 auto;
+        padding: 0;
+        background-color: #303030;
+        @include gradient-horizontal-three-colors(#000, #303030, 50%, #000);
+        width: 66%;
+        position: relative;
+        border: none;
+    }
+
+    .chaosclock-logo {
+        height: $chaosclock-logo-height;
+        width: $chaosclock-logo-width;
+
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        margin-left: ($chaosclock-logo-height / -2);
+
+        z-index: 1000;
+    }
+}
+
+
+//-------------------------------------------------------------
+// Bootstrap
+//-------------------------------------------------------------
+
+.btn-lg {
+    font-size: 1.25em;
+    font-weight: 100;
+    font-variant: small-caps;
+    white-space: normal;
+
+    max-width: 100%;
+}
+
+.glyphicon {
+    vertical-align: -0.1em;
+}
+
+
+//-------------------------------------------------------------
+// Navbar
+//-------------------------------------------------------------
+
+.navbar-default {
+
+    background-color: $navbar_transparent;
+
+    .navbar-brand {
+        visibility: visible;
+        @include opacity(1);
+    }
+
+    &.opaque {
+        background-color: $navbar_opaque;
+    }
+
+    &.expanded {
+        @media (max-width: $screen-sm-max) {
+            background-color: $navbar_opaque;
+        }
+    }
+}
+
+
+//-------------------------------------------------------------
+// Contact
+//-------------------------------------------------------------
+
+#contact {
+    a {
+        color: #aaaaaa;
+    }
+}
+
+
+//-------------------------------------------------------------
+// Modal
+//-------------------------------------------------------------
+
+.modal {
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #000;
+    }
+
+    .modal-content {
+
+        .modal-header {
+            background-color: #b0b0b0;
+            border-top-left-radius: $border-radius-large;
+            border-top-right-radius: $border-radius-large;
+
+            .close {
+                font-size: 1.5em;
+
+                span {
+                    vertical-align: middle;
+                }
+            }
+
+            .modal-title {
+                font-size: 1.25em;
+                font-weight: 300;
+                font-variant: small-caps;
+            }
+        }
+
+        .modal-footer {
+            border-top: 0 none transparent;
+        }
+    }
+}
+
+
+//-------------------------------------------------------------
+// Tooltip
+//-------------------------------------------------------------
+
+.tooltip {
+    font-size: 1.15em;
+    font-weight: 300;
+}
+
+.tooltip-inner {
+    padding: 0.5em 1em;
+    white-space: nowrap;
+}
+
+
+//-------------------------------------------------------------
+// Home
+//-------------------------------------------------------------
+
+#home {
+    padding: 100px 0 0;
+
+    background-color: transparent;
+    background-image: none;
+
+    h1 {
+        font-size: 2.5em;
+
+        @media (min-width: $screen-xs-min) {
+            font-size: 2.8em;
+        }
+
+        @media (min-width: $screen-lg-min) {
+            font-size: 3.5em;
+        }
+
+        margin-top: 0;
+
+        @media (min-width: $screen-md-min) {
+            margin-top: #{$iphone_bezel_height}px;
+        }
+    }
+
+    .description {
+        font-size: 1.15em;
+        margin: 1em 0;
+    }
+
+    .badge-container {
+        margin: 40px auto 0 auto;
+
+        @media (min-width: $screen-md-min) {
+            margin: -#{$iphone_bezel_height + $badge_height}px 0 #{$iphone_bezel_height + $badge_height}px 0;
+        }
+    }
+}
+
+
+//-------------------------------------------------------------
+// Watch & Widget
+//-------------------------------------------------------------
+
+#features-section {
+
+    h1 {
+        font-size: 2em;
+
+        @media (min-width: $screen-xs-min) {
+            font-size: 2.25em;
+        }
+
+        @media (min-width: $screen-md-min) {
+            font-size: 2.5em;
+        }
+
+        margin-top: 100px;
+    }
+
+    .watch-col {
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .watch {
+            width: 276px;
+            height: 475px;
+        }
+    }
+
+    .widget-col {
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .widget {
+            width: 304px;
+            height: 186px;
+        }
+    }
+}
+
+
+//-------------------------------------------------------------
+// Discordian Calendar & Clock
+//-------------------------------------------------------------
+
+#calendar, #clock {
+    .container {
+        max-width: $screen-sm-min;
+    }
+}
+
+.discordian-calendar {
+
+    .gregorian-to-discordian-calendar {
+        font-size: 0.5em;
+
+        @media (min-width: $screen-xs-min) {
+            font-size: 0.675em;
+        }
+
+        @media (min-width: $screen-sm-min) {
+            font-size: 0.75em;
+        }
+
+        @media (min-width: $screen-md-min) {
+            font-size: 1em;
+        }
+
+        th h2 {
+            font-size: 1.25em;
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 1.75em;
+            }
+        }
+
+        th h3 {
+            font-size: 1em;
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 1.15em;
+            }
+        }
+    }
+}
+
+.discordian-clock {
+
+    .discordian-to-std-scale {
+        font-size: 0.75em;
+
+        @media (min-width: $screen-xs-min) {
+            font-size: 1em;
+        }
+
+        th h2 {
+            font-size: 1.25em;
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 1.75em;
+            }
+        }
+    }
+}
+
+
+//-------------------------------------------------------------
+// Contact
+//-------------------------------------------------------------
+
+#contact {
+
+}
+
+
+//-------------------------------------------------------------
+// Footer
+//-------------------------------------------------------------
+
+#footer {
+    background-color: #303030;
+    color: #909090;
+}
+
+
+//-------------------------------------------------------------
+// Retina images
+//-------------------------------------------------------------
+
+.iphone-screen{background-image:url(#{$chaosclock_images_path}/screenshot01.png)}
+.watch{background-image:url(#{$chaosclock_images_path}/watch.png)}
+.widget{background-image:url(#{$chaosclock_images_path}/widget.png)}
+.chaosclock-logo{background-image:url(#{$chaosclock_images_path}/chaosclock_logo.png)}
+#email-logo{background-image:url(#{$chaosclock_images_path}/email_logo.png)}
+#github-logo{background-image:url(#{$chaosclock_images_path}/github_logo.png)}
+#twitter-logo{background-image:url(#{$chaosclock_images_path}/twitter_logo.png)}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio:2),
+only screen and (min--moz-device-pixel-ratio:2),
+only screen and (-moz-min-device-pixel-ratio:2),
+only screen and (-o-min-device-pixel-ratio:2/1),
+only screen and (min-device-pixel-ratio:2),
+only screen and (min-resolution:192dpi),
+only screen and (min-resolution:2dppx) {
+    .iphone-screen{background-image:url(#{$chaosclock_images_path}/screenshot01@2x.png)}
+    .watch{background-image:url(#{$chaosclock_images_path}/watch@2x.png)}
+    .widget{background-image:url(#{$chaosclock_images_path}/widget@2x.png)}
+    .chaosclock-logo{background-image:url(#{$chaosclock_images_path}/chaosclock_logo@2x.png)}
+    #email-logo{background-image:url(#{$chaosclock_images_path}/email_logo@2x.png)}
+    #github-logo{background-image:url(#{$chaosclock_images_path}/github_logo@2x.png)}
+    #twitter-logo{background-image:url(#{$chaosclock_images_path}/twitter_logo@2x.png)}
+}

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="600"
+   height="180"
+   viewBox="0 0 158.74999 47.625001"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename=""
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   sodipodi:docname="company_title.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     height="500px"
+     inkscape:zoom="3.702045"
+     inkscape:cx="515.52588"
+     inkscape:cy="120.33889"
+     inkscape:window-width="1680"
+     inkscape:window-height="997"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true" />
+  <defs
+     id="defs2">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4142"
+       x="-0.028817238"
+       y="-0.14419816"
+       width="1.0576345"
+       height="1.2883963">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.4947833"
+         id="feGaussianBlur4144" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter8509"
+       x="-0.068877834"
+       y="-0.25094317"
+       width="1.1377557"
+       height="1.5018863">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.3394015"
+         id="feGaussianBlur8511" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:57.8556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;filter:url(#filter4142)"
+       x="50.832272"
+       y="80.765106"
+       id="text4140"
+       transform="matrix(0.5157022,0,0,0.5157022,-22.8941,-14.742751)"><tspan
+         sodipodi:role="line"
+         id="tspan4138"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:57.8556px;font-family:Lobster;-inkscape-font-specification:Lobster;fill:#ffffff;stroke-width:0.264583"
+         x="50.832272"
+         y="80.765106">Special Treat</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:29.8363px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.136446"
+       x="3.3202143"
+       y="26.907991"
+       id="text1328"><tspan
+         sodipodi:role="line"
+         id="tspan1326"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.8363px;font-family:Lobster;-inkscape-font-specification:Lobster;fill:#ffffff;stroke-width:0.136446"
+         x="3.3202143"
+         y="26.907991">Special Treat</tspan></text>
+    <g
+       id="g42399"
+       transform="translate(0.40111344,0.0451014)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:28.9278px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;filter:url(#filter8509)"
+         x="259.74167"
+         y="114.71289"
+         id="text8507"
+         transform="matrix(0.5157022,0,0,0.5157022,-22.8941,-14.742751)"><tspan
+           sodipodi:role="line"
+           id="tspan8505"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.9278px;font-family:Lobster;-inkscape-font-specification:Lobster;fill:#ffffff;stroke-width:0.264583"
+           x="259.74167"
+           y="114.71289">Studios</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.9181px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.136446"
+         x="111.05525"
+         y="44.41494"
+         id="text7589"><tspan
+           sodipodi:role="line"
+           id="tspan7587"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.9181px;font-family:Lobster;-inkscape-font-specification:Lobster;fill:#ffffff;stroke-width:0.136446"
+           x="111.05525"
+           y="44.41494">Studios</tspan></text>
+    </g>
+  </g>
+</svg>

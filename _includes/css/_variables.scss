@@ -1,0 +1,126 @@
+
+$company_primary: #aa0000; // rgb(170, 0, 0)
+$company_primary_dark: #7a0000; // rgb(122, 0, 0)
+$company_primary_light: #cc0000; // rgb(204, 0, 0)
+$company_primary_transparent: rgba(170, 0, 0, 0);
+$company_primary_dark_transparent: rgba(122, 0, 0, 0);
+$company_primary_light_transparent: rgba(204, 0, 0, 0);
+
+$jurbly_pink: #FC69B4; // rgb(252,105,180)
+$parsnip_green: #40C000; // rgb(64,192,0)
+$dark_parsnip_green: #309000; // rgb(48,144,0)
+$chaos_violet: #a00aa0; // rgb(160,10,160)
+$github_purple: #400440; // rgb(64,4,64)
+
+$navbar_opaque: #920000 !default; // rgb(146, 0, 0)
+$navbar_transparent: rgba(146, 0, 0, 0) !default;
+
+$box_shadow_color: rgba(0, 0, 0, 0.5) !default;
+
+$images_path: "/images";
+
+
+//-------------------------------------------------------------
+// Bootstrap color scheme
+//-------------------------------------------------------------
+
+$brand-primary: $company_primary !default;
+$brand-success: #5cb85c !default;
+$brand-info:    #5bc0de !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger:  #d9534f !default;
+
+$text-color:    #555 !default;
+$text-shadow-color: rgba(0, 0, 0, 0.5) !default;
+$subtle-color:  lighten($text-color, 20%) !default;
+
+$link-color:            $company_primary !default;
+$link-hover-color:      lighten($link-color, 10%) !default;
+$link-hover-decoration: none !default;
+
+
+//-------------------------------------------------------------
+// Media queries breakpoints
+//-------------------------------------------------------------
+
+// $screen-xs:     480px !default;
+$screen-xs:     398px !default;
+$screen-xs-min: $screen-xs !default;
+
+// $screen-sm:     704px !default;
+// $screen-sm:     768px !default;
+$screen-sm:     680px !default;
+$screen-sm-min: $screen-sm !default;
+
+// $screen-md:     864px !default;
+// $screen-md:     992px !default;
+$screen-md:     796px !default;
+$screen-md-min: $screen-md !default;
+
+// $screen-lg:     1024px !default;
+// $screen-lg:     1200px !default;
+$screen-lg:     1024px !default;
+$screen-lg-min: $screen-lg !default;
+
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-md-min !default;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+
+//-------------------------------------------------------------
+// Grid system
+//-------------------------------------------------------------
+
+$grid-gutter-width: 30px !default;
+
+
+//-------------------------------------------------------------
+// Container sizes
+//-------------------------------------------------------------
+
+// For `$screen-sm-min` and up.
+$container-tablet:        ($screen-sm - $grid-gutter-width - 18px) !default;
+
+//  For `$screen-md-min` and up.
+$container-desktop:       ($screen-md - $grid-gutter-width - 22px) !default;
+
+//  For `$screen-lg-min` and up.
+$container-large-desktop: ($screen-lg - $grid-gutter-width - 30px) !default;
+
+
+//-------------------------------------------------------------
+// Navbar
+//-------------------------------------------------------------
+
+$navbar-default-color:  #fff !default;
+$navbar-default-bg:     transparent !default;
+$navbar-default-border: transparent !default;
+
+$navbar-default-link-color:        #fff !default;
+$navbar-default-link-hover-color:  #fff !default;
+$navbar-default-link-hover-bg:     transparent !default;
+$navbar-default-link-active-color: #fff !default;
+$navbar-default-link-active-bg:    $brand-primary !default;
+
+$navbar-default-toggle-hover-bg:          #ddd !default;
+$navbar-default-toggle-icon-bar-bg:       #fff !default;
+$navbar-default-toggle-icon-bar-hover-bg: #888 !default;
+$navbar-default-toggle-border-color:      #ddd !default;
+
+
+//-------------------------------------------------------------
+// Typography
+//-------------------------------------------------------------
+
+$icon-font-path: "/fonts/" !default;
+
+$font-family-sans-serif:
+    system, -apple-system, BlinkMacSystemFont, "San Francisco",
+    "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+$font-size-base:          18px !default;
+
+
+@import "bootstrap/variables";
