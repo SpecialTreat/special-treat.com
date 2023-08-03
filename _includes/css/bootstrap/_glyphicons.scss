@@ -11,6 +11,7 @@
   // Import the fonts
   @font-face {
     font-family: 'Glyphicons Halflings';
+    font-display: block;
     src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
     src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
          url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff2'), '#{$icon-font-path}#{$icon-font-name}.woff2')) format('woff2'),
@@ -26,6 +27,7 @@
   top: 1px;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
+  font-display: block;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
