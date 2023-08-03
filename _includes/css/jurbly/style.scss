@@ -15,6 +15,7 @@ $jurbly_images_path: "#{$images_path}/jurbly";
   font-style: normal;
   font-weight: 400;
   src: local('Luckiest Guy'), local('LuckiestGuy'), url(#{$icon-font-path}LuckiestGuy.ttf) format('truetype');
+  font-display: swap;
 }
 
 

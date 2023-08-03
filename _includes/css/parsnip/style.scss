@@ -14,6 +14,7 @@ $parsnip_images_path: "#{$images_path}/parsnip";
   font-style: normal;
   font-weight: 300;
   src: local('Lato Light'), local('Lato-Light'), url(#{$icon-font-path}Lato-Light.ttf) format('truetype');
+  font-display: swap;
 }
 
 
