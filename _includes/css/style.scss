@@ -383,6 +383,38 @@ $company_brand_width: 174px;
 
 
 //-------------------------------------------------------------
+// 404 Not Found
+//-------------------------------------------------------------
+
+#not-found {
+    min-height: 100%;
+
+    .container {
+        a, a.focus, a.hover {
+            margin: 0;
+            text-decoration: underline;
+        }
+
+        h1 {
+            width: 100%;
+
+            a, a.focus, a.hover {
+                margin: 50px 0;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+#not-found-title {
+    max-width: 100%;
+    height: 480px;
+    width: 600px;
+}
+
+
+//-------------------------------------------------------------
 // About
 //-------------------------------------------------------------
 
@@ -514,6 +546,7 @@ $company_brand_width: 174px;
 #email-logo{background-image:url(#{$images_path}/email_logo.png)}
 #github-logo{background-image:url(#{$images_path}/github_logo.png)}
 #twitter-logo{background-image:url(#{$images_path}/twitter_logo.png)}
+#not-found-title{background-image:url(#{$images_path}/not_found_title.png)}
 
 @media
 only screen and (-webkit-min-device-pixel-ratio:2),
@@ -539,4 +572,5 @@ only screen and (min-resolution:2dppx) {
     #email-logo{background-image:url(#{$images_path}/email_logo@2x.png)}
     #github-logo{background-image:url(#{$images_path}/github_logo@2x.png)}
     #twitter-logo{background-image:url(#{$images_path}/twitter_logo@2x.png)}
+    #not-found-title{background-image:url(#{$images_path}/not_found_title@2x.png)}
 }
