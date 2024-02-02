@@ -1,0 +1,24 @@
+.wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open {
+    background-color: #1f1f1f;
+}
+
+.wp-block-navigation:not(.has-text-color) .wp-block-navigation__responsive-container.is-menu-open {
+    color: #ffffff;
+}
+
+.wp-block-navigation:not(.has-text-color) .wp-block-navigation__submenu-container {
+    color: #ffffff;
+}
+
+.wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
+    background-color: #1f1f1f;
+    border: 1px solid rgba(0,0,0,.15);
+}
+
+.wp-site-blocks > main.wp-block-group {
+    min-height: calc(100vh - 20.5rem);
+}
+
+.primary-color {
+    color: #CF2E2E;
+}
