@@ -1,0 +1,3731 @@
+<style type="text/css">
+
+.discordian-calendar {
+  font-size: 1.0em;
+}
+
+@media (max-width: 1000px) {
+  .discordian-calendar {
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 650px) {
+  .discordian-calendar {
+    font-size: 0.5em;
+  }
+}
+
+@media (max-width: 450px) {
+  .discordian-calendar {
+    font-size: 0.375em;
+  }
+}
+
+.discordian-calendar h5 {
+  font-size: 2.25em
+}
+
+.discordian-calendar h6 {
+  font-size: 1.5em
+}
+
+.discordian-calendar h5,
+.discordian-calendar h6 {
+  margin: 1em 0 0.5em 0
+}
+
+.discordian-calendar p {
+  margin: 0 0 0.75em 0
+}
+
+.discordian-calendar>.text-center {
+  margin: 2.25em 0 2.25em 0
+}
+
+.discordian-calendar .subtle {
+  color: #a0a0a0
+}
+
+.discordian-calendar ul {
+  list-style: disc;
+  margin-left: 1.5em
+}
+
+.discordian-calendar ol.references {
+  list-style: decimal;
+  margin-left: 1.5em
+}
+
+.discordian-calendar .thud-time-list,
+.discordian-calendar .non-thud-time-list,
+.discordian-calendar .season-list,
+.discordian-calendar .day-of-week-list,
+.discordian-calendar .holyday-list {
+  margin: 0.5em 0 0 2em
+}
+
+.discordian-calendar .thud-time-list li,
+.discordian-calendar .non-thud-time-list li,
+.discordian-calendar .season-list li,
+.discordian-calendar .day-of-week-list li,
+.discordian-calendar .holyday-list li{
+  margin: 0 0 0.5em 0
+}
+
+.discordian-calendar .holydays-apostle,
+.discordian-calendar .holydays-season {
+  width: 49%;
+  display: inline-block;
+  margin-bottom: 1em
+}
+
+.discordian-calendar .holydays-apostle h6,
+.discordian-calendar .holydays-season h6,
+.discordian-calendar .holydays-sttibsday {
+  margin: 0 0 0.5em 0
+}
+
+.discordian-calendar .season-list,
+.discordian-calendar .day-of-week-list,
+.discordian-calendar .holyday-list {
+  list-style: lower-roman
+}
+
+.discordian-calendar .season-list li,
+.discordian-calendar .day-of-week-list li,
+.discordian-calendar .holyday-list li {
+  color: #a0a0a0
+}
+
+.discordian-calendar .season-list li span,
+.discordian-calendar .day-of-week-list li span,
+.discordian-calendar .holyday-list li span {
+  color: #f0f0f0
+}
+
+.discordian-calendar {
+  margin: 0 auto;
+  position: relative
+}
+
+.discordian-calendar th {
+  text-align: center
+}
+
+.discordian-calendar th h5 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em
+}
+
+.discordian-calendar th h6 {
+  font-size: 1.1em;
+  margin-bottom: 0.25em
+}
+
+.discordian-calendar td.month-title,
+.discordian-calendar td.season-title {
+  width: 20%
+}
+
+.discordian-calendar td.month-title {
+  text-align: right;
+  padding-right: 0.85em
+}
+
+.discordian-calendar td.season-title {
+  text-align: left;
+  padding-left: 0.85em
+}
+
+.discordian-calendar td.month-title h6,
+.discordian-calendar td.season-title h6 {
+  font-size: 1.1em;
+  margin: 0
+}
+
+.discordian-calendar td.month-even.day-even,
+.discordian-calendar td.season-even.day-even {
+  background-color: #636363;
+  border-bottom: 1px solid #484848
+}
+
+.discordian-calendar td.month-even.day-odd,
+.discordian-calendar td.season-even.day-odd {
+  background-color: #606060;
+  border-bottom: 1px solid #484848
+}
+
+.discordian-calendar td.month-odd.day-even,
+.discordian-calendar td.season-odd.day-even {
+  background-color: #2b2b2b;
+  border-bottom: 1px solid #000
+}
+
+.discordian-calendar td.month-odd.day-odd,
+.discordian-calendar td.season-odd.day-odd {
+  background-color: #282828;
+  border-bottom: 1px solid #000
+}
+
+.discordian-calendar td.day,
+.discordian-calendar .month-season-divider {
+  vertical-align: top;
+  height: 2.25em;
+  width: 2.25em
+}
+
+.discordian-calendar td.day .day-number,
+.discordian-calendar .month-season-divider .day-number {
+  font-size: 0.75em;
+  padding-left: 4px
+}
+
+.discordian-calendar td.month.dow-1:hover,
+.discordian-calendar td.month.dow-1:hover~td.season.dow-1,
+.discordian-calendar td.month.dow-1.active,
+.discordian-calendar td.month.dow-1.active~td.season.dow-1,
+.discordian-calendar td.season.dow-1:hover,
+.discordian-calendar td.month.dow-1:has(~ td.season.dow-1:hover),
+.discordian-calendar td.season.dow-1.active,
+.discordian-calendar td.month.dow-1:has(~ td.season.dow-1.active),
+
+.discordian-calendar td.month.dow-2:hover,
+.discordian-calendar td.month.dow-2:hover~td.season.dow-2,
+.discordian-calendar td.month.dow-2.active,
+.discordian-calendar td.month.dow-2.active~td.season.dow-2,
+.discordian-calendar td.season.dow-2:hover,
+.discordian-calendar td.month.dow-2:has(~ td.season.dow-2:hover),
+.discordian-calendar td.season.dow-2.active,
+.discordian-calendar td.month.dow-2:has(~ td.season.dow-2.active),
+
+.discordian-calendar td.month.dow-3:hover,
+.discordian-calendar td.month.dow-3:hover~td.season.dow-3,
+.discordian-calendar td.month.dow-3.active,
+.discordian-calendar td.month.dow-3.active~td.season.dow-3,
+.discordian-calendar td.season.dow-3:hover,
+.discordian-calendar td.month.dow-3:has(~ td.season.dow-3:hover),
+.discordian-calendar td.season.dow-3.active,
+.discordian-calendar td.month.dow-3:has(~ td.season.dow-3.active),
+
+.discordian-calendar td.month.dow-4:hover,
+.discordian-calendar td.month.dow-4:hover~td.season.dow-4,
+.discordian-calendar td.month.dow-4.active,
+.discordian-calendar td.month.dow-4.active~td.season.dow-4,
+.discordian-calendar td.season.dow-4:hover,
+.discordian-calendar td.month.dow-4:has(~ td.season.dow-4:hover),
+.discordian-calendar td.season.dow-4.active,
+.discordian-calendar td.month.dow-4:has(~ td.season.dow-4.active),
+
+.discordian-calendar td.month.dow-5:hover,
+.discordian-calendar td.month.dow-5:hover~td.season.dow-5,
+.discordian-calendar td.month.dow-5.active,
+.discordian-calendar td.month.dow-5.active~td.season.dow-5,
+.discordian-calendar td.season.dow-5:hover,
+.discordian-calendar td.month.dow-5:has(~ td.season.dow-5:hover),
+.discordian-calendar td.season.dow-5.active,
+.discordian-calendar td.month.dow-5:has(~ td.season.dow-5.active) {
+  background-color: #fff
+}
+
+.discordian-calendar td.month.dow-1:hover .day-number,
+.discordian-calendar td.month.dow-1:hover~td.season.dow-1 .day-number,
+.discordian-calendar td.month.dow-1.active .day-number,
+.discordian-calendar td.month.dow-1.active~td.season.dow-1 .day-number,
+.discordian-calendar td.season.dow-1:hover .day-number,
+.discordian-calendar td.month.dow-1:has(~ td.season.dow-1:hover) .day-number,
+.discordian-calendar td.season.dow-1.active .day-number,
+.discordian-calendar td.month.dow-1:has(~ td.season.dow-1.active) .day-number,
+
+.discordian-calendar td.month.dow-2:hover .day-number,
+.discordian-calendar td.month.dow-2:hover~td.season.dow-2 .day-number,
+.discordian-calendar td.month.dow-2.active .day-number,
+.discordian-calendar td.month.dow-2.active~td.season.dow-2 .day-number,
+.discordian-calendar td.season.dow-2:hover .day-number,
+.discordian-calendar td.month.dow-2:has(~ td.season.dow-2:hover) .day-number,
+.discordian-calendar td.season.dow-2.active .day-number,
+.discordian-calendar td.month.dow-2:has(~ td.season.dow-2.active) .day-number,
+
+.discordian-calendar td.month.dow-3:hover .day-number,
+.discordian-calendar td.month.dow-3:hover~td.season.dow-3 .day-number,
+.discordian-calendar td.month.dow-3.active .day-number,
+.discordian-calendar td.month.dow-3.active~td.season.dow-3 .day-number,
+.discordian-calendar td.season.dow-3:hover .day-number,
+.discordian-calendar td.month.dow-3:has(~ td.season.dow-3:hover) .day-number,
+.discordian-calendar td.season.dow-3.active .day-number,
+.discordian-calendar td.month.dow-3:has(~ td.season.dow-3.active) .day-number,
+
+.discordian-calendar td.month.dow-4:hover .day-number,
+.discordian-calendar td.month.dow-4:hover~td.season.dow-4 .day-number,
+.discordian-calendar td.month.dow-4.active .day-number,
+.discordian-calendar td.month.dow-4.active~td.season.dow-4 .day-number,
+.discordian-calendar td.season.dow-4:hover .day-number,
+.discordian-calendar td.month.dow-4:has(~ td.season.dow-4:hover) .day-number,
+.discordian-calendar td.season.dow-4.active .day-number,
+.discordian-calendar td.month.dow-4:has(~ td.season.dow-4.active) .day-number,
+
+.discordian-calendar td.month.dow-5:hover .day-number,
+.discordian-calendar td.month.dow-5:hover~td.season.dow-5 .day-number,
+.discordian-calendar td.month.dow-5.active .day-number,
+.discordian-calendar td.month.dow-5.active~td.season.dow-5 .day-number,
+.discordian-calendar td.season.dow-5:hover .day-number,
+.discordian-calendar td.month.dow-5:has(~ td.season.dow-5:hover) .day-number,
+.discordian-calendar td.season.dow-5.active .day-number,
+.discordian-calendar td.month.dow-5:has(~ td.season.dow-5.active) .day-number {
+  color: #000
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 10em;
+  background-color: black;
+  color: #fff;
+  font-size: 1em;
+  font-weight: normal;
+  text-transform: none;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5em;
+  opacity: 0;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext,
+.tooltip.active .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.discordian-calendar td.month.dow-1:hover .tooltiptext,
+.discordian-calendar td.month.dow-1:hover~td.season.dow-1 .tooltiptext,
+.discordian-calendar td.month.dow-1.active .tooltiptext,
+.discordian-calendar td.month.dow-1.active~td.season.dow-1 .tooltiptext,
+.discordian-calendar td.season.dow-1:hover .tooltiptext,
+.discordian-calendar td.month.dow-1:has(~ td.season.dow-1:hover) .tooltiptext,
+.discordian-calendar td.season.dow-1.active .tooltiptext,
+.discordian-calendar td.month.dow-1:has(~ td.season.dow-1.active) .tooltiptext,
+
+.discordian-calendar td.month.dow-2:hover .tooltiptext,
+.discordian-calendar td.month.dow-2:hover~td.season.dow-2 .tooltiptext,
+.discordian-calendar td.month.dow-2.active .tooltiptext,
+.discordian-calendar td.month.dow-2.active~td.season.dow-2 .tooltiptext,
+.discordian-calendar td.season.dow-2:hover .tooltiptext,
+.discordian-calendar td.month.dow-2:has(~ td.season.dow-2:hover) .tooltiptext,
+.discordian-calendar td.season.dow-2.active .tooltiptext,
+.discordian-calendar td.month.dow-2:has(~ td.season.dow-2.active) .tooltiptext,
+
+.discordian-calendar td.month.dow-3:hover .tooltiptext,
+.discordian-calendar td.month.dow-3:hover~td.season.dow-3 .tooltiptext,
+.discordian-calendar td.month.dow-3.active .tooltiptext,
+.discordian-calendar td.month.dow-3.active~td.season.dow-3 .tooltiptext,
+.discordian-calendar td.season.dow-3:hover .tooltiptext,
+.discordian-calendar td.month.dow-3:has(~ td.season.dow-3:hover) .tooltiptext,
+.discordian-calendar td.season.dow-3.active .tooltiptext,
+.discordian-calendar td.month.dow-3:has(~ td.season.dow-3.active) .tooltiptext,
+
+.discordian-calendar td.month.dow-4:hover .tooltiptext,
+.discordian-calendar td.month.dow-4:hover~td.season.dow-4 .tooltiptext,
+.discordian-calendar td.month.dow-4.active .tooltiptext,
+.discordian-calendar td.month.dow-4.active~td.season.dow-4 .tooltiptext,
+.discordian-calendar td.season.dow-4:hover .tooltiptext,
+.discordian-calendar td.month.dow-4:has(~ td.season.dow-4:hover) .tooltiptext,
+.discordian-calendar td.season.dow-4.active .tooltiptext,
+.discordian-calendar td.month.dow-4:has(~ td.season.dow-4.active) .tooltiptext,
+
+.discordian-calendar td.month.dow-5:hover .tooltiptext,
+.discordian-calendar td.month.dow-5:hover~td.season.dow-5 .tooltiptext,
+.discordian-calendar td.month.dow-5.active .tooltiptext,
+.discordian-calendar td.month.dow-5.active~td.season.dow-5 .tooltiptext,
+.discordian-calendar td.season.dow-5:hover .tooltiptext,
+.discordian-calendar td.month.dow-5:has(~ td.season.dow-5:hover) .tooltiptext,
+.discordian-calendar td.season.dow-5.active .tooltiptext,
+.discordian-calendar td.month.dow-5:has(~ td.season.dow-5.active) .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+<div class="discordian-calendar">
+  <table class="gregorian-to-discordian-calendar" role="presentation">
+    <thead>
+      <tr>
+        <td></td>
+        <th colspan="5">
+          <h5>Gregorian Months</h5>
+        </th>
+        <td class="month-season-divider">&nbsp;</td>
+        <th colspan="5">
+          <h5>Discordian Seasons</h5>
+        </th>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <th>
+          <h6>&nbsp;&nbsp;</h6>
+        </th>
+        <th>
+          <h6>&nbsp;&nbsp;</h6>
+        </th>
+        <th>
+          <h6>&nbsp;&nbsp;</h6>
+        </th>
+        <th>
+          <h6>&nbsp;&nbsp;</h6>
+        </th>
+        <th>
+          <h6>&nbsp;&nbsp;</h6>
+        </th>
+        <td class="month-season-divider">&nbsp;</td>
+        <th>
+          <h6 class="tooltip" title="Sweetmorn">SM<span class="tooltiptext">Sweetmorn</span></h6>
+        </th>
+        <th>
+          <h6 class="tooltip" title="Boomtime">BT<span class="tooltiptext">Boomtime</span></h6>
+        </th>
+        <th>
+          <h6 class="tooltip" title="Pungenday">PD<span class="tooltiptext">Pungenday</span></h6>
+        </th>
+        <th>
+          <h6 class="tooltip" title="Prickle-Prickle">PP<span class="tooltiptext">Prickle-Prickle</span></h6>
+        </th>
+        <th>
+          <h6 class="tooltip" title="Setting Orange">SO<span class="tooltiptext">Setting Orange</span></h6>
+        </th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>January</h6>
+        </td>
+        <td class="month month-jan month-even day day-odd day-1 dow-1 tooltip" data-day="1" title="January 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">January 1</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-2 dow-2 tooltip" data-day="2" title="January 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">January 2</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-3 dow-3 tooltip" data-day="3" title="January 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">January 3</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-4 dow-4 tooltip" data-day="4" title="January 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">January 4</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-5 dow-5 tooltip" data-day="5" title="January 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">January 5</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-1 dow-1 tooltip" data-day="1" title="Chaos 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">Chaos 1</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-2 dow-2 tooltip" data-day="2" title="Chaos 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">Chaos 2</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-3 dow-3 tooltip" data-day="3" title="Chaos 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">Chaos 3</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-4 dow-4 tooltip" data-day="4" title="Chaos 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">Chaos 4</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-5 dow-5 tooltip" data-day="5" title="Chaos 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">Chaos 5</span>
+        </td>
+        <td class="season season-title">
+          <h6>Chaos</h6>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jan month-even day day-odd day-6 dow-1 tooltip" data-day="6" title="January 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">January 6</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-7 dow-2 tooltip" data-day="7" title="January 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">January 7</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-8 dow-3 tooltip" data-day="8" title="January 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">January 8</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-9 dow-4 tooltip" data-day="9" title="January 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">January 9</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-10 dow-5 tooltip" data-day="10" title="January 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">January 10</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-6 dow-1 tooltip" data-day="6" title="Chaos 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">Chaos 6</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-7 dow-2 tooltip" data-day="7" title="Chaos 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">Chaos 7</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-8 dow-3 tooltip" data-day="8" title="Chaos 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">Chaos 8</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-9 dow-4 tooltip" data-day="9" title="Chaos 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">Chaos 9</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-10 dow-5 tooltip" data-day="10" title="Chaos 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">Chaos 10</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jan month-even day day-odd day-11 dow-1 tooltip" data-day="11" title="January 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">January 11</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-12 dow-2 tooltip" data-day="12" title="January 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">January 12</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-13 dow-3 tooltip" data-day="13" title="January 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">January 13</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-14 dow-4 tooltip" data-day="14" title="January 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">January 14</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-15 dow-5 tooltip" data-day="15" title="January 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">January 15</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-11 dow-1 tooltip" data-day="11" title="Chaos 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">Chaos 11</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-12 dow-2 tooltip" data-day="12" title="Chaos 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">Chaos 12</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-13 dow-3 tooltip" data-day="13" title="Chaos 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">Chaos 13</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-14 dow-4 tooltip" data-day="14" title="Chaos 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">Chaos 14</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-15 dow-5 tooltip" data-day="15" title="Chaos 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">Chaos 15</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jan month-even day day-odd day-16 dow-1 tooltip" data-day="16" title="January 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">January 16</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-17 dow-2 tooltip" data-day="17" title="January 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">January 17</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-18 dow-3 tooltip" data-day="18" title="January 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">January 18</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-19 dow-4 tooltip" data-day="19" title="January 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">January 19</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-20 dow-5 tooltip" data-day="20" title="January 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">January 20</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-16 dow-1 tooltip" data-day="16" title="Chaos 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">Chaos 16</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-17 dow-2 tooltip" data-day="17" title="Chaos 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">Chaos 17</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-18 dow-3 tooltip" data-day="18" title="Chaos 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">Chaos 18</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-19 dow-4 tooltip" data-day="19" title="Chaos 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">Chaos 19</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-20 dow-5 tooltip" data-day="20" title="Chaos 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">Chaos 20</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jan month-even day day-odd day-21 dow-1 tooltip" data-day="21" title="January 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">January 21</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-22 dow-2 tooltip" data-day="22" title="January 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">January 22</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-23 dow-3 tooltip" data-day="23" title="January 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">January 23</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-24 dow-4 tooltip" data-day="24" title="January 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">January 24</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-25 dow-5 tooltip" data-day="25" title="January 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">January 25</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-21 dow-1 tooltip" data-day="21" title="Chaos 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">Chaos 21</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-22 dow-2 tooltip" data-day="22" title="Chaos 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">Chaos 22</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-23 dow-3 tooltip" data-day="23" title="Chaos 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">Chaos 23</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-24 dow-4 tooltip" data-day="24" title="Chaos 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">Chaos 24</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-25 dow-5 tooltip" data-day="25" title="Chaos 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">Chaos 25</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jan month-even day day-odd day-26 dow-1 tooltip" data-day="26" title="January 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">January 26</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-27 dow-2 tooltip" data-day="27" title="January 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">January 27</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-28 dow-3 tooltip" data-day="28" title="January 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">January 28</span>
+        </td>
+        <td class="month month-jan month-even day day-even day-29 dow-4 tooltip" data-day="29" title="January 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">January 29</span>
+        </td>
+        <td class="month month-jan month-even day day-odd day-30 dow-5 tooltip" data-day="30" title="January 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">January 30</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-26 dow-1 tooltip" data-day="26" title="Chaos 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">Chaos 26</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-27 dow-2 tooltip" data-day="27" title="Chaos 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">Chaos 27</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-28 dow-3 tooltip" data-day="28" title="Chaos 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">Chaos 28</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-29 dow-4 tooltip" data-day="29" title="Chaos 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">Chaos 29</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-30 dow-5 tooltip" data-day="30" title="Chaos 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">Chaos 30</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>February</h6>
+        </td>
+        <td class="month month-jan month-even day day-odd day-31 dow-1 tooltip" data-day="31" title="January 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">January 31</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-32 dow-2 tooltip" data-day="32" title="February 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">February 1</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-33 dow-3 tooltip" data-day="33" title="February 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">February 2</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-34 dow-4 tooltip" data-day="34" title="February 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">February 3</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-35 dow-5 tooltip" data-day="35" title="February 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">February 4</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-31 dow-1 tooltip" data-day="31" title="Chaos 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">Chaos 31</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-32 dow-2 tooltip" data-day="32" title="Chaos 32">
+          <span class="day-number">32</span>
+          <span class="tooltiptext">Chaos 32</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-33 dow-3 tooltip" data-day="33" title="Chaos 33">
+          <span class="day-number">33</span>
+          <span class="tooltiptext">Chaos 33</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-34 dow-4 tooltip" data-day="34" title="Chaos 34">
+          <span class="day-number">34</span>
+          <span class="tooltiptext">Chaos 34</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-35 dow-5 tooltip" data-day="35" title="Chaos 35">
+          <span class="day-number">35</span>
+          <span class="tooltiptext">Chaos 35</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-feb month-odd day day-odd day-36 dow-1 tooltip" data-day="36" title="February 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">February 5</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-37 dow-2 tooltip" data-day="37" title="February 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">February 6</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-38 dow-3 tooltip" data-day="38" title="February 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">February 7</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-39 dow-4 tooltip" data-day="39" title="February 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">February 8</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-40 dow-5 tooltip" data-day="40" title="February 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">February 9</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-36 dow-1 tooltip" data-day="36" title="Chaos 36">
+          <span class="day-number">36</span>
+          <span class="tooltiptext">Chaos 36</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-37 dow-2 tooltip" data-day="37" title="Chaos 37">
+          <span class="day-number">37</span>
+          <span class="tooltiptext">Chaos 37</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-38 dow-3 tooltip" data-day="38" title="Chaos 38">
+          <span class="day-number">38</span>
+          <span class="tooltiptext">Chaos 38</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-39 dow-4 tooltip" data-day="39" title="Chaos 39">
+          <span class="day-number">39</span>
+          <span class="tooltiptext">Chaos 39</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-40 dow-5 tooltip" data-day="40" title="Chaos 40">
+          <span class="day-number">40</span>
+          <span class="tooltiptext">Chaos 40</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-feb month-odd day day-odd day-41 dow-1 tooltip" data-day="41" title="February 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">February 10</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-42 dow-2 tooltip" data-day="42" title="February 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">February 11</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-43 dow-3 tooltip" data-day="43" title="February 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">February 12</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-44 dow-4 tooltip" data-day="44" title="February 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">February 13</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-45 dow-5 tooltip" data-day="45" title="February 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">February 14</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-41 dow-1 tooltip" data-day="41" title="Chaos 41">
+          <span class="day-number">41</span>
+          <span class="tooltiptext">Chaos 41</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-42 dow-2 tooltip" data-day="42" title="Chaos 42">
+          <span class="day-number">42</span>
+          <span class="tooltiptext">Chaos 42</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-43 dow-3 tooltip" data-day="43" title="Chaos 43">
+          <span class="day-number">43</span>
+          <span class="tooltiptext">Chaos 43</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-44 dow-4 tooltip" data-day="44" title="Chaos 44">
+          <span class="day-number">44</span>
+          <span class="tooltiptext">Chaos 44</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-45 dow-5 tooltip" data-day="45" title="Chaos 45">
+          <span class="day-number">45</span>
+          <span class="tooltiptext">Chaos 45</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-feb month-odd day day-odd day-46 dow-1 tooltip" data-day="46" title="February 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">February 15</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-47 dow-2 tooltip" data-day="47" title="February 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">February 16</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-48 dow-3 tooltip" data-day="48" title="February 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">February 17</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-49 dow-4 tooltip" data-day="49" title="February 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">February 18</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-50 dow-5 tooltip" data-day="50" title="February 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">February 19</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-46 dow-1 tooltip" data-day="46" title="Chaos 46">
+          <span class="day-number">46</span>
+          <span class="tooltiptext">Chaos 46</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-47 dow-2 tooltip" data-day="47" title="Chaos 47">
+          <span class="day-number">47</span>
+          <span class="tooltiptext">Chaos 47</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-48 dow-3 tooltip" data-day="48" title="Chaos 48">
+          <span class="day-number">48</span>
+          <span class="tooltiptext">Chaos 48</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-49 dow-4 tooltip" data-day="49" title="Chaos 49">
+          <span class="day-number">49</span>
+          <span class="tooltiptext">Chaos 49</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-50 dow-5 tooltip" data-day="50" title="Chaos 50">
+          <span class="day-number">50</span>
+          <span class="tooltiptext">Chaos 50</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-feb month-odd day day-odd day-51 dow-1 tooltip" data-day="51" title="February 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">February 20</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-52 dow-2 tooltip" data-day="52" title="February 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">February 21</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-53 dow-3 tooltip" data-day="53" title="February 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">February 22</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-54 dow-4 tooltip" data-day="54" title="February 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">February 23</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-55 dow-5 tooltip" data-day="55" title="February 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">February 24</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-51 dow-1 tooltip" data-day="51" title="Chaos 51">
+          <span class="day-number">51</span>
+          <span class="tooltiptext">Chaos 51</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-52 dow-2 tooltip" data-day="52" title="Chaos 52">
+          <span class="day-number">52</span>
+          <span class="tooltiptext">Chaos 52</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-53 dow-3 tooltip" data-day="53" title="Chaos 53">
+          <span class="day-number">53</span>
+          <span class="tooltiptext">Chaos 53</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-54 dow-4 tooltip" data-day="54" title="Chaos 54">
+          <span class="day-number">54</span>
+          <span class="tooltiptext">Chaos 54</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-55 dow-5 tooltip" data-day="55" title="Chaos 55">
+          <span class="day-number">55</span>
+          <span class="tooltiptext">Chaos 55</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+          <h6>March</h6>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-56 dow-1 tooltip" data-day="56" title="February 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">February 25</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-57 dow-2 tooltip" data-day="57" title="February 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">February 26</span>
+        </td>
+        <td class="month month-feb month-odd day day-odd day-58 dow-3 tooltip" data-day="58" title="February 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">February 27</span>
+        </td>
+        <td class="month month-feb month-odd day day-even day-59 dow-4 tooltip" data-day="59" title="February 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">February 28</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-60 dow-5 tooltip" data-day="60" title="March 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">March 1</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-56 dow-1 tooltip" data-day="56" title="Chaos 56">
+          <span class="day-number">56</span>
+          <span class="tooltiptext">Chaos 56</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-57 dow-2 tooltip" data-day="57" title="Chaos 57">
+          <span class="day-number">57</span>
+          <span class="tooltiptext">Chaos 57</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-58 dow-3 tooltip" data-day="58" title="Chaos 58">
+          <span class="day-number">58</span>
+          <span class="tooltiptext">Chaos 58</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-59 dow-4 tooltip" data-day="59" title="Chaos 59">
+          <span class="day-number">59</span>
+          <span class="tooltiptext">Chaos 59</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-60 dow-5 tooltip" data-day="60" title="Chaos 60">
+          <span class="day-number">60</span>
+          <span class="tooltiptext">Chaos 60</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-mar month-even day day-odd day-61 dow-1 tooltip" data-day="61" title="March 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">March 2</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-62 dow-2 tooltip" data-day="62" title="March 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">March 3</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-63 dow-3 tooltip" data-day="63" title="March 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">March 4</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-64 dow-4 tooltip" data-day="64" title="March 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">March 5</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-65 dow-5 tooltip" data-day="65" title="March 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">March 6</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-61 dow-1 tooltip" data-day="61" title="Chaos 61">
+          <span class="day-number">61</span>
+          <span class="tooltiptext">Chaos 61</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-62 dow-2 tooltip" data-day="62" title="Chaos 62">
+          <span class="day-number">62</span>
+          <span class="tooltiptext">Chaos 62</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-63 dow-3 tooltip" data-day="63" title="Chaos 63">
+          <span class="day-number">63</span>
+          <span class="tooltiptext">Chaos 63</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-64 dow-4 tooltip" data-day="64" title="Chaos 64">
+          <span class="day-number">64</span>
+          <span class="tooltiptext">Chaos 64</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-65 dow-5 tooltip" data-day="65" title="Chaos 65">
+          <span class="day-number">65</span>
+          <span class="tooltiptext">Chaos 65</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-mar month-even day day-odd day-66 dow-1 tooltip" data-day="66" title="March 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">March 7</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-67 dow-2 tooltip" data-day="67" title="March 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">March 8</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-68 dow-3 tooltip" data-day="68" title="March 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">March 9</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-69 dow-4 tooltip" data-day="69" title="March 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">March 10</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-70 dow-5 tooltip" data-day="70" title="March 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">March 11</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-66 dow-1 tooltip" data-day="66" title="Chaos 66">
+          <span class="day-number">66</span>
+          <span class="tooltiptext">Chaos 66</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-67 dow-2 tooltip" data-day="67" title="Chaos 67">
+          <span class="day-number">67</span>
+          <span class="tooltiptext">Chaos 67</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-68 dow-3 tooltip" data-day="68" title="Chaos 68">
+          <span class="day-number">68</span>
+          <span class="tooltiptext">Chaos 68</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-69 dow-4 tooltip" data-day="69" title="Chaos 69">
+          <span class="day-number">69</span>
+          <span class="tooltiptext">Chaos 69</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-70 dow-5 tooltip" data-day="70" title="Chaos 70">
+          <span class="day-number">70</span>
+          <span class="tooltiptext">Chaos 70</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-mar month-even day day-odd day-71 dow-1 tooltip" data-day="71" title="March 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">March 12</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-72 dow-2 tooltip" data-day="72" title="March 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">March 13</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-73 dow-3 tooltip" data-day="73" title="March 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">March 14</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-74 dow-4 tooltip" data-day="74" title="March 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">March 15</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-75 dow-5 tooltip" data-day="75" title="March 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">March 16</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-chs season-even day day-odd day-71 dow-1 tooltip" data-day="71" title="Chaos 71">
+          <span class="day-number">71</span>
+          <span class="tooltiptext">Chaos 71</span>
+        </td>
+        <td class="season season-chs season-even day day-even day-72 dow-2 tooltip" data-day="72" title="Chaos 72">
+          <span class="day-number">72</span>
+          <span class="tooltiptext">Chaos 72</span>
+        </td>
+        <td class="season season-chs season-even day day-odd day-73 dow-3 tooltip" data-day="73" title="Chaos 73">
+          <span class="day-number">73</span>
+          <span class="tooltiptext">Chaos 73</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-74 dow-4 tooltip" data-day="74" title="Discord 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">Discord 1</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-75 dow-5 tooltip" data-day="75" title="Discord 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">Discord 2</span>
+        </td>
+        <td class="season season-title">
+          <h6>Discord</h6>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-mar month-even day day-odd day-76 dow-1 tooltip" data-day="76" title="March 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">March 17</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-77 dow-2 tooltip" data-day="77" title="March 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">March 18</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-78 dow-3 tooltip" data-day="78" title="March 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">March 19</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-79 dow-4 tooltip" data-day="79" title="March 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">March 20</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-80 dow-5 tooltip" data-day="80" title="March 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">March 21</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-76 dow-1 tooltip" data-day="76" title="Discord 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">Discord 3</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-77 dow-2 tooltip" data-day="77" title="Discord 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">Discord 4</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-78 dow-3 tooltip" data-day="78" title="Discord 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">Discord 5</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-79 dow-4 tooltip" data-day="79" title="Discord 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">Discord 6</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-80 dow-5 tooltip" data-day="80" title="Discord 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">Discord 7</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-mar month-even day day-odd day-81 dow-1 tooltip" data-day="81" title="March 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">March 22</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-82 dow-2 tooltip" data-day="82" title="March 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">March 23</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-83 dow-3 tooltip" data-day="83" title="March 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">March 24</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-84 dow-4 tooltip" data-day="84" title="March 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">March 25</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-85 dow-5 tooltip" data-day="85" title="March 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">March 26</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-81 dow-1 tooltip" data-day="81" title="Discord 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">Discord 8</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-82 dow-2 tooltip" data-day="82" title="Discord 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">Discord 9</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-83 dow-3 tooltip" data-day="83" title="Discord 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">Discord 10</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-84 dow-4 tooltip" data-day="84" title="Discord 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">Discord 11</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-85 dow-5 tooltip" data-day="85" title="Discord 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">Discord 12</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-mar month-even day day-odd day-86 dow-1 tooltip" data-day="86" title="March 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">March 27</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-87 dow-2 tooltip" data-day="87" title="March 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">March 28</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-88 dow-3 tooltip" data-day="88" title="March 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">March 29</span>
+        </td>
+        <td class="month month-mar month-even day day-even day-89 dow-4 tooltip" data-day="89" title="March 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">March 30</span>
+        </td>
+        <td class="month month-mar month-even day day-odd day-90 dow-5 tooltip" data-day="90" title="March 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">March 31</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-86 dow-1 tooltip" data-day="86" title="Discord 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">Discord 13</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-87 dow-2 tooltip" data-day="87" title="Discord 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">Discord 14</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-88 dow-3 tooltip" data-day="88" title="Discord 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">Discord 15</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-89 dow-4 tooltip" data-day="89" title="Discord 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">Discord 16</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-90 dow-5 tooltip" data-day="90" title="Discord 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">Discord 17</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>April</h6>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-91 dow-1 tooltip" data-day="91" title="April 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">April 1</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-92 dow-2 tooltip" data-day="92" title="April 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">April 2</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-93 dow-3 tooltip" data-day="93" title="April 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">April 3</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-94 dow-4 tooltip" data-day="94" title="April 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">April 4</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-95 dow-5 tooltip" data-day="95" title="April 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">April 5</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-91 dow-1 tooltip" data-day="91" title="Discord 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">Discord 18</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-92 dow-2 tooltip" data-day="92" title="Discord 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">Discord 19</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-93 dow-3 tooltip" data-day="93" title="Discord 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">Discord 20</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-94 dow-4 tooltip" data-day="94" title="Discord 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">Discord 21</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-95 dow-5 tooltip" data-day="95" title="Discord 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">Discord 22</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-apr month-odd day day-odd day-96 dow-1 tooltip" data-day="96" title="April 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">April 6</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-97 dow-2 tooltip" data-day="97" title="April 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">April 7</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-98 dow-3 tooltip" data-day="98" title="April 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">April 8</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-99 dow-4 tooltip" data-day="99" title="April 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">April 9</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-100 dow-5 tooltip" data-day="100" title="April 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">April 10</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-96 dow-1 tooltip" data-day="96" title="Discord 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">Discord 23</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-97 dow-2 tooltip" data-day="97" title="Discord 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">Discord 24</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-98 dow-3 tooltip" data-day="98" title="Discord 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">Discord 25</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-99 dow-4 tooltip" data-day="99" title="Discord 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">Discord 26</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-100 dow-5 tooltip" data-day="100" title="Discord 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">Discord 27</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-apr month-odd day day-odd day-101 dow-1 tooltip" data-day="101" title="April 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">April 11</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-102 dow-2 tooltip" data-day="102" title="April 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">April 12</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-103 dow-3 tooltip" data-day="103" title="April 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">April 13</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-104 dow-4 tooltip" data-day="104" title="April 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">April 14</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-105 dow-5 tooltip" data-day="105" title="April 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">April 15</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-101 dow-1 tooltip" data-day="101" title="Discord 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">Discord 28</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-102 dow-2 tooltip" data-day="102" title="Discord 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">Discord 29</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-103 dow-3 tooltip" data-day="103" title="Discord 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">Discord 30</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-104 dow-4 tooltip" data-day="104" title="Discord 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">Discord 31</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-105 dow-5 tooltip" data-day="105" title="Discord 32">
+          <span class="day-number">32</span>
+          <span class="tooltiptext">Discord 32</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-apr month-odd day day-odd day-106 dow-1 tooltip" data-day="106" title="April 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">April 16</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-107 dow-2 tooltip" data-day="107" title="April 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">April 17</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-108 dow-3 tooltip" data-day="108" title="April 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">April 18</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-109 dow-4 tooltip" data-day="109" title="April 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">April 19</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-110 dow-5 tooltip" data-day="110" title="April 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">April 20</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-106 dow-1 tooltip" data-day="106" title="Discord 33">
+          <span class="day-number">33</span>
+          <span class="tooltiptext">Discord 33</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-107 dow-2 tooltip" data-day="107" title="Discord 34">
+          <span class="day-number">34</span>
+          <span class="tooltiptext">Discord 34</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-108 dow-3 tooltip" data-day="108" title="Discord 35">
+          <span class="day-number">35</span>
+          <span class="tooltiptext">Discord 35</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-109 dow-4 tooltip" data-day="109" title="Discord 36">
+          <span class="day-number">36</span>
+          <span class="tooltiptext">Discord 36</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-110 dow-5 tooltip" data-day="110" title="Discord 37">
+          <span class="day-number">37</span>
+          <span class="tooltiptext">Discord 37</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-apr month-odd day day-odd day-111 dow-1 tooltip" data-day="111" title="April 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">April 21</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-112 dow-2 tooltip" data-day="112" title="April 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">April 22</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-113 dow-3 tooltip" data-day="113" title="April 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">April 23</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-114 dow-4 tooltip" data-day="114" title="April 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">April 24</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-115 dow-5 tooltip" data-day="115" title="April 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">April 25</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-111 dow-1 tooltip" data-day="111" title="Discord 38">
+          <span class="day-number">38</span>
+          <span class="tooltiptext">Discord 38</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-112 dow-2 tooltip" data-day="112" title="Discord 39">
+          <span class="day-number">39</span>
+          <span class="tooltiptext">Discord 39</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-113 dow-3 tooltip" data-day="113" title="Discord 40">
+          <span class="day-number">40</span>
+          <span class="tooltiptext">Discord 40</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-114 dow-4 tooltip" data-day="114" title="Discord 41">
+          <span class="day-number">41</span>
+          <span class="tooltiptext">Discord 41</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-115 dow-5 tooltip" data-day="115" title="Discord 42">
+          <span class="day-number">42</span>
+          <span class="tooltiptext">Discord 42</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-apr month-odd day day-odd day-116 dow-1 tooltip" data-day="116" title="April 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">April 26</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-117 dow-2 tooltip" data-day="117" title="April 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">April 27</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-118 dow-3 tooltip" data-day="118" title="April 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">April 28</span>
+        </td>
+        <td class="month month-apr month-odd day day-even day-119 dow-4 tooltip" data-day="119" title="April 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">April 29</span>
+        </td>
+        <td class="month month-apr month-odd day day-odd day-120 dow-5 tooltip" data-day="120" title="April 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">April 30</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-116 dow-1 tooltip" data-day="116" title="Discord 43">
+          <span class="day-number">43</span>
+          <span class="tooltiptext">Discord 43</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-117 dow-2 tooltip" data-day="117" title="Discord 44">
+          <span class="day-number">44</span>
+          <span class="tooltiptext">Discord 44</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-118 dow-3 tooltip" data-day="118" title="Discord 45">
+          <span class="day-number">45</span>
+          <span class="tooltiptext">Discord 45</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-119 dow-4 tooltip" data-day="119" title="Discord 46">
+          <span class="day-number">46</span>
+          <span class="tooltiptext">Discord 46</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-120 dow-5 tooltip" data-day="120" title="Discord 47">
+          <span class="day-number">47</span>
+          <span class="tooltiptext">Discord 47</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>May</h6>
+        </td>
+        <td class="month month-may month-even day day-odd day-121 dow-1 tooltip" data-day="121" title="May 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">May 1</span>
+        </td>
+        <td class="month month-may month-even day day-even day-122 dow-2 tooltip" data-day="122" title="May 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">May 2</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-123 dow-3 tooltip" data-day="123" title="May 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">May 3</span>
+        </td>
+        <td class="month month-may month-even day day-even day-124 dow-4 tooltip" data-day="124" title="May 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">May 4</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-125 dow-5 tooltip" data-day="125" title="May 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">May 5</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-121 dow-1 tooltip" data-day="121" title="Discord 48">
+          <span class="day-number">48</span>
+          <span class="tooltiptext">Discord 48</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-122 dow-2 tooltip" data-day="122" title="Discord 49">
+          <span class="day-number">49</span>
+          <span class="tooltiptext">Discord 49</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-123 dow-3 tooltip" data-day="123" title="Discord 50">
+          <span class="day-number">50</span>
+          <span class="tooltiptext">Discord 50</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-124 dow-4 tooltip" data-day="124" title="Discord 51">
+          <span class="day-number">51</span>
+          <span class="tooltiptext">Discord 51</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-125 dow-5 tooltip" data-day="125" title="Discord 52">
+          <span class="day-number">52</span>
+          <span class="tooltiptext">Discord 52</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-may month-even day day-odd day-126 dow-1 tooltip" data-day="126" title="May 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">May 6</span>
+        </td>
+        <td class="month month-may month-even day day-even day-127 dow-2 tooltip" data-day="127" title="May 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">May 7</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-128 dow-3 tooltip" data-day="128" title="May 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">May 8</span>
+        </td>
+        <td class="month month-may month-even day day-even day-129 dow-4 tooltip" data-day="129" title="May 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">May 9</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-130 dow-5 tooltip" data-day="130" title="May 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">May 10</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-126 dow-1 tooltip" data-day="126" title="Discord 53">
+          <span class="day-number">53</span>
+          <span class="tooltiptext">Discord 53</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-127 dow-2 tooltip" data-day="127" title="Discord 54">
+          <span class="day-number">54</span>
+          <span class="tooltiptext">Discord 54</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-128 dow-3 tooltip" data-day="128" title="Discord 55">
+          <span class="day-number">55</span>
+          <span class="tooltiptext">Discord 55</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-129 dow-4 tooltip" data-day="129" title="Discord 56">
+          <span class="day-number">56</span>
+          <span class="tooltiptext">Discord 56</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-130 dow-5 tooltip" data-day="130" title="Discord 57">
+          <span class="day-number">57</span>
+          <span class="tooltiptext">Discord 57</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-may month-even day day-odd day-131 dow-1 tooltip" data-day="131" title="May 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">May 11</span>
+        </td>
+        <td class="month month-may month-even day day-even day-132 dow-2 tooltip" data-day="132" title="May 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">May 12</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-133 dow-3 tooltip" data-day="133" title="May 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">May 13</span>
+        </td>
+        <td class="month month-may month-even day day-even day-134 dow-4 tooltip" data-day="134" title="May 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">May 14</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-135 dow-5 tooltip" data-day="135" title="May 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">May 15</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-131 dow-1 tooltip" data-day="131" title="Discord 58">
+          <span class="day-number">58</span>
+          <span class="tooltiptext">Discord 58</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-132 dow-2 tooltip" data-day="132" title="Discord 59">
+          <span class="day-number">59</span>
+          <span class="tooltiptext">Discord 59</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-133 dow-3 tooltip" data-day="133" title="Discord 60">
+          <span class="day-number">60</span>
+          <span class="tooltiptext">Discord 60</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-134 dow-4 tooltip" data-day="134" title="Discord 61">
+          <span class="day-number">61</span>
+          <span class="tooltiptext">Discord 61</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-135 dow-5 tooltip" data-day="135" title="Discord 62">
+          <span class="day-number">62</span>
+          <span class="tooltiptext">Discord 62</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-may month-even day day-odd day-136 dow-1 tooltip" data-day="136" title="May 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">May 16</span>
+        </td>
+        <td class="month month-may month-even day day-even day-137 dow-2 tooltip" data-day="137" title="May 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">May 17</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-138 dow-3 tooltip" data-day="138" title="May 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">May 18</span>
+        </td>
+        <td class="month month-may month-even day day-even day-139 dow-4 tooltip" data-day="139" title="May 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">May 19</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-140 dow-5 tooltip" data-day="140" title="May 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">May 20</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-136 dow-1 tooltip" data-day="136" title="Discord 63">
+          <span class="day-number">63</span>
+          <span class="tooltiptext">Discord 63</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-137 dow-2 tooltip" data-day="137" title="Discord 64">
+          <span class="day-number">64</span>
+          <span class="tooltiptext">Discord 64</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-138 dow-3 tooltip" data-day="138" title="Discord 65">
+          <span class="day-number">65</span>
+          <span class="tooltiptext">Discord 65</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-139 dow-4 tooltip" data-day="139" title="Discord 66">
+          <span class="day-number">66</span>
+          <span class="tooltiptext">Discord 66</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-140 dow-5 tooltip" data-day="140" title="Discord 67">
+          <span class="day-number">67</span>
+          <span class="tooltiptext">Discord 67</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-may month-even day day-odd day-141 dow-1 tooltip" data-day="141" title="May 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">May 21</span>
+        </td>
+        <td class="month month-may month-even day day-even day-142 dow-2 tooltip" data-day="142" title="May 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">May 22</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-143 dow-3 tooltip" data-day="143" title="May 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">May 23</span>
+        </td>
+        <td class="month month-may month-even day day-even day-144 dow-4 tooltip" data-day="144" title="May 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">May 24</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-145 dow-5 tooltip" data-day="145" title="May 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">May 25</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-141 dow-1 tooltip" data-day="141" title="Discord 68">
+          <span class="day-number">68</span>
+          <span class="tooltiptext">Discord 68</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-142 dow-2 tooltip" data-day="142" title="Discord 69">
+          <span class="day-number">69</span>
+          <span class="tooltiptext">Discord 69</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-143 dow-3 tooltip" data-day="143" title="Discord 70">
+          <span class="day-number">70</span>
+          <span class="tooltiptext">Discord 70</span>
+        </td>
+        <td class="season season-dsc season-odd day day-even day-144 dow-4 tooltip" data-day="144" title="Discord 71">
+          <span class="day-number">71</span>
+          <span class="tooltiptext">Discord 71</span>
+        </td>
+        <td class="season season-dsc season-odd day day-odd day-145 dow-5 tooltip" data-day="145" title="Discord 72">
+          <span class="day-number">72</span>
+          <span class="tooltiptext">Discord 72</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-may month-even day day-odd day-146 dow-1 tooltip" data-day="146" title="May 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">May 26</span>
+        </td>
+        <td class="month month-may month-even day day-even day-147 dow-2 tooltip" data-day="147" title="May 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">May 27</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-148 dow-3 tooltip" data-day="148" title="May 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">May 28</span>
+        </td>
+        <td class="month month-may month-even day day-even day-149 dow-4 tooltip" data-day="149" title="May 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">May 29</span>
+        </td>
+        <td class="month month-may month-even day day-odd day-150 dow-5 tooltip" data-day="150" title="May 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">May 30</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-dsc season-odd day day-odd day-146 dow-1 tooltip" data-day="146" title="Discord 73">
+          <span class="day-number">73</span>
+          <span class="tooltiptext">Discord 73</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-147 dow-2 tooltip" data-day="147" title="Confusion 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">Confusion 1</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-148 dow-3 tooltip" data-day="148" title="Confusion 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">Confusion 2</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-149 dow-4 tooltip" data-day="149" title="Confusion 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">Confusion 3</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-150 dow-5 tooltip" data-day="150" title="Confusion 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">Confusion 4</span>
+        </td>
+        <td class="season season-title">
+          <h6>Confusion</h6>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>June</h6>
+        </td>
+        <td class="month month-may month-even day day-odd day-151 dow-1 tooltip" data-day="151" title="May 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">May 31</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-152 dow-2 tooltip" data-day="152" title="June 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">June 1</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-153 dow-3 tooltip" data-day="153" title="June 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">June 2</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-154 dow-4 tooltip" data-day="154" title="June 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">June 3</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-155 dow-5 tooltip" data-day="155" title="June 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">June 4</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-151 dow-1 tooltip" data-day="151" title="Confusion 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">Confusion 5</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-152 dow-2 tooltip" data-day="152" title="Confusion 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">Confusion 6</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-153 dow-3 tooltip" data-day="153" title="Confusion 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">Confusion 7</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-154 dow-4 tooltip" data-day="154" title="Confusion 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">Confusion 8</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-155 dow-5 tooltip" data-day="155" title="Confusion 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">Confusion 9</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jun month-odd day day-odd day-156 dow-1 tooltip" data-day="156" title="June 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">June 5</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-157 dow-2 tooltip" data-day="157" title="June 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">June 6</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-158 dow-3 tooltip" data-day="158" title="June 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">June 7</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-159 dow-4 tooltip" data-day="159" title="June 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">June 8</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-160 dow-5 tooltip" data-day="160" title="June 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">June 9</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-156 dow-1 tooltip" data-day="156" title="Confusion 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">Confusion 10</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-157 dow-2 tooltip" data-day="157" title="Confusion 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">Confusion 11</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-158 dow-3 tooltip" data-day="158" title="Confusion 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">Confusion 12</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-159 dow-4 tooltip" data-day="159" title="Confusion 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">Confusion 13</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-160 dow-5 tooltip" data-day="160" title="Confusion 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">Confusion 14</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jun month-odd day day-odd day-161 dow-1 tooltip" data-day="161" title="June 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">June 10</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-162 dow-2 tooltip" data-day="162" title="June 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">June 11</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-163 dow-3 tooltip" data-day="163" title="June 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">June 12</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-164 dow-4 tooltip" data-day="164" title="June 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">June 13</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-165 dow-5 tooltip" data-day="165" title="June 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">June 14</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-161 dow-1 tooltip" data-day="161" title="Confusion 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">Confusion 15</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-162 dow-2 tooltip" data-day="162" title="Confusion 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">Confusion 16</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-163 dow-3 tooltip" data-day="163" title="Confusion 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">Confusion 17</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-164 dow-4 tooltip" data-day="164" title="Confusion 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">Confusion 18</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-165 dow-5 tooltip" data-day="165" title="Confusion 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">Confusion 19</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jun month-odd day day-odd day-166 dow-1 tooltip" data-day="166" title="June 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">June 15</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-167 dow-2 tooltip" data-day="167" title="June 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">June 16</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-168 dow-3 tooltip" data-day="168" title="June 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">June 17</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-169 dow-4 tooltip" data-day="169" title="June 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">June 18</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-170 dow-5 tooltip" data-day="170" title="June 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">June 19</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-166 dow-1 tooltip" data-day="166" title="Confusion 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">Confusion 20</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-167 dow-2 tooltip" data-day="167" title="Confusion 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">Confusion 21</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-168 dow-3 tooltip" data-day="168" title="Confusion 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">Confusion 22</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-169 dow-4 tooltip" data-day="169" title="Confusion 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">Confusion 23</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-170 dow-5 tooltip" data-day="170" title="Confusion 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">Confusion 24</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jun month-odd day day-odd day-171 dow-1 tooltip" data-day="171" title="June 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">June 20</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-172 dow-2 tooltip" data-day="172" title="June 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">June 21</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-173 dow-3 tooltip" data-day="173" title="June 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">June 22</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-174 dow-4 tooltip" data-day="174" title="June 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">June 23</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-175 dow-5 tooltip" data-day="175" title="June 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">June 24</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-171 dow-1 tooltip" data-day="171" title="Confusion 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">Confusion 25</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-172 dow-2 tooltip" data-day="172" title="Confusion 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">Confusion 26</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-173 dow-3 tooltip" data-day="173" title="Confusion 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">Confusion 27</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-174 dow-4 tooltip" data-day="174" title="Confusion 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">Confusion 28</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-175 dow-5 tooltip" data-day="175" title="Confusion 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">Confusion 29</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jun month-odd day day-odd day-176 dow-1 tooltip" data-day="176" title="June 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">June 25</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-177 dow-2 tooltip" data-day="177" title="June 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">June 26</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-178 dow-3 tooltip" data-day="178" title="June 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">June 27</span>
+        </td>
+        <td class="month month-jun month-odd day day-even day-179 dow-4 tooltip" data-day="179" title="June 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">June 28</span>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-180 dow-5 tooltip" data-day="180" title="June 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">June 29</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-176 dow-1 tooltip" data-day="176" title="Confusion 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">Confusion 30</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-177 dow-2 tooltip" data-day="177" title="Confusion 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">Confusion 31</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-178 dow-3 tooltip" data-day="178" title="Confusion 32">
+          <span class="day-number">32</span>
+          <span class="tooltiptext">Confusion 32</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-179 dow-4 tooltip" data-day="179" title="Confusion 33">
+          <span class="day-number">33</span>
+          <span class="tooltiptext">Confusion 33</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-180 dow-5 tooltip" data-day="180" title="Confusion 34">
+          <span class="day-number">34</span>
+          <span class="tooltiptext">Confusion 34</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>July</h6>
+        </td>
+        <td class="month month-jun month-odd day day-odd day-181 dow-1 tooltip" data-day="181" title="June 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">June 30</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-182 dow-2 tooltip" data-day="182" title="July 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">July 1</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-183 dow-3 tooltip" data-day="183" title="July 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">July 2</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-184 dow-4 tooltip" data-day="184" title="July 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">July 3</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-185 dow-5 tooltip" data-day="185" title="July 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">July 4</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-181 dow-1 tooltip" data-day="181" title="Confusion 35">
+          <span class="day-number">35</span>
+          <span class="tooltiptext">Confusion 35</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-182 dow-2 tooltip" data-day="182" title="Confusion 36">
+          <span class="day-number">36</span>
+          <span class="tooltiptext">Confusion 36</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-183 dow-3 tooltip" data-day="183" title="Confusion 37">
+          <span class="day-number">37</span>
+          <span class="tooltiptext">Confusion 37</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-184 dow-4 tooltip" data-day="184" title="Confusion 38">
+          <span class="day-number">38</span>
+          <span class="tooltiptext">Confusion 38</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-185 dow-5 tooltip" data-day="185" title="Confusion 39">
+          <span class="day-number">39</span>
+          <span class="tooltiptext">Confusion 39</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jul month-even day day-odd day-186 dow-1 tooltip" data-day="186" title="July 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">July 5</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-187 dow-2 tooltip" data-day="187" title="July 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">July 6</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-188 dow-3 tooltip" data-day="188" title="July 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">July 7</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-189 dow-4 tooltip" data-day="189" title="July 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">July 8</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-190 dow-5 tooltip" data-day="190" title="July 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">July 9</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-186 dow-1 tooltip" data-day="186" title="Confusion 40">
+          <span class="day-number">40</span>
+          <span class="tooltiptext">Confusion 40</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-187 dow-2 tooltip" data-day="187" title="Confusion 41">
+          <span class="day-number">41</span>
+          <span class="tooltiptext">Confusion 41</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-188 dow-3 tooltip" data-day="188" title="Confusion 42">
+          <span class="day-number">42</span>
+          <span class="tooltiptext">Confusion 42</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-189 dow-4 tooltip" data-day="189" title="Confusion 43">
+          <span class="day-number">43</span>
+          <span class="tooltiptext">Confusion 43</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-190 dow-5 tooltip" data-day="190" title="Confusion 44">
+          <span class="day-number">44</span>
+          <span class="tooltiptext">Confusion 44</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jul month-even day day-odd day-191 dow-1 tooltip" data-day="191" title="July 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">July 10</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-192 dow-2 tooltip" data-day="192" title="July 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">July 11</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-193 dow-3 tooltip" data-day="193" title="July 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">July 12</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-194 dow-4 tooltip" data-day="194" title="July 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">July 13</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-195 dow-5 tooltip" data-day="195" title="July 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">July 14</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-191 dow-1 tooltip" data-day="191" title="Confusion 45">
+          <span class="day-number">45</span>
+          <span class="tooltiptext">Confusion 45</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-192 dow-2 tooltip" data-day="192" title="Confusion 46">
+          <span class="day-number">46</span>
+          <span class="tooltiptext">Confusion 46</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-193 dow-3 tooltip" data-day="193" title="Confusion 47">
+          <span class="day-number">47</span>
+          <span class="tooltiptext">Confusion 47</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-194 dow-4 tooltip" data-day="194" title="Confusion 48">
+          <span class="day-number">48</span>
+          <span class="tooltiptext">Confusion 48</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-195 dow-5 tooltip" data-day="195" title="Confusion 49">
+          <span class="day-number">49</span>
+          <span class="tooltiptext">Confusion 49</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jul month-even day day-odd day-196 dow-1 tooltip" data-day="196" title="July 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">July 15</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-197 dow-2 tooltip" data-day="197" title="July 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">July 16</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-198 dow-3 tooltip" data-day="198" title="July 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">July 17</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-199 dow-4 tooltip" data-day="199" title="July 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">July 18</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-200 dow-5 tooltip" data-day="200" title="July 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">July 19</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-196 dow-1 tooltip" data-day="196" title="Confusion 50">
+          <span class="day-number">50</span>
+          <span class="tooltiptext">Confusion 50</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-197 dow-2 tooltip" data-day="197" title="Confusion 51">
+          <span class="day-number">51</span>
+          <span class="tooltiptext">Confusion 51</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-198 dow-3 tooltip" data-day="198" title="Confusion 52">
+          <span class="day-number">52</span>
+          <span class="tooltiptext">Confusion 52</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-199 dow-4 tooltip" data-day="199" title="Confusion 53">
+          <span class="day-number">53</span>
+          <span class="tooltiptext">Confusion 53</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-200 dow-5 tooltip" data-day="200" title="Confusion 54">
+          <span class="day-number">54</span>
+          <span class="tooltiptext">Confusion 54</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jul month-even day day-odd day-201 dow-1 tooltip" data-day="201" title="July 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">July 20</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-202 dow-2 tooltip" data-day="202" title="July 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">July 21</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-203 dow-3 tooltip" data-day="203" title="July 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">July 22</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-204 dow-4 tooltip" data-day="204" title="July 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">July 23</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-205 dow-5 tooltip" data-day="205" title="July 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">July 24</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-201 dow-1 tooltip" data-day="201" title="Confusion 55">
+          <span class="day-number">55</span>
+          <span class="tooltiptext">Confusion 55</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-202 dow-2 tooltip" data-day="202" title="Confusion 56">
+          <span class="day-number">56</span>
+          <span class="tooltiptext">Confusion 56</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-203 dow-3 tooltip" data-day="203" title="Confusion 57">
+          <span class="day-number">57</span>
+          <span class="tooltiptext">Confusion 57</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-204 dow-4 tooltip" data-day="204" title="Confusion 58">
+          <span class="day-number">58</span>
+          <span class="tooltiptext">Confusion 58</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-205 dow-5 tooltip" data-day="205" title="Confusion 59">
+          <span class="day-number">59</span>
+          <span class="tooltiptext">Confusion 59</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-jul month-even day day-odd day-206 dow-1 tooltip" data-day="206" title="July 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">July 25</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-207 dow-2 tooltip" data-day="207" title="July 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">July 26</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-208 dow-3 tooltip" data-day="208" title="July 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">July 27</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-209 dow-4 tooltip" data-day="209" title="July 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">July 28</span>
+        </td>
+        <td class="month month-jul month-even day day-odd day-210 dow-5 tooltip" data-day="210" title="July 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">July 29</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-206 dow-1 tooltip" data-day="206" title="Confusion 60">
+          <span class="day-number">60</span>
+          <span class="tooltiptext">Confusion 60</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-207 dow-2 tooltip" data-day="207" title="Confusion 61">
+          <span class="day-number">61</span>
+          <span class="tooltiptext">Confusion 61</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-208 dow-3 tooltip" data-day="208" title="Confusion 62">
+          <span class="day-number">62</span>
+          <span class="tooltiptext">Confusion 62</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-209 dow-4 tooltip" data-day="209" title="Confusion 63">
+          <span class="day-number">63</span>
+          <span class="tooltiptext">Confusion 63</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-210 dow-5 tooltip" data-day="210" title="Confusion 64">
+          <span class="day-number">64</span>
+          <span class="tooltiptext">Confusion 64</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>August</h6>
+        </td>
+        <td class="month month-jul month-even day day-odd day-211 dow-1 tooltip" data-day="211" title="July 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">July 30</span>
+        </td>
+        <td class="month month-jul month-even day day-even day-212 dow-2 tooltip" data-day="212" title="July 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">July 31</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-213 dow-3 tooltip" data-day="213" title="August 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">August 1</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-214 dow-4 tooltip" data-day="214" title="August 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">August 2</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-215 dow-5 tooltip" data-day="215" title="August 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">August 3</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-211 dow-1 tooltip" data-day="211" title="Confusion 65">
+          <span class="day-number">65</span>
+          <span class="tooltiptext">Confusion 65</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-212 dow-2 tooltip" data-day="212" title="Confusion 66">
+          <span class="day-number">66</span>
+          <span class="tooltiptext">Confusion 66</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-213 dow-3 tooltip" data-day="213" title="Confusion 67">
+          <span class="day-number">67</span>
+          <span class="tooltiptext">Confusion 67</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-214 dow-4 tooltip" data-day="214" title="Confusion 68">
+          <span class="day-number">68</span>
+          <span class="tooltiptext">Confusion 68</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-215 dow-5 tooltip" data-day="215" title="Confusion 69">
+          <span class="day-number">69</span>
+          <span class="tooltiptext">Confusion 69</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-aug month-odd day day-odd day-216 dow-1 tooltip" data-day="216" title="August 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">August 4</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-217 dow-2 tooltip" data-day="217" title="August 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">August 5</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-218 dow-3 tooltip" data-day="218" title="August 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">August 6</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-219 dow-4 tooltip" data-day="219" title="August 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">August 7</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-220 dow-5 tooltip" data-day="220" title="August 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">August 8</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-cfn season-even day day-odd day-216 dow-1 tooltip" data-day="216" title="Confusion 70">
+          <span class="day-number">70</span>
+          <span class="tooltiptext">Confusion 70</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-217 dow-2 tooltip" data-day="217" title="Confusion 71">
+          <span class="day-number">71</span>
+          <span class="tooltiptext">Confusion 71</span>
+        </td>
+        <td class="season season-cfn season-even day day-odd day-218 dow-3 tooltip" data-day="218" title="Confusion 72">
+          <span class="day-number">72</span>
+          <span class="tooltiptext">Confusion 72</span>
+        </td>
+        <td class="season season-cfn season-even day day-even day-219 dow-4 tooltip" data-day="219" title="Confusion 73">
+          <span class="day-number">73</span>
+          <span class="tooltiptext">Confusion 73</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-220 dow-5 tooltip" data-day="220" title="Bureaucracy 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">Bureaucracy 1</span>
+        </td>
+        <td class="season season-title">
+          <h6>Bureaucracy</h6>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-aug month-odd day day-odd day-221 dow-1 tooltip" data-day="221" title="August 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">August 9</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-222 dow-2 tooltip" data-day="222" title="August 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">August 10</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-223 dow-3 tooltip" data-day="223" title="August 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">August 11</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-224 dow-4 tooltip" data-day="224" title="August 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">August 12</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-225 dow-5 tooltip" data-day="225" title="August 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">August 13</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-221 dow-1 tooltip" data-day="221" title="Bureaucracy 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">Bureaucracy 2</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-222 dow-2 tooltip" data-day="222" title="Bureaucracy 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">Bureaucracy 3</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-223 dow-3 tooltip" data-day="223" title="Bureaucracy 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">Bureaucracy 4</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-224 dow-4 tooltip" data-day="224" title="Bureaucracy 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">Bureaucracy 5</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-225 dow-5 tooltip" data-day="225" title="Bureaucracy 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">Bureaucracy 6</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-aug month-odd day day-odd day-226 dow-1 tooltip" data-day="226" title="August 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">August 14</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-227 dow-2 tooltip" data-day="227" title="August 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">August 15</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-228 dow-3 tooltip" data-day="228" title="August 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">August 16</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-229 dow-4 tooltip" data-day="229" title="August 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">August 17</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-230 dow-5 tooltip" data-day="230" title="August 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">August 18</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-226 dow-1 tooltip" data-day="226" title="Bureaucracy 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">Bureaucracy 7</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-227 dow-2 tooltip" data-day="227" title="Bureaucracy 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">Bureaucracy 8</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-228 dow-3 tooltip" data-day="228" title="Bureaucracy 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">Bureaucracy 9</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-229 dow-4 tooltip" data-day="229" title="Bureaucracy 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">Bureaucracy 10</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-230 dow-5 tooltip" data-day="230" title="Bureaucracy 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">Bureaucracy 11</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-aug month-odd day day-odd day-231 dow-1 tooltip" data-day="231" title="August 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">August 19</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-232 dow-2 tooltip" data-day="232" title="August 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">August 20</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-233 dow-3 tooltip" data-day="233" title="August 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">August 21</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-234 dow-4 tooltip" data-day="234" title="August 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">August 22</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-235 dow-5 tooltip" data-day="235" title="August 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">August 23</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-231 dow-1 tooltip" data-day="231" title="Bureaucracy 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">Bureaucracy 12</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-232 dow-2 tooltip" data-day="232" title="Bureaucracy 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">Bureaucracy 13</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-233 dow-3 tooltip" data-day="233" title="Bureaucracy 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">Bureaucracy 14</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-234 dow-4 tooltip" data-day="234" title="Bureaucracy 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">Bureaucracy 15</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-235 dow-5 tooltip" data-day="235" title="Bureaucracy 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">Bureaucracy 16</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-aug month-odd day day-odd day-236 dow-1 tooltip" data-day="236" title="August 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">August 24</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-237 dow-2 tooltip" data-day="237" title="August 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">August 25</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-238 dow-3 tooltip" data-day="238" title="August 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">August 26</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-239 dow-4 tooltip" data-day="239" title="August 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">August 27</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-240 dow-5 tooltip" data-day="240" title="August 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">August 28</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-236 dow-1 tooltip" data-day="236" title="Bureaucracy 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">Bureaucracy 17</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-237 dow-2 tooltip" data-day="237" title="Bureaucracy 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">Bureaucracy 18</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-238 dow-3 tooltip" data-day="238" title="Bureaucracy 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">Bureaucracy 19</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-239 dow-4 tooltip" data-day="239" title="Bureaucracy 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">Bureaucracy 20</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-240 dow-5 tooltip" data-day="240" title="Bureaucracy 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">Bureaucracy 21</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>September</h6>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-241 dow-1 tooltip" data-day="241" title="August 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">August 29</span>
+        </td>
+        <td class="month month-aug month-odd day day-even day-242 dow-2 tooltip" data-day="242" title="August 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">August 30</span>
+        </td>
+        <td class="month month-aug month-odd day day-odd day-243 dow-3 tooltip" data-day="243" title="August 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">August 31</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-244 dow-4 tooltip" data-day="244" title="September 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">September 1</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-245 dow-5 tooltip" data-day="245" title="September 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">September 2</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-241 dow-1 tooltip" data-day="241" title="Bureaucracy 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">Bureaucracy 22</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-242 dow-2 tooltip" data-day="242" title="Bureaucracy 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">Bureaucracy 23</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-243 dow-3 tooltip" data-day="243" title="Bureaucracy 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">Bureaucracy 24</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-244 dow-4 tooltip" data-day="244" title="Bureaucracy 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">Bureaucracy 25</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-245 dow-5 tooltip" data-day="245" title="Bureaucracy 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">Bureaucracy 26</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-sep month-even day day-odd day-246 dow-1 tooltip" data-day="246" title="September 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">September 3</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-247 dow-2 tooltip" data-day="247" title="September 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">September 4</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-248 dow-3 tooltip" data-day="248" title="September 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">September 5</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-249 dow-4 tooltip" data-day="249" title="September 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">September 6</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-250 dow-5 tooltip" data-day="250" title="September 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">September 7</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-246 dow-1 tooltip" data-day="246" title="Bureaucracy 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">Bureaucracy 27</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-247 dow-2 tooltip" data-day="247" title="Bureaucracy 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">Bureaucracy 28</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-248 dow-3 tooltip" data-day="248" title="Bureaucracy 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">Bureaucracy 29</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-249 dow-4 tooltip" data-day="249" title="Bureaucracy 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">Bureaucracy 30</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-250 dow-5 tooltip" data-day="250" title="Bureaucracy 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">Bureaucracy 31</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-sep month-even day day-odd day-251 dow-1 tooltip" data-day="251" title="September 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">September 8</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-252 dow-2 tooltip" data-day="252" title="September 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">September 9</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-253 dow-3 tooltip" data-day="253" title="September 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">September 10</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-254 dow-4 tooltip" data-day="254" title="September 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">September 11</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-255 dow-5 tooltip" data-day="255" title="September 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">September 12</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-251 dow-1 tooltip" data-day="251" title="Bureaucracy 32">
+          <span class="day-number">32</span>
+          <span class="tooltiptext">Bureaucracy 32</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-252 dow-2 tooltip" data-day="252" title="Bureaucracy 33">
+          <span class="day-number">33</span>
+          <span class="tooltiptext">Bureaucracy 33</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-253 dow-3 tooltip" data-day="253" title="Bureaucracy 34">
+          <span class="day-number">34</span>
+          <span class="tooltiptext">Bureaucracy 34</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-254 dow-4 tooltip" data-day="254" title="Bureaucracy 35">
+          <span class="day-number">35</span>
+          <span class="tooltiptext">Bureaucracy 35</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-255 dow-5 tooltip" data-day="255" title="Bureaucracy 36">
+          <span class="day-number">36</span>
+          <span class="tooltiptext">Bureaucracy 36</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-sep month-even day day-odd day-256 dow-1 tooltip" data-day="256" title="September 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">September 13</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-257 dow-2 tooltip" data-day="257" title="September 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">September 14</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-258 dow-3 tooltip" data-day="258" title="September 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">September 15</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-259 dow-4 tooltip" data-day="259" title="September 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">September 16</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-260 dow-5 tooltip" data-day="260" title="September 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">September 17</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-256 dow-1 tooltip" data-day="256" title="Bureaucracy 37">
+          <span class="day-number">37</span>
+          <span class="tooltiptext">Bureaucracy 37</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-257 dow-2 tooltip" data-day="257" title="Bureaucracy 38">
+          <span class="day-number">38</span>
+          <span class="tooltiptext">Bureaucracy 38</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-258 dow-3 tooltip" data-day="258" title="Bureaucracy 39">
+          <span class="day-number">39</span>
+          <span class="tooltiptext">Bureaucracy 39</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-259 dow-4 tooltip" data-day="259" title="Bureaucracy 40">
+          <span class="day-number">40</span>
+          <span class="tooltiptext">Bureaucracy 40</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-260 dow-5 tooltip" data-day="260" title="Bureaucracy 41">
+          <span class="day-number">41</span>
+          <span class="tooltiptext">Bureaucracy 41</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-sep month-even day day-odd day-261 dow-1 tooltip" data-day="261" title="September 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">September 18</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-262 dow-2 tooltip" data-day="262" title="September 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">September 19</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-263 dow-3 tooltip" data-day="263" title="September 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">September 20</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-264 dow-4 tooltip" data-day="264" title="September 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">September 21</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-265 dow-5 tooltip" data-day="265" title="September 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">September 22</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-261 dow-1 tooltip" data-day="261" title="Bureaucracy 42">
+          <span class="day-number">42</span>
+          <span class="tooltiptext">Bureaucracy 42</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-262 dow-2 tooltip" data-day="262" title="Bureaucracy 43">
+          <span class="day-number">43</span>
+          <span class="tooltiptext">Bureaucracy 43</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-263 dow-3 tooltip" data-day="263" title="Bureaucracy 44">
+          <span class="day-number">44</span>
+          <span class="tooltiptext">Bureaucracy 44</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-264 dow-4 tooltip" data-day="264" title="Bureaucracy 45">
+          <span class="day-number">45</span>
+          <span class="tooltiptext">Bureaucracy 45</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-265 dow-5 tooltip" data-day="265" title="Bureaucracy 46">
+          <span class="day-number">46</span>
+          <span class="tooltiptext">Bureaucracy 46</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-sep month-even day day-odd day-266 dow-1 tooltip" data-day="266" title="September 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">September 23</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-267 dow-2 tooltip" data-day="267" title="September 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">September 24</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-268 dow-3 tooltip" data-day="268" title="September 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">September 25</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-269 dow-4 tooltip" data-day="269" title="September 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">September 26</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-270 dow-5 tooltip" data-day="270" title="September 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">September 27</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-266 dow-1 tooltip" data-day="266" title="Bureaucracy 47">
+          <span class="day-number">47</span>
+          <span class="tooltiptext">Bureaucracy 47</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-267 dow-2 tooltip" data-day="267" title="Bureaucracy 48">
+          <span class="day-number">48</span>
+          <span class="tooltiptext">Bureaucracy 48</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-268 dow-3 tooltip" data-day="268" title="Bureaucracy 49">
+          <span class="day-number">49</span>
+          <span class="tooltiptext">Bureaucracy 49</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-269 dow-4 tooltip" data-day="269" title="Bureaucracy 50">
+          <span class="day-number">50</span>
+          <span class="tooltiptext">Bureaucracy 50</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-270 dow-5 tooltip" data-day="270" title="Bureaucracy 51">
+          <span class="day-number">51</span>
+          <span class="tooltiptext">Bureaucracy 51</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>October</h6>
+        </td>
+        <td class="month month-sep month-even day day-odd day-271 dow-1 tooltip" data-day="271" title="September 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">September 28</span>
+        </td>
+        <td class="month month-sep month-even day day-even day-272 dow-2 tooltip" data-day="272" title="September 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">September 29</span>
+        </td>
+        <td class="month month-sep month-even day day-odd day-273 dow-3 tooltip" data-day="273" title="September 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">September 30</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-274 dow-4 tooltip" data-day="274" title="October 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">October 1</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-275 dow-5 tooltip" data-day="275" title="October 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">October 2</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-271 dow-1 tooltip" data-day="271" title="Bureaucracy 52">
+          <span class="day-number">52</span>
+          <span class="tooltiptext">Bureaucracy 52</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-272 dow-2 tooltip" data-day="272" title="Bureaucracy 53">
+          <span class="day-number">53</span>
+          <span class="tooltiptext">Bureaucracy 53</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-273 dow-3 tooltip" data-day="273" title="Bureaucracy 54">
+          <span class="day-number">54</span>
+          <span class="tooltiptext">Bureaucracy 54</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-274 dow-4 tooltip" data-day="274" title="Bureaucracy 55">
+          <span class="day-number">55</span>
+          <span class="tooltiptext">Bureaucracy 55</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-275 dow-5 tooltip" data-day="275" title="Bureaucracy 56">
+          <span class="day-number">56</span>
+          <span class="tooltiptext">Bureaucracy 56</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-oct month-odd day day-odd day-276 dow-1 tooltip" data-day="276" title="October 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">October 3</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-277 dow-2 tooltip" data-day="277" title="October 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">October 4</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-278 dow-3 tooltip" data-day="278" title="October 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">October 5</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-279 dow-4 tooltip" data-day="279" title="October 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">October 6</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-280 dow-5 tooltip" data-day="280" title="October 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">October 7</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-276 dow-1 tooltip" data-day="276" title="Bureaucracy 57">
+          <span class="day-number">57</span>
+          <span class="tooltiptext">Bureaucracy 57</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-277 dow-2 tooltip" data-day="277" title="Bureaucracy 58">
+          <span class="day-number">58</span>
+          <span class="tooltiptext">Bureaucracy 58</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-278 dow-3 tooltip" data-day="278" title="Bureaucracy 59">
+          <span class="day-number">59</span>
+          <span class="tooltiptext">Bureaucracy 59</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-279 dow-4 tooltip" data-day="279" title="Bureaucracy 60">
+          <span class="day-number">60</span>
+          <span class="tooltiptext">Bureaucracy 60</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-280 dow-5 tooltip" data-day="280" title="Bureaucracy 61">
+          <span class="day-number">61</span>
+          <span class="tooltiptext">Bureaucracy 61</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-oct month-odd day day-odd day-281 dow-1 tooltip" data-day="281" title="October 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">October 8</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-282 dow-2 tooltip" data-day="282" title="October 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">October 9</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-283 dow-3 tooltip" data-day="283" title="October 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">October 10</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-284 dow-4 tooltip" data-day="284" title="October 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">October 11</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-285 dow-5 tooltip" data-day="285" title="October 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">October 12</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-281 dow-1 tooltip" data-day="281" title="Bureaucracy 62">
+          <span class="day-number">62</span>
+          <span class="tooltiptext">Bureaucracy 62</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-282 dow-2 tooltip" data-day="282" title="Bureaucracy 63">
+          <span class="day-number">63</span>
+          <span class="tooltiptext">Bureaucracy 63</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-283 dow-3 tooltip" data-day="283" title="Bureaucracy 64">
+          <span class="day-number">64</span>
+          <span class="tooltiptext">Bureaucracy 64</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-284 dow-4 tooltip" data-day="284" title="Bureaucracy 65">
+          <span class="day-number">65</span>
+          <span class="tooltiptext">Bureaucracy 65</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-285 dow-5 tooltip" data-day="285" title="Bureaucracy 66">
+          <span class="day-number">66</span>
+          <span class="tooltiptext">Bureaucracy 66</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-oct month-odd day day-odd day-286 dow-1 tooltip" data-day="286" title="October 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">October 13</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-287 dow-2 tooltip" data-day="287" title="October 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">October 14</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-288 dow-3 tooltip" data-day="288" title="October 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">October 15</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-289 dow-4 tooltip" data-day="289" title="October 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">October 16</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-290 dow-5 tooltip" data-day="290" title="October 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">October 17</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-286 dow-1 tooltip" data-day="286" title="Bureaucracy 67">
+          <span class="day-number">67</span>
+          <span class="tooltiptext">Bureaucracy 67</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-287 dow-2 tooltip" data-day="287" title="Bureaucracy 68">
+          <span class="day-number">68</span>
+          <span class="tooltiptext">Bureaucracy 68</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-288 dow-3 tooltip" data-day="288" title="Bureaucracy 69">
+          <span class="day-number">69</span>
+          <span class="tooltiptext">Bureaucracy 69</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-289 dow-4 tooltip" data-day="289" title="Bureaucracy 70">
+          <span class="day-number">70</span>
+          <span class="tooltiptext">Bureaucracy 70</span>
+        </td>
+        <td class="season season-bcy season-odd day day-odd day-290 dow-5 tooltip" data-day="290" title="Bureaucracy 71">
+          <span class="day-number">71</span>
+          <span class="tooltiptext">Bureaucracy 71</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-oct month-odd day day-odd day-291 dow-1 tooltip" data-day="291" title="October 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">October 18</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-292 dow-2 tooltip" data-day="292" title="October 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">October 19</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-293 dow-3 tooltip" data-day="293" title="October 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">October 20</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-294 dow-4 tooltip" data-day="294" title="October 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">October 21</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-295 dow-5 tooltip" data-day="295" title="October 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">October 22</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-bcy season-odd day day-odd day-291 dow-1 tooltip" data-day="291" title="Bureaucracy 72">
+          <span class="day-number">72</span>
+          <span class="tooltiptext">Bureaucracy 72</span>
+        </td>
+        <td class="season season-bcy season-odd day day-even day-292 dow-2 tooltip" data-day="292" title="Bureaucracy 73">
+          <span class="day-number">73</span>
+          <span class="tooltiptext">Bureaucracy 73</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-293 dow-3 tooltip" data-day="293" title="The Aftermath 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">The Aftermath 1</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-294 dow-4 tooltip" data-day="294" title="The Aftermath 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">The Aftermath 2</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-295 dow-5 tooltip" data-day="295" title="The Aftermath 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">The Aftermath 3</span>
+        </td>
+        <td class="season season-title" rowspan="2">
+          <h6>The<br>Aftermath</h6>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-oct month-odd day day-odd day-296 dow-1 tooltip" data-day="296" title="October 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">October 23</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-297 dow-2 tooltip" data-day="297" title="October 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">October 24</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-298 dow-3 tooltip" data-day="298" title="October 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">October 25</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-299 dow-4 tooltip" data-day="299" title="October 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">October 26</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-300 dow-5 tooltip" data-day="300" title="October 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">October 27</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-296 dow-1 tooltip" data-day="296" title="The Aftermath 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">The Aftermath 4</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-297 dow-2 tooltip" data-day="297" title="The Aftermath 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">The Aftermath 5</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-298 dow-3 tooltip" data-day="298" title="The Aftermath 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">The Aftermath 6</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-299 dow-4 tooltip" data-day="299" title="The Aftermath 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">The Aftermath 7</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-300 dow-5 tooltip" data-day="300" title="The Aftermath 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">The Aftermath 8</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>November</h6>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-301 dow-1 tooltip" data-day="301" title="October 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">October 28</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-302 dow-2 tooltip" data-day="302" title="October 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">October 29</span>
+        </td>
+        <td class="month month-oct month-odd day day-odd day-303 dow-3 tooltip" data-day="303" title="October 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">October 30</span>
+        </td>
+        <td class="month month-oct month-odd day day-even day-304 dow-4 tooltip" data-day="304" title="October 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">October 31</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-305 dow-5 tooltip" data-day="305" title="November 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">November 1</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-301 dow-1 tooltip" data-day="301" title="The Aftermath 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">The Aftermath 9</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-302 dow-2 tooltip" data-day="302" title="The Aftermath 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">The Aftermath 10</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-303 dow-3 tooltip" data-day="303" title="The Aftermath 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">The Aftermath 11</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-304 dow-4 tooltip" data-day="304" title="The Aftermath 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">The Aftermath 12</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-305 dow-5 tooltip" data-day="305" title="The Aftermath 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">The Aftermath 13</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-nov month-even day day-odd day-306 dow-1 tooltip" data-day="306" title="November 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">November 2</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-307 dow-2 tooltip" data-day="307" title="November 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">November 3</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-308 dow-3 tooltip" data-day="308" title="November 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">November 4</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-309 dow-4 tooltip" data-day="309" title="November 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">November 5</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-310 dow-5 tooltip" data-day="310" title="November 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">November 6</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-306 dow-1 tooltip" data-day="306" title="The Aftermath 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">The Aftermath 14</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-307 dow-2 tooltip" data-day="307" title="The Aftermath 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">The Aftermath 15</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-308 dow-3 tooltip" data-day="308" title="The Aftermath 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">The Aftermath 16</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-309 dow-4 tooltip" data-day="309" title="The Aftermath 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">The Aftermath 17</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-310 dow-5 tooltip" data-day="310" title="The Aftermath 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">The Aftermath 18</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-nov month-even day day-odd day-311 dow-1 tooltip" data-day="311" title="November 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">November 7</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-312 dow-2 tooltip" data-day="312" title="November 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">November 8</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-313 dow-3 tooltip" data-day="313" title="November 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">November 9</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-314 dow-4 tooltip" data-day="314" title="November 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">November 10</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-315 dow-5 tooltip" data-day="315" title="November 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">November 11</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-311 dow-1 tooltip" data-day="311" title="The Aftermath 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">The Aftermath 19</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-312 dow-2 tooltip" data-day="312" title="The Aftermath 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">The Aftermath 20</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-313 dow-3 tooltip" data-day="313" title="The Aftermath 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">The Aftermath 21</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-314 dow-4 tooltip" data-day="314" title="The Aftermath 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">The Aftermath 22</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-315 dow-5 tooltip" data-day="315" title="The Aftermath 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">The Aftermath 23</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-nov month-even day day-odd day-316 dow-1 tooltip" data-day="316" title="November 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">November 12</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-317 dow-2 tooltip" data-day="317" title="November 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">November 13</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-318 dow-3 tooltip" data-day="318" title="November 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">November 14</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-319 dow-4 tooltip" data-day="319" title="November 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">November 15</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-320 dow-5 tooltip" data-day="320" title="November 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">November 16</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-316 dow-1 tooltip" data-day="316" title="The Aftermath 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">The Aftermath 24</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-317 dow-2 tooltip" data-day="317" title="The Aftermath 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">The Aftermath 25</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-318 dow-3 tooltip" data-day="318" title="The Aftermath 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">The Aftermath 26</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-319 dow-4 tooltip" data-day="319" title="The Aftermath 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">The Aftermath 27</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-320 dow-5 tooltip" data-day="320" title="The Aftermath 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">The Aftermath 28</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-nov month-even day day-odd day-321 dow-1 tooltip" data-day="321" title="November 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">November 17</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-322 dow-2 tooltip" data-day="322" title="November 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">November 18</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-323 dow-3 tooltip" data-day="323" title="November 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">November 19</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-324 dow-4 tooltip" data-day="324" title="November 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">November 20</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-325 dow-5 tooltip" data-day="325" title="November 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">November 21</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-321 dow-1 tooltip" data-day="321" title="The Aftermath 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">The Aftermath 29</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-322 dow-2 tooltip" data-day="322" title="The Aftermath 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">The Aftermath 30</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-323 dow-3 tooltip" data-day="323" title="The Aftermath 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">The Aftermath 31</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-324 dow-4 tooltip" data-day="324" title="The Aftermath 32">
+          <span class="day-number">32</span>
+          <span class="tooltiptext">The Aftermath 32</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-325 dow-5 tooltip" data-day="325" title="The Aftermath 33">
+          <span class="day-number">33</span>
+          <span class="tooltiptext">The Aftermath 33</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-nov month-even day day-odd day-326 dow-1 tooltip" data-day="326" title="November 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">November 22</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-327 dow-2 tooltip" data-day="327" title="November 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">November 23</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-328 dow-3 tooltip" data-day="328" title="November 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">November 24</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-329 dow-4 tooltip" data-day="329" title="November 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">November 25</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-330 dow-5 tooltip" data-day="330" title="November 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">November 26</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-326 dow-1 tooltip" data-day="326" title="The Aftermath 34">
+          <span class="day-number">34</span>
+          <span class="tooltiptext">The Aftermath 34</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-327 dow-2 tooltip" data-day="327" title="The Aftermath 35">
+          <span class="day-number">35</span>
+          <span class="tooltiptext">The Aftermath 35</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-328 dow-3 tooltip" data-day="328" title="The Aftermath 36">
+          <span class="day-number">36</span>
+          <span class="tooltiptext">The Aftermath 36</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-329 dow-4 tooltip" data-day="329" title="The Aftermath 37">
+          <span class="day-number">37</span>
+          <span class="tooltiptext">The Aftermath 37</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-330 dow-5 tooltip" data-day="330" title="The Aftermath 38">
+          <span class="day-number">38</span>
+          <span class="tooltiptext">The Aftermath 38</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+          <h6>December</h6>
+        </td>
+        <td class="month month-nov month-even day day-odd day-331 dow-1 tooltip" data-day="331" title="November 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">November 27</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-332 dow-2 tooltip" data-day="332" title="November 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">November 28</span>
+        </td>
+        <td class="month month-nov month-even day day-odd day-333 dow-3 tooltip" data-day="333" title="November 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">November 29</span>
+        </td>
+        <td class="month month-nov month-even day day-even day-334 dow-4 tooltip" data-day="334" title="November 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">November 30</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-335 dow-5 tooltip" data-day="335" title="December 1">
+          <span class="day-number">1</span>
+          <span class="tooltiptext">December 1</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-331 dow-1 tooltip" data-day="331" title="The Aftermath 39">
+          <span class="day-number">39</span>
+          <span class="tooltiptext">The Aftermath 39</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-332 dow-2 tooltip" data-day="332" title="The Aftermath 40">
+          <span class="day-number">40</span>
+          <span class="tooltiptext">The Aftermath 40</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-333 dow-3 tooltip" data-day="333" title="The Aftermath 41">
+          <span class="day-number">41</span>
+          <span class="tooltiptext">The Aftermath 41</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-334 dow-4 tooltip" data-day="334" title="The Aftermath 42">
+          <span class="day-number">42</span>
+          <span class="tooltiptext">The Aftermath 42</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-335 dow-5 tooltip" data-day="335" title="The Aftermath 43">
+          <span class="day-number">43</span>
+          <span class="tooltiptext">The Aftermath 43</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-dec month-odd day day-odd day-336 dow-1 tooltip" data-day="336" title="December 2">
+          <span class="day-number">2</span>
+          <span class="tooltiptext">December 2</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-337 dow-2 tooltip" data-day="337" title="December 3">
+          <span class="day-number">3</span>
+          <span class="tooltiptext">December 3</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-338 dow-3 tooltip" data-day="338" title="December 4">
+          <span class="day-number">4</span>
+          <span class="tooltiptext">December 4</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-339 dow-4 tooltip" data-day="339" title="December 5">
+          <span class="day-number">5</span>
+          <span class="tooltiptext">December 5</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-340 dow-5 tooltip" data-day="340" title="December 6">
+          <span class="day-number">6</span>
+          <span class="tooltiptext">December 6</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-336 dow-1 tooltip" data-day="336" title="The Aftermath 44">
+          <span class="day-number">44</span>
+          <span class="tooltiptext">The Aftermath 44</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-337 dow-2 tooltip" data-day="337" title="The Aftermath 45">
+          <span class="day-number">45</span>
+          <span class="tooltiptext">The Aftermath 45</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-338 dow-3 tooltip" data-day="338" title="The Aftermath 46">
+          <span class="day-number">46</span>
+          <span class="tooltiptext">The Aftermath 46</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-339 dow-4 tooltip" data-day="339" title="The Aftermath 47">
+          <span class="day-number">47</span>
+          <span class="tooltiptext">The Aftermath 47</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-340 dow-5 tooltip" data-day="340" title="The Aftermath 48">
+          <span class="day-number">48</span>
+          <span class="tooltiptext">The Aftermath 48</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-dec month-odd day day-odd day-341 dow-1 tooltip" data-day="341" title="December 7">
+          <span class="day-number">7</span>
+          <span class="tooltiptext">December 7</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-342 dow-2 tooltip" data-day="342" title="December 8">
+          <span class="day-number">8</span>
+          <span class="tooltiptext">December 8</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-343 dow-3 tooltip" data-day="343" title="December 9">
+          <span class="day-number">9</span>
+          <span class="tooltiptext">December 9</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-344 dow-4 tooltip" data-day="344" title="December 10">
+          <span class="day-number">10</span>
+          <span class="tooltiptext">December 10</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-345 dow-5 tooltip" data-day="345" title="December 11">
+          <span class="day-number">11</span>
+          <span class="tooltiptext">December 11</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-341 dow-1 tooltip" data-day="341" title="The Aftermath 49">
+          <span class="day-number">49</span>
+          <span class="tooltiptext">The Aftermath 49</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-342 dow-2 tooltip" data-day="342" title="The Aftermath 50">
+          <span class="day-number">50</span>
+          <span class="tooltiptext">The Aftermath 50</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-343 dow-3 tooltip" data-day="343" title="The Aftermath 51">
+          <span class="day-number">51</span>
+          <span class="tooltiptext">The Aftermath 51</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-344 dow-4 tooltip" data-day="344" title="The Aftermath 52">
+          <span class="day-number">52</span>
+          <span class="tooltiptext">The Aftermath 52</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-345 dow-5 tooltip" data-day="345" title="The Aftermath 53">
+          <span class="day-number">53</span>
+          <span class="tooltiptext">The Aftermath 53</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-dec month-odd day day-odd day-346 dow-1 tooltip" data-day="346" title="December 12">
+          <span class="day-number">12</span>
+          <span class="tooltiptext">December 12</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-347 dow-2 tooltip" data-day="347" title="December 13">
+          <span class="day-number">13</span>
+          <span class="tooltiptext">December 13</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-348 dow-3 tooltip" data-day="348" title="December 14">
+          <span class="day-number">14</span>
+          <span class="tooltiptext">December 14</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-349 dow-4 tooltip" data-day="349" title="December 15">
+          <span class="day-number">15</span>
+          <span class="tooltiptext">December 15</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-350 dow-5 tooltip" data-day="350" title="December 16">
+          <span class="day-number">16</span>
+          <span class="tooltiptext">December 16</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-346 dow-1 tooltip" data-day="346" title="The Aftermath 54">
+          <span class="day-number">54</span>
+          <span class="tooltiptext">The Aftermath 54</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-347 dow-2 tooltip" data-day="347" title="The Aftermath 55">
+          <span class="day-number">55</span>
+          <span class="tooltiptext">The Aftermath 55</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-348 dow-3 tooltip" data-day="348" title="The Aftermath 56">
+          <span class="day-number">56</span>
+          <span class="tooltiptext">The Aftermath 56</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-349 dow-4 tooltip" data-day="349" title="The Aftermath 57">
+          <span class="day-number">57</span>
+          <span class="tooltiptext">The Aftermath 57</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-350 dow-5 tooltip" data-day="350" title="The Aftermath 58">
+          <span class="day-number">58</span>
+          <span class="tooltiptext">The Aftermath 58</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-dec month-odd day day-odd day-351 dow-1 tooltip" data-day="351" title="December 17">
+          <span class="day-number">17</span>
+          <span class="tooltiptext">December 17</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-352 dow-2 tooltip" data-day="352" title="December 18">
+          <span class="day-number">18</span>
+          <span class="tooltiptext">December 18</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-353 dow-3 tooltip" data-day="353" title="December 19">
+          <span class="day-number">19</span>
+          <span class="tooltiptext">December 19</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-354 dow-4 tooltip" data-day="354" title="December 20">
+          <span class="day-number">20</span>
+          <span class="tooltiptext">December 20</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-355 dow-5 tooltip" data-day="355" title="December 21">
+          <span class="day-number">21</span>
+          <span class="tooltiptext">December 21</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-351 dow-1 tooltip" data-day="351" title="The Aftermath 59">
+          <span class="day-number">59</span>
+          <span class="tooltiptext">The Aftermath 59</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-352 dow-2 tooltip" data-day="352" title="The Aftermath 60">
+          <span class="day-number">60</span>
+          <span class="tooltiptext">The Aftermath 60</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-353 dow-3 tooltip" data-day="353" title="The Aftermath 61">
+          <span class="day-number">61</span>
+          <span class="tooltiptext">The Aftermath 61</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-354 dow-4 tooltip" data-day="354" title="The Aftermath 62">
+          <span class="day-number">62</span>
+          <span class="tooltiptext">The Aftermath 62</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-355 dow-5 tooltip" data-day="355" title="The Aftermath 63">
+          <span class="day-number">63</span>
+          <span class="tooltiptext">The Aftermath 63</span>
+        </td>
+      </tr>
+      <tr class="week week-odd">
+        <td class="month month-title">
+        </td>
+        <td class="month month-dec month-odd day day-odd day-356 dow-1 tooltip" data-day="356" title="December 22">
+          <span class="day-number">22</span>
+          <span class="tooltiptext">December 22</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-357 dow-2 tooltip" data-day="357" title="December 23">
+          <span class="day-number">23</span>
+          <span class="tooltiptext">December 23</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-358 dow-3 tooltip" data-day="358" title="December 24">
+          <span class="day-number">24</span>
+          <span class="tooltiptext">December 24</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-359 dow-4 tooltip" data-day="359" title="December 25">
+          <span class="day-number">25</span>
+          <span class="tooltiptext">December 25</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-360 dow-5 tooltip" data-day="360" title="December 26">
+          <span class="day-number">26</span>
+          <span class="tooltiptext">December 26</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-356 dow-1 tooltip" data-day="356" title="The Aftermath 64">
+          <span class="day-number">64</span>
+          <span class="tooltiptext">The Aftermath 64</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-357 dow-2 tooltip" data-day="357" title="The Aftermath 65">
+          <span class="day-number">65</span>
+          <span class="tooltiptext">The Aftermath 65</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-358 dow-3 tooltip" data-day="358" title="The Aftermath 66">
+          <span class="day-number">66</span>
+          <span class="tooltiptext">The Aftermath 66</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-359 dow-4 tooltip" data-day="359" title="The Aftermath 67">
+          <span class="day-number">67</span>
+          <span class="tooltiptext">The Aftermath 67</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-360 dow-5 tooltip" data-day="360" title="The Aftermath 68">
+          <span class="day-number">68</span>
+          <span class="tooltiptext">The Aftermath 68</span>
+        </td>
+      </tr>
+      <tr class="week week-even">
+        <td class="month month-title">
+        </td>
+        <td class="month month-dec month-odd day day-odd day-361 dow-1 tooltip" data-day="361" title="December 27">
+          <span class="day-number">27</span>
+          <span class="tooltiptext">December 27</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-362 dow-2 tooltip" data-day="362" title="December 28">
+          <span class="day-number">28</span>
+          <span class="tooltiptext">December 28</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-363 dow-3 tooltip" data-day="363" title="December 29">
+          <span class="day-number">29</span>
+          <span class="tooltiptext">December 29</span>
+        </td>
+        <td class="month month-dec month-odd day day-even day-364 dow-4 tooltip" data-day="364" title="December 30">
+          <span class="day-number">30</span>
+          <span class="tooltiptext">December 30</span>
+        </td>
+        <td class="month month-dec month-odd day day-odd day-365 dow-5 tooltip" data-day="365" title="December 31">
+          <span class="day-number">31</span>
+          <span class="tooltiptext">December 31</span>
+        </td>
+        <td class="month-season-divider">&nbsp;</td>
+        <td class="season season-afm season-even day day-odd day-361 dow-1 tooltip" data-day="361" title="The Aftermath 69">
+          <span class="day-number">69</span>
+          <span class="tooltiptext">The Aftermath 69</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-362 dow-2 tooltip" data-day="362" title="The Aftermath 70">
+          <span class="day-number">70</span>
+          <span class="tooltiptext">The Aftermath 70</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-363 dow-3 tooltip" data-day="363" title="The Aftermath 71">
+          <span class="day-number">71</span>
+          <span class="tooltiptext">The Aftermath 71</span>
+        </td>
+        <td class="season season-afm season-even day day-even day-364 dow-4 tooltip" data-day="364" title="The Aftermath 72">
+          <span class="day-number">72</span>
+          <span class="tooltiptext">The Aftermath 72</span>
+        </td>
+        <td class="season season-afm season-even day day-odd day-365 dow-5 tooltip" data-day="365" title="The Aftermath 73">
+          <span class="day-number">73</span>
+          <span class="tooltiptext">The Aftermath 73</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

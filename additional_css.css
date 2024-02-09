@@ -18,7 +18,3 @@
 .wp-site-blocks > main.wp-block-group {
     min-height: calc(100vh - 20.5rem);
 }
-
-.primary-color {
-    color: #CF2E2E;
-}

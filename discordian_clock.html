@@ -1,0 +1,1525 @@
+<style type="text/css">
+
+.discordian-clock h5 {
+  font-size: 2.25em
+}
+
+.discordian-clock h6 {
+  font-size: 1.5em
+}
+
+.discordian-clock h5,
+.discordian-clock h6 {
+  margin: 1em 0 0.5em 0
+}
+
+.discordian-clock p {
+  margin: 0 0 0.75em 0
+}
+
+.discordian-clock>.text-center {
+  margin: 2.25em 0 2.25em 0
+}
+
+.discordian-clock .subtle {
+  color: #a0a0a0
+}
+
+.discordian-clock ul {
+  list-style: disc;
+  margin-left: 1.5em
+}
+
+.discordian-clock ol.references {
+  list-style: decimal;
+  margin-left: 1.5em
+}
+
+.discordian-clock .thud-time-list,
+.discordian-clock .non-thud-time-list,
+.discordian-clock .season-list,
+.discordian-clock .day-of-week-list,
+.discordian-clock .holyday-list {
+  margin: 0.5em 0 0 2em
+}
+
+.discordian-clock .thud-time-list li,
+.discordian-clock .non-thud-time-list li,
+.discordian-clock .season-list li,
+.discordian-clock .day-of-week-list li,
+.discordian-clock .holyday-list li {
+  margin: 0 0 0.5em 0
+}
+
+.discordian-clock .holydays-apostle,
+.discordian-clock .holydays-season {
+  width: 49%;
+  display: inline-block;
+  margin-bottom: 1em
+}
+
+.discordian-clock .holydays-apostle h6,
+.discordian-clock .holydays-season h6,
+.discordian-clock .holydays-sttibsday h6 {
+  margin: 0 0 0.5em 0
+}
+
+.discordian-clock table {
+  padding: 0.1em 0 0.1em 0
+}
+
+.discordian-clock th h5,
+.discordian-clock .discordian-to-std-units th h5 {
+  font-size: 1.75em;
+  margin-bottom: 0.375em
+}
+
+.discordian-clock .discordian-to-std-units {
+  margin: 1em 0 0 1em
+}
+
+.discordian-clock .discordian-to-std-units .discordian-units {
+  white-space: nowrap
+}
+
+.discordian-clock .discordian-to-std-units .discordian-std-divider {
+  width: 2em;
+  text-align: center
+}
+
+.discordian-clock .discordian-to-std-units td {
+  padding: 0 0 0.5em 0
+}
+
+.discordian-clock {
+  margin: 0 auto
+}
+
+.discordian-clock .discordian-std-divider {
+  width: 5em
+}
+
+.discordian-clock .discordian-std-divider:hover {
+  background-color: #fff
+}
+
+.discordian-clock .std-time-title {
+  text-align: left
+}
+
+.discordian-clock .discordian-time-title {
+  text-align: right
+}
+
+.discordian-clock .discordian-time,
+.discordian-clock .std-time {
+  min-width: 100px
+}
+
+.discordian-clock .discordian-time {
+  text-align: right;
+  padding: 0 1em 0 0
+}
+
+.discordian-clock .std-time {
+  text-align: left;
+  padding: 0 0 0 1em
+}
+
+.discordian-clock tr.thud-minute td.discordian-std-divider,
+.discordian-clock tr.minute td.discordian-std-divider {
+  height: 0.1875em
+}
+
+.discordian-clock tbody td {
+  background-color: #606060;
+  vertical-align: top
+}
+
+.discordian-clock tr.thud-minute td,
+.discordian-clock tr.minute-on-the-hour td,
+.discordian-clock tr.minute td.discordian-std-divider {
+  border-top: 1px solid #484848
+}
+
+.discordian-clock tr.minute-final td.discordian-std-divider {
+  background-color: #585858
+}
+
+.discordian-clock tr.minute-final td.discordian-std-divider:hover {
+  border-top: 2px solid white
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 10em;
+  background-color: black;
+  color: #fff;
+  font-size: 1em;
+  font-weight: normal;
+  text-transform: none;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5em;
+  opacity: 0;
+}
+
+.tooltip.thud .tooltiptext {
+  width: 14em;
+  margin-left: -7em;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext,
+.tooltip.active .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+<div class="discordian-clock">
+  <table class="discordian-to-std-scale">
+    <thead>
+      <tr>
+        <th>
+          <h5 class="std-time-title">Standard</h2>
+        </th>
+        <td></td>
+        <th>
+          <h5 class="discordian-time-title">Discordian</h2>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="thud-minute">
+        <td class="std-time" rowspan="23">
+          12:00 AM
+        </td>
+        <td class="discordian-std-divider thud tooltip" title="12:00 AM = 0:0:00 THUD"><span class="tooltiptext">12:00 AM = 0:0:00 THUD</span></td>
+        <td class="discordian-time" rowspan="23">
+          0:0 THUD
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:01 AM = 0:0:01 THUD"><span class="tooltiptext">12:01 AM = 0:0:01 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:02 AM = 0:0:02 THUD"><span class="tooltiptext">12:02 AM = 0:0:02 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:03 AM = 0:0:03 THUD"><span class="tooltiptext">12:03 AM = 0:0:03 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:04 AM = 0:0:04 THUD"><span class="tooltiptext">12:04 AM = 0:0:04 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:05 AM = 0:0:05 THUD"><span class="tooltiptext">12:05 AM = 0:0:05 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:06 AM = 0:0:06 THUD"><span class="tooltiptext">12:06 AM = 0:0:06 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:07 AM = 0:0:07 THUD"><span class="tooltiptext">12:07 AM = 0:0:07 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:08 AM = 0:0:08 THUD"><span class="tooltiptext">12:08 AM = 0:0:08 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:09 AM = 0:0:09 THUD"><span class="tooltiptext">12:09 AM = 0:0:09 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:10 AM = 0:0:10 THUD"><span class="tooltiptext">12:10 AM = 0:0:10 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:11 AM = 0:0:11 THUD"><span class="tooltiptext">12:11 AM = 0:0:11 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:12 AM = 0:0:12 THUD"><span class="tooltiptext">12:12 AM = 0:0:12 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:13 AM = 0:0:13 THUD"><span class="tooltiptext">12:13 AM = 0:0:13 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:14 AM = 0:0:14 THUD"><span class="tooltiptext">12:14 AM = 0:0:14 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:15 AM = 0:0:15 THUD"><span class="tooltiptext">12:15 AM = 0:0:15 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:16 AM = 0:0:16 THUD"><span class="tooltiptext">12:16 AM = 0:0:16 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:17 AM = 0:0:17 THUD"><span class="tooltiptext">12:17 AM = 0:0:17 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:18 AM = 0:0:18 THUD"><span class="tooltiptext">12:18 AM = 0:0:18 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:19 AM = 0:0:19 THUD"><span class="tooltiptext">12:19 AM = 0:0:19 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:20 AM = 0:0:20 THUD"><span class="tooltiptext">12:20 AM = 0:0:20 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:21 AM = 0:0:21 THUD"><span class="tooltiptext">12:21 AM = 0:0:21 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:22 AM = 0:0:22 THUD"><span class="tooltiptext">12:22 AM = 0:0:22 THUD</span></td>
+      </tr>
+      <tr class="thud-minute">
+        <td class="std-time" rowspan="23">
+          12:23 AM
+        </td>
+        <td class="discordian-std-divider thud tooltip" title="12:23 AM = 0:1:00 THUD"><span class="tooltiptext">12:23 AM = 0:1:00 THUD</span></td>
+        <td class="discordian-time" rowspan="23">
+          0:1 THUD
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:24 AM = 0:1:01 THUD"><span class="tooltiptext">12:24 AM = 0:1:01 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:25 AM = 0:1:02 THUD"><span class="tooltiptext">12:25 AM = 0:1:02 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:26 AM = 0:1:03 THUD"><span class="tooltiptext">12:26 AM = 0:1:03 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:27 AM = 0:1:04 THUD"><span class="tooltiptext">12:27 AM = 0:1:04 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:28 AM = 0:1:05 THUD"><span class="tooltiptext">12:28 AM = 0:1:05 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:29 AM = 0:1:06 THUD"><span class="tooltiptext">12:29 AM = 0:1:06 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:30 AM = 0:1:07 THUD"><span class="tooltiptext">12:30 AM = 0:1:07 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:31 AM = 0:1:08 THUD"><span class="tooltiptext">12:31 AM = 0:1:08 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:32 AM = 0:1:09 THUD"><span class="tooltiptext">12:32 AM = 0:1:09 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:33 AM = 0:1:10 THUD"><span class="tooltiptext">12:33 AM = 0:1:10 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:34 AM = 0:1:11 THUD"><span class="tooltiptext">12:34 AM = 0:1:11 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:35 AM = 0:1:12 THUD"><span class="tooltiptext">12:35 AM = 0:1:12 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:36 AM = 0:1:13 THUD"><span class="tooltiptext">12:36 AM = 0:1:13 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:37 AM = 0:1:14 THUD"><span class="tooltiptext">12:37 AM = 0:1:14 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:38 AM = 0:1:15 THUD"><span class="tooltiptext">12:38 AM = 0:1:15 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:39 AM = 0:1:16 THUD"><span class="tooltiptext">12:39 AM = 0:1:16 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:40 AM = 0:1:17 THUD"><span class="tooltiptext">12:40 AM = 0:1:17 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:41 AM = 0:1:18 THUD"><span class="tooltiptext">12:41 AM = 0:1:18 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:42 AM = 0:1:19 THUD"><span class="tooltiptext">12:42 AM = 0:1:19 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:43 AM = 0:1:20 THUD"><span class="tooltiptext">12:43 AM = 0:1:20 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:44 AM = 0:1:21 THUD"><span class="tooltiptext">12:44 AM = 0:1:21 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:45 AM = 0:1:22 THUD"><span class="tooltiptext">12:45 AM = 0:1:22 THUD</span></td>
+      </tr>
+      <tr class="thud-minute">
+        <td class="std-time" rowspan="23">
+          12:46 AM
+        </td>
+        <td class="discordian-std-divider thud tooltip" title="12:46 AM = 0:2:00 THUD"><span class="tooltiptext">12:46 AM = 0:2:00 THUD</span></td>
+        <td class="discordian-time" rowspan="23">
+          0:2 THUD
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:47 AM = 0:2:01 THUD"><span class="tooltiptext">12:47 AM = 0:2:01 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:48 AM = 0:2:02 THUD"><span class="tooltiptext">12:48 AM = 0:2:02 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:49 AM = 0:2:03 THUD"><span class="tooltiptext">12:49 AM = 0:2:03 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:50 AM = 0:2:04 THUD"><span class="tooltiptext">12:50 AM = 0:2:04 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:51 AM = 0:2:05 THUD"><span class="tooltiptext">12:51 AM = 0:2:05 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:52 AM = 0:2:06 THUD"><span class="tooltiptext">12:52 AM = 0:2:06 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:53 AM = 0:2:07 THUD"><span class="tooltiptext">12:53 AM = 0:2:07 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:54 AM = 0:2:08 THUD"><span class="tooltiptext">12:54 AM = 0:2:08 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:55 AM = 0:2:09 THUD"><span class="tooltiptext">12:55 AM = 0:2:09 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:56 AM = 0:2:10 THUD"><span class="tooltiptext">12:56 AM = 0:2:10 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:57 AM = 0:2:11 THUD"><span class="tooltiptext">12:57 AM = 0:2:11 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:58 AM = 0:2:12 THUD"><span class="tooltiptext">12:58 AM = 0:2:12 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="12:59 AM = 0:2:13 THUD"><span class="tooltiptext">12:59 AM = 0:2:13 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:00 AM = 0:2:14 THUD"><span class="tooltiptext">1:00 AM = 0:2:14 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:01 AM = 0:2:15 THUD"><span class="tooltiptext">1:01 AM = 0:2:15 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:02 AM = 0:2:16 THUD"><span class="tooltiptext">1:02 AM = 0:2:16 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:03 AM = 0:2:17 THUD"><span class="tooltiptext">1:03 AM = 0:2:17 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:04 AM = 0:2:18 THUD"><span class="tooltiptext">1:04 AM = 0:2:18 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:05 AM = 0:2:19 THUD"><span class="tooltiptext">1:05 AM = 0:2:19 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:06 AM = 0:2:20 THUD"><span class="tooltiptext">1:06 AM = 0:2:20 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:07 AM = 0:2:21 THUD"><span class="tooltiptext">1:07 AM = 0:2:21 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:08 AM = 0:2:22 THUD"><span class="tooltiptext">1:08 AM = 0:2:22 THUD</span></td>
+      </tr>
+      <tr class="thud-minute">
+        <td class="std-time" rowspan="23">
+          1:09 AM
+        </td>
+        <td class="discordian-std-divider thud tooltip" title="1:09 AM = 0:3:00 THUD"><span class="tooltiptext">1:09 AM = 0:3:00 THUD</span></td>
+        <td class="discordian-time" rowspan="23">
+          0:3 THUD
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:10 AM = 0:3:01 THUD"><span class="tooltiptext">1:10 AM = 0:3:01 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:11 AM = 0:3:02 THUD"><span class="tooltiptext">1:11 AM = 0:3:02 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:12 AM = 0:3:03 THUD"><span class="tooltiptext">1:12 AM = 0:3:03 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:13 AM = 0:3:04 THUD"><span class="tooltiptext">1:13 AM = 0:3:04 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:14 AM = 0:3:05 THUD"><span class="tooltiptext">1:14 AM = 0:3:05 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:15 AM = 0:3:06 THUD"><span class="tooltiptext">1:15 AM = 0:3:06 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:16 AM = 0:3:07 THUD"><span class="tooltiptext">1:16 AM = 0:3:07 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:17 AM = 0:3:08 THUD"><span class="tooltiptext">1:17 AM = 0:3:08 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:18 AM = 0:3:09 THUD"><span class="tooltiptext">1:18 AM = 0:3:09 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:19 AM = 0:3:10 THUD"><span class="tooltiptext">1:19 AM = 0:3:10 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:20 AM = 0:3:11 THUD"><span class="tooltiptext">1:20 AM = 0:3:11 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:21 AM = 0:3:12 THUD"><span class="tooltiptext">1:21 AM = 0:3:12 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:22 AM = 0:3:13 THUD"><span class="tooltiptext">1:22 AM = 0:3:13 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:23 AM = 0:3:14 THUD"><span class="tooltiptext">1:23 AM = 0:3:14 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:24 AM = 0:3:15 THUD"><span class="tooltiptext">1:24 AM = 0:3:15 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:25 AM = 0:3:16 THUD"><span class="tooltiptext">1:25 AM = 0:3:16 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:26 AM = 0:3:17 THUD"><span class="tooltiptext">1:26 AM = 0:3:17 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:27 AM = 0:3:18 THUD"><span class="tooltiptext">1:27 AM = 0:3:18 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:28 AM = 0:3:19 THUD"><span class="tooltiptext">1:28 AM = 0:3:19 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:29 AM = 0:3:20 THUD"><span class="tooltiptext">1:29 AM = 0:3:20 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:30 AM = 0:3:21 THUD"><span class="tooltiptext">1:30 AM = 0:3:21 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:31 AM = 0:3:22 THUD"><span class="tooltiptext">1:31 AM = 0:3:22 THUD</span></td>
+      </tr>
+      <tr class="thud-minute">
+        <td class="std-time" rowspan="23">
+          1:32 AM
+        </td>
+        <td class="discordian-std-divider thud tooltip" title="1:32 AM = 0:4:00 THUD"><span class="tooltiptext">1:32 AM = 0:4:00 THUD</span></td>
+        <td class="discordian-time" rowspan="23">
+          0:4 THUD
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:33 AM = 0:4:01 THUD"><span class="tooltiptext">1:33 AM = 0:4:01 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:34 AM = 0:4:02 THUD"><span class="tooltiptext">1:34 AM = 0:4:02 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:35 AM = 0:4:03 THUD"><span class="tooltiptext">1:35 AM = 0:4:03 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:36 AM = 0:4:04 THUD"><span class="tooltiptext">1:36 AM = 0:4:04 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:37 AM = 0:4:05 THUD"><span class="tooltiptext">1:37 AM = 0:4:05 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:38 AM = 0:4:06 THUD"><span class="tooltiptext">1:38 AM = 0:4:06 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:39 AM = 0:4:07 THUD"><span class="tooltiptext">1:39 AM = 0:4:07 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:40 AM = 0:4:08 THUD"><span class="tooltiptext">1:40 AM = 0:4:08 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:41 AM = 0:4:09 THUD"><span class="tooltiptext">1:41 AM = 0:4:09 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:42 AM = 0:4:10 THUD"><span class="tooltiptext">1:42 AM = 0:4:10 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:43 AM = 0:4:11 THUD"><span class="tooltiptext">1:43 AM = 0:4:11 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:44 AM = 0:4:12 THUD"><span class="tooltiptext">1:44 AM = 0:4:12 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:45 AM = 0:4:13 THUD"><span class="tooltiptext">1:45 AM = 0:4:13 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:46 AM = 0:4:14 THUD"><span class="tooltiptext">1:46 AM = 0:4:14 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:47 AM = 0:4:15 THUD"><span class="tooltiptext">1:47 AM = 0:4:15 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:48 AM = 0:4:16 THUD"><span class="tooltiptext">1:48 AM = 0:4:16 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:49 AM = 0:4:17 THUD"><span class="tooltiptext">1:49 AM = 0:4:17 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:50 AM = 0:4:18 THUD"><span class="tooltiptext">1:50 AM = 0:4:18 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:51 AM = 0:4:19 THUD"><span class="tooltiptext">1:51 AM = 0:4:19 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:52 AM = 0:4:20 THUD"><span class="tooltiptext">1:52 AM = 0:4:20 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:53 AM = 0:4:21 THUD"><span class="tooltiptext">1:53 AM = 0:4:21 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider thud tooltip" title="1:54 AM = 0:4:22 THUD"><span class="tooltiptext">1:54 AM = 0:4:22 THUD</span></td>
+      </tr>
+      <tr class="minute">
+        <td></td>
+        <td class="discordian-std-divider tooltip" title="1:55 AM = 1:0"><span class="tooltiptext">1:55 AM = 1:0</span></td>
+        <td></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          2:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="2:00 AM = 2:0"><span class="tooltiptext">2:00 AM = 2:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          2:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:05 AM = 3:0"><span class="tooltiptext">2:05 AM = 3:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:10 AM = 4:0"><span class="tooltiptext">2:10 AM = 4:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:15 AM = 5:0"><span class="tooltiptext">2:15 AM = 5:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:20 AM = 6:0"><span class="tooltiptext">2:20 AM = 6:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:25 AM = 7:0"><span class="tooltiptext">2:25 AM = 7:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:30 AM = 8:0"><span class="tooltiptext">2:30 AM = 8:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:35 AM = 9:0"><span class="tooltiptext">2:35 AM = 9:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:40 AM = 10:0"><span class="tooltiptext">2:40 AM = 10:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:45 AM = 11:0"><span class="tooltiptext">2:45 AM = 11:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:50 AM = 12:0"><span class="tooltiptext">2:50 AM = 12:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:55 AM = 13:0"><span class="tooltiptext">2:55 AM = 13:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          3:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="3:00 AM = 14:0"><span class="tooltiptext">3:00 AM = 14:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          14:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:05 AM = 15:0"><span class="tooltiptext">3:05 AM = 15:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:10 AM = 16:0"><span class="tooltiptext">3:10 AM = 16:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:15 AM = 17:0"><span class="tooltiptext">3:15 AM = 17:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:20 AM = 18:0"><span class="tooltiptext">3:20 AM = 18:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:25 AM = 19:0"><span class="tooltiptext">3:25 AM = 19:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:30 AM = 20:0"><span class="tooltiptext">3:30 AM = 20:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:35 AM = 21:0"><span class="tooltiptext">3:35 AM = 21:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:40 AM = 22:0"><span class="tooltiptext">3:40 AM = 22:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:45 AM = 23:0"><span class="tooltiptext">3:45 AM = 23:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:50 AM = 24:0"><span class="tooltiptext">3:50 AM = 24:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:55 AM = 25:0"><span class="tooltiptext">3:55 AM = 25:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          4:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="4:00 AM = 26:0"><span class="tooltiptext">4:00 AM = 26:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          26:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:05 AM = 27:0"><span class="tooltiptext">4:05 AM = 27:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:10 AM = 28:0"><span class="tooltiptext">4:10 AM = 28:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:15 AM = 29:0"><span class="tooltiptext">4:15 AM = 29:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:20 AM = 30:0"><span class="tooltiptext">4:20 AM = 30:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:25 AM = 31:0"><span class="tooltiptext">4:25 AM = 31:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:30 AM = 32:0"><span class="tooltiptext">4:30 AM = 32:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:35 AM = 33:0"><span class="tooltiptext">4:35 AM = 33:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:40 AM = 34:0"><span class="tooltiptext">4:40 AM = 34:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:45 AM = 35:0"><span class="tooltiptext">4:45 AM = 35:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:50 AM = 36:0"><span class="tooltiptext">4:50 AM = 36:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:55 AM = 37:0"><span class="tooltiptext">4:55 AM = 37:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          5:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="5:00 AM = 38:0"><span class="tooltiptext">5:00 AM = 38:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          38:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:05 AM = 39:0"><span class="tooltiptext">5:05 AM = 39:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:10 AM = 40:0"><span class="tooltiptext">5:10 AM = 40:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:15 AM = 41:0"><span class="tooltiptext">5:15 AM = 41:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:20 AM = 42:0"><span class="tooltiptext">5:20 AM = 42:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:25 AM = 43:0"><span class="tooltiptext">5:25 AM = 43:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:30 AM = 44:0"><span class="tooltiptext">5:30 AM = 44:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:35 AM = 45:0"><span class="tooltiptext">5:35 AM = 45:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:40 AM = 46:0"><span class="tooltiptext">5:40 AM = 46:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:45 AM = 47:0"><span class="tooltiptext">5:45 AM = 47:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:50 AM = 48:0"><span class="tooltiptext">5:50 AM = 48:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:55 AM = 49:0"><span class="tooltiptext">5:55 AM = 49:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          6:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="6:00 AM = 50:0"><span class="tooltiptext">6:00 AM = 50:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          50:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:05 AM = 51:0"><span class="tooltiptext">6:05 AM = 51:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:10 AM = 52:0"><span class="tooltiptext">6:10 AM = 52:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:15 AM = 53:0"><span class="tooltiptext">6:15 AM = 53:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:20 AM = 54:0"><span class="tooltiptext">6:20 AM = 54:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:25 AM = 55:0"><span class="tooltiptext">6:25 AM = 55:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:30 AM = 56:0"><span class="tooltiptext">6:30 AM = 56:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:35 AM = 57:0"><span class="tooltiptext">6:35 AM = 57:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:40 AM = 58:0"><span class="tooltiptext">6:40 AM = 58:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:45 AM = 59:0"><span class="tooltiptext">6:45 AM = 59:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:50 AM = 60:0"><span class="tooltiptext">6:50 AM = 60:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:55 AM = 61:0"><span class="tooltiptext">6:55 AM = 61:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          7:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="7:00 AM = 62:0"><span class="tooltiptext">7:00 AM = 62:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          62:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:05 AM = 63:0"><span class="tooltiptext">7:05 AM = 63:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:10 AM = 64:0"><span class="tooltiptext">7:10 AM = 64:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:15 AM = 65:0"><span class="tooltiptext">7:15 AM = 65:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:20 AM = 66:0"><span class="tooltiptext">7:20 AM = 66:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:25 AM = 67:0"><span class="tooltiptext">7:25 AM = 67:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:30 AM = 68:0"><span class="tooltiptext">7:30 AM = 68:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:35 AM = 69:0"><span class="tooltiptext">7:35 AM = 69:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:40 AM = 70:0"><span class="tooltiptext">7:40 AM = 70:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:45 AM = 71:0"><span class="tooltiptext">7:45 AM = 71:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:50 AM = 72:0"><span class="tooltiptext">7:50 AM = 72:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:55 AM = 73:0"><span class="tooltiptext">7:55 AM = 73:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          8:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="8:00 AM = 74:0"><span class="tooltiptext">8:00 AM = 74:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          74:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:05 AM = 75:0"><span class="tooltiptext">8:05 AM = 75:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:10 AM = 76:0"><span class="tooltiptext">8:10 AM = 76:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:15 AM = 77:0"><span class="tooltiptext">8:15 AM = 77:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:20 AM = 78:0"><span class="tooltiptext">8:20 AM = 78:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:25 AM = 79:0"><span class="tooltiptext">8:25 AM = 79:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:30 AM = 80:0"><span class="tooltiptext">8:30 AM = 80:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:35 AM = 81:0"><span class="tooltiptext">8:35 AM = 81:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:40 AM = 82:0"><span class="tooltiptext">8:40 AM = 82:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:45 AM = 83:0"><span class="tooltiptext">8:45 AM = 83:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:50 AM = 84:0"><span class="tooltiptext">8:50 AM = 84:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:55 AM = 85:0"><span class="tooltiptext">8:55 AM = 85:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          9:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="9:00 AM = 86:0"><span class="tooltiptext">9:00 AM = 86:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          86:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:05 AM = 87:0"><span class="tooltiptext">9:05 AM = 87:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:10 AM = 88:0"><span class="tooltiptext">9:10 AM = 88:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:15 AM = 89:0"><span class="tooltiptext">9:15 AM = 89:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:20 AM = 90:0"><span class="tooltiptext">9:20 AM = 90:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:25 AM = 91:0"><span class="tooltiptext">9:25 AM = 91:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:30 AM = 92:0"><span class="tooltiptext">9:30 AM = 92:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:35 AM = 93:0"><span class="tooltiptext">9:35 AM = 93:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:40 AM = 94:0"><span class="tooltiptext">9:40 AM = 94:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:45 AM = 95:0"><span class="tooltiptext">9:45 AM = 95:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:50 AM = 96:0"><span class="tooltiptext">9:50 AM = 96:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:55 AM = 97:0"><span class="tooltiptext">9:55 AM = 97:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          10:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="10:00 AM = 98:0"><span class="tooltiptext">10:00 AM = 98:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          98:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:05 AM = 99:0"><span class="tooltiptext">10:05 AM = 99:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:10 AM = 100:0"><span class="tooltiptext">10:10 AM = 100:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:15 AM = 101:0"><span class="tooltiptext">10:15 AM = 101:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:20 AM = 102:0"><span class="tooltiptext">10:20 AM = 102:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:25 AM = 103:0"><span class="tooltiptext">10:25 AM = 103:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:30 AM = 104:0"><span class="tooltiptext">10:30 AM = 104:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:35 AM = 105:0"><span class="tooltiptext">10:35 AM = 105:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:40 AM = 106:0"><span class="tooltiptext">10:40 AM = 106:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:45 AM = 107:0"><span class="tooltiptext">10:45 AM = 107:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:50 AM = 108:0"><span class="tooltiptext">10:50 AM = 108:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:55 AM = 109:0"><span class="tooltiptext">10:55 AM = 109:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          11:00 AM
+        </td>
+        <td class="discordian-std-divider tooltip" title="11:00 AM = 110:0"><span class="tooltiptext">11:00 AM = 110:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          110:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:05 AM = 111:0"><span class="tooltiptext">11:05 AM = 111:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:10 AM = 112:0"><span class="tooltiptext">11:10 AM = 112:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:15 AM = 113:0"><span class="tooltiptext">11:15 AM = 113:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:20 AM = 114:0"><span class="tooltiptext">11:20 AM = 114:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:25 AM = 115:0"><span class="tooltiptext">11:25 AM = 115:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:30 AM = 116:0"><span class="tooltiptext">11:30 AM = 116:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:35 AM = 117:0"><span class="tooltiptext">11:35 AM = 117:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:40 AM = 118:0"><span class="tooltiptext">11:40 AM = 118:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:45 AM = 119:0"><span class="tooltiptext">11:45 AM = 119:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:50 AM = 120:0"><span class="tooltiptext">11:50 AM = 120:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:55 AM = 121:0"><span class="tooltiptext">11:55 AM = 121:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          12:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="12:00 PM = 122:0"><span class="tooltiptext">12:00 PM = 122:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          122:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:05 PM = 123:0"><span class="tooltiptext">12:05 PM = 123:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:10 PM = 124:0"><span class="tooltiptext">12:10 PM = 124:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:15 PM = 125:0"><span class="tooltiptext">12:15 PM = 125:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:20 PM = 126:0"><span class="tooltiptext">12:20 PM = 126:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:25 PM = 127:0"><span class="tooltiptext">12:25 PM = 127:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:30 PM = 128:0"><span class="tooltiptext">12:30 PM = 128:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:35 PM = 129:0"><span class="tooltiptext">12:35 PM = 129:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:40 PM = 130:0"><span class="tooltiptext">12:40 PM = 130:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:45 PM = 131:0"><span class="tooltiptext">12:45 PM = 131:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:50 PM = 132:0"><span class="tooltiptext">12:50 PM = 132:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="12:55 PM = 133:0"><span class="tooltiptext">12:55 PM = 133:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          1:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="1:00 PM = 134:0"><span class="tooltiptext">1:00 PM = 134:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          134:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:05 PM = 135:0"><span class="tooltiptext">1:05 PM = 135:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:10 PM = 136:0"><span class="tooltiptext">1:10 PM = 136:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:15 PM = 137:0"><span class="tooltiptext">1:15 PM = 137:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:20 PM = 138:0"><span class="tooltiptext">1:20 PM = 138:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:25 PM = 139:0"><span class="tooltiptext">1:25 PM = 139:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:30 PM = 140:0"><span class="tooltiptext">1:30 PM = 140:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:35 PM = 141:0"><span class="tooltiptext">1:35 PM = 141:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:40 PM = 142:0"><span class="tooltiptext">1:40 PM = 142:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:45 PM = 143:0"><span class="tooltiptext">1:45 PM = 143:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:50 PM = 144:0"><span class="tooltiptext">1:50 PM = 144:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="1:55 PM = 145:0"><span class="tooltiptext">1:55 PM = 145:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          2:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="2:00 PM = 146:0"><span class="tooltiptext">2:00 PM = 146:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          146:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:05 PM = 147:0"><span class="tooltiptext">2:05 PM = 147:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:10 PM = 148:0"><span class="tooltiptext">2:10 PM = 148:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:15 PM = 149:0"><span class="tooltiptext">2:15 PM = 149:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:20 PM = 150:0"><span class="tooltiptext">2:20 PM = 150:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:25 PM = 151:0"><span class="tooltiptext">2:25 PM = 151:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:30 PM = 152:0"><span class="tooltiptext">2:30 PM = 152:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:35 PM = 153:0"><span class="tooltiptext">2:35 PM = 153:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:40 PM = 154:0"><span class="tooltiptext">2:40 PM = 154:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:45 PM = 155:0"><span class="tooltiptext">2:45 PM = 155:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:50 PM = 156:0"><span class="tooltiptext">2:50 PM = 156:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="2:55 PM = 157:0"><span class="tooltiptext">2:55 PM = 157:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          3:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="3:00 PM = 158:0"><span class="tooltiptext">3:00 PM = 158:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          158:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:05 PM = 159:0"><span class="tooltiptext">3:05 PM = 159:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:10 PM = 160:0"><span class="tooltiptext">3:10 PM = 160:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:15 PM = 161:0"><span class="tooltiptext">3:15 PM = 161:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:20 PM = 162:0"><span class="tooltiptext">3:20 PM = 162:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:25 PM = 163:0"><span class="tooltiptext">3:25 PM = 163:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:30 PM = 164:0"><span class="tooltiptext">3:30 PM = 164:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:35 PM = 165:0"><span class="tooltiptext">3:35 PM = 165:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:40 PM = 166:0"><span class="tooltiptext">3:40 PM = 166:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:45 PM = 167:0"><span class="tooltiptext">3:45 PM = 167:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:50 PM = 168:0"><span class="tooltiptext">3:50 PM = 168:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="3:55 PM = 169:0"><span class="tooltiptext">3:55 PM = 169:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          4:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="4:00 PM = 170:0"><span class="tooltiptext">4:00 PM = 170:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          170:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:05 PM = 171:0"><span class="tooltiptext">4:05 PM = 171:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:10 PM = 172:0"><span class="tooltiptext">4:10 PM = 172:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:15 PM = 173:0"><span class="tooltiptext">4:15 PM = 173:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:20 PM = 174:0"><span class="tooltiptext">4:20 PM = 174:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:25 PM = 175:0"><span class="tooltiptext">4:25 PM = 175:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:30 PM = 176:0"><span class="tooltiptext">4:30 PM = 176:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:35 PM = 177:0"><span class="tooltiptext">4:35 PM = 177:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:40 PM = 178:0"><span class="tooltiptext">4:40 PM = 178:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:45 PM = 179:0"><span class="tooltiptext">4:45 PM = 179:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:50 PM = 180:0"><span class="tooltiptext">4:50 PM = 180:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="4:55 PM = 181:0"><span class="tooltiptext">4:55 PM = 181:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          5:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="5:00 PM = 182:0"><span class="tooltiptext">5:00 PM = 182:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          182:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:05 PM = 183:0"><span class="tooltiptext">5:05 PM = 183:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:10 PM = 184:0"><span class="tooltiptext">5:10 PM = 184:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:15 PM = 185:0"><span class="tooltiptext">5:15 PM = 185:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:20 PM = 186:0"><span class="tooltiptext">5:20 PM = 186:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:25 PM = 187:0"><span class="tooltiptext">5:25 PM = 187:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:30 PM = 188:0"><span class="tooltiptext">5:30 PM = 188:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:35 PM = 189:0"><span class="tooltiptext">5:35 PM = 189:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:40 PM = 190:0"><span class="tooltiptext">5:40 PM = 190:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:45 PM = 191:0"><span class="tooltiptext">5:45 PM = 191:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:50 PM = 192:0"><span class="tooltiptext">5:50 PM = 192:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="5:55 PM = 193:0"><span class="tooltiptext">5:55 PM = 193:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          6:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="6:00 PM = 194:0"><span class="tooltiptext">6:00 PM = 194:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          194:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:05 PM = 195:0"><span class="tooltiptext">6:05 PM = 195:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:10 PM = 196:0"><span class="tooltiptext">6:10 PM = 196:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:15 PM = 197:0"><span class="tooltiptext">6:15 PM = 197:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:20 PM = 198:0"><span class="tooltiptext">6:20 PM = 198:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:25 PM = 199:0"><span class="tooltiptext">6:25 PM = 199:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:30 PM = 200:0"><span class="tooltiptext">6:30 PM = 200:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:35 PM = 201:0"><span class="tooltiptext">6:35 PM = 201:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:40 PM = 202:0"><span class="tooltiptext">6:40 PM = 202:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:45 PM = 203:0"><span class="tooltiptext">6:45 PM = 203:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:50 PM = 204:0"><span class="tooltiptext">6:50 PM = 204:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="6:55 PM = 205:0"><span class="tooltiptext">6:55 PM = 205:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          7:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="7:00 PM = 206:0"><span class="tooltiptext">7:00 PM = 206:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          206:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:05 PM = 207:0"><span class="tooltiptext">7:05 PM = 207:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:10 PM = 208:0"><span class="tooltiptext">7:10 PM = 208:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:15 PM = 209:0"><span class="tooltiptext">7:15 PM = 209:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:20 PM = 210:0"><span class="tooltiptext">7:20 PM = 210:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:25 PM = 211:0"><span class="tooltiptext">7:25 PM = 211:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:30 PM = 212:0"><span class="tooltiptext">7:30 PM = 212:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:35 PM = 213:0"><span class="tooltiptext">7:35 PM = 213:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:40 PM = 214:0"><span class="tooltiptext">7:40 PM = 214:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:45 PM = 215:0"><span class="tooltiptext">7:45 PM = 215:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:50 PM = 216:0"><span class="tooltiptext">7:50 PM = 216:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="7:55 PM = 217:0"><span class="tooltiptext">7:55 PM = 217:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          8:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="8:00 PM = 218:0"><span class="tooltiptext">8:00 PM = 218:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          218:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:05 PM = 219:0"><span class="tooltiptext">8:05 PM = 219:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:10 PM = 220:0"><span class="tooltiptext">8:10 PM = 220:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:15 PM = 221:0"><span class="tooltiptext">8:15 PM = 221:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:20 PM = 222:0"><span class="tooltiptext">8:20 PM = 222:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:25 PM = 223:0"><span class="tooltiptext">8:25 PM = 223:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:30 PM = 224:0"><span class="tooltiptext">8:30 PM = 224:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:35 PM = 225:0"><span class="tooltiptext">8:35 PM = 225:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:40 PM = 226:0"><span class="tooltiptext">8:40 PM = 226:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:45 PM = 227:0"><span class="tooltiptext">8:45 PM = 227:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:50 PM = 228:0"><span class="tooltiptext">8:50 PM = 228:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="8:55 PM = 229:0"><span class="tooltiptext">8:55 PM = 229:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          9:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="9:00 PM = 230:0"><span class="tooltiptext">9:00 PM = 230:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          230:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:05 PM = 231:0"><span class="tooltiptext">9:05 PM = 231:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:10 PM = 232:0"><span class="tooltiptext">9:10 PM = 232:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:15 PM = 233:0"><span class="tooltiptext">9:15 PM = 233:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:20 PM = 234:0"><span class="tooltiptext">9:20 PM = 234:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:25 PM = 235:0"><span class="tooltiptext">9:25 PM = 235:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:30 PM = 236:0"><span class="tooltiptext">9:30 PM = 236:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:35 PM = 237:0"><span class="tooltiptext">9:35 PM = 237:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:40 PM = 238:0"><span class="tooltiptext">9:40 PM = 238:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:45 PM = 239:0"><span class="tooltiptext">9:45 PM = 239:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:50 PM = 240:0"><span class="tooltiptext">9:50 PM = 240:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="9:55 PM = 241:0"><span class="tooltiptext">9:55 PM = 241:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          10:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="10:00 PM = 242:0"><span class="tooltiptext">10:00 PM = 242:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          242:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:05 PM = 243:0"><span class="tooltiptext">10:05 PM = 243:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:10 PM = 244:0"><span class="tooltiptext">10:10 PM = 244:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:15 PM = 245:0"><span class="tooltiptext">10:15 PM = 245:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:20 PM = 246:0"><span class="tooltiptext">10:20 PM = 246:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:25 PM = 247:0"><span class="tooltiptext">10:25 PM = 247:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:30 PM = 248:0"><span class="tooltiptext">10:30 PM = 248:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:35 PM = 249:0"><span class="tooltiptext">10:35 PM = 249:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:40 PM = 250:0"><span class="tooltiptext">10:40 PM = 250:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:45 PM = 251:0"><span class="tooltiptext">10:45 PM = 251:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:50 PM = 252:0"><span class="tooltiptext">10:50 PM = 252:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="10:55 PM = 253:0"><span class="tooltiptext">10:55 PM = 253:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour">
+        <td class="std-time" rowspan="12">
+          11:00 PM
+        </td>
+        <td class="discordian-std-divider tooltip" title="11:00 PM = 254:0"><span class="tooltiptext">11:00 PM = 254:0</span></td>
+        <td class="discordian-time" rowspan="12">
+          254:0
+        </td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:05 PM = 255:0"><span class="tooltiptext">11:05 PM = 255:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:10 PM = 256:0"><span class="tooltiptext">11:10 PM = 256:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:15 PM = 257:0"><span class="tooltiptext">11:15 PM = 257:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:20 PM = 258:0"><span class="tooltiptext">11:20 PM = 258:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:25 PM = 259:0"><span class="tooltiptext">11:25 PM = 259:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:30 PM = 260:0"><span class="tooltiptext">11:30 PM = 260:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:35 PM = 261:0"><span class="tooltiptext">11:35 PM = 261:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:40 PM = 262:0"><span class="tooltiptext">11:40 PM = 262:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:45 PM = 263:0"><span class="tooltiptext">11:45 PM = 263:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:50 PM = 264:0"><span class="tooltiptext">11:50 PM = 264:0</span></td>
+      </tr>
+      <tr class="minute">
+        <td class="discordian-std-divider tooltip" title="11:55 PM = 265:0"><span class="tooltiptext">11:55 PM = 265:0</span></td>
+      </tr>
+      <tr class="minute minute-on-the-hour minute-final">
+        <td class="std-time">11:59 PM</td>
+        <td class="discordian-std-divider tooltip" title="11:59 PM – 265:4"><span class="tooltiptext">11:59 PM – 265:4</span></td>
+        <td class="discordian-time">265:4</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
