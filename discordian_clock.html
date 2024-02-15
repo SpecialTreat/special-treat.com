@@ -1,28 +1,62 @@
 <style type="text/css">
 
+.discordian-clock {
+  font-size: 1em;
+}
+
+@media (max-width: 1000px) {
+  .discordian-clock {
+    font-size: 0.875em;
+  }
+}
+
+@media (max-width: 650px) {
+  .discordian-clock {
+    font-size: 0.625em;
+  }
+}
+
+@media (max-width: 450px) {
+  .discordian-clock {
+    font-size: 0.5em;
+  }
+}
+
+.discordian-clock table.discordian-to-std-scale {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.discordian-clock thead th {
+  width: 20em;
+}
+
 .discordian-clock h5 {
-  font-size: 2.25em
+  font-size: 2.25em;
 }
 
 .discordian-clock h6 {
-  font-size: 1.5em
+  font-size: 1.5em;
 }
 
 .discordian-clock h5,
 .discordian-clock h6 {
-  margin: 1em 0 0.5em 0
+  margin: 1em 0 0.5em 0;
+  color: #000;
+  font-weight: normal;
 }
 
 .discordian-clock p {
-  margin: 0 0 0.75em 0
+  margin: 0 0 0.75em 0;
 }
 
 .discordian-clock>.text-center {
-  margin: 2.25em 0 2.25em 0
+  margin: 2.25em 0 2.25em 0;
 }
 
 .discordian-clock .subtle {
-  color: #a0a0a0
+  color: #a0a0a0;
 }
 
 .discordian-clock ul {
@@ -96,7 +130,8 @@
 }
 
 .discordian-clock .discordian-std-divider {
-  width: 5em
+  width: 6em;
+  display: block;
 }
 
 .discordian-clock .discordian-std-divider:hover {
@@ -104,26 +139,26 @@
 }
 
 .discordian-clock .std-time-title {
-  text-align: left
+  text-align: right
 }
 
 .discordian-clock .discordian-time-title {
-  text-align: right
+  text-align: left
 }
 
 .discordian-clock .discordian-time,
 .discordian-clock .std-time {
-  min-width: 100px
+  width: 6em
 }
 
 .discordian-clock .discordian-time {
-  text-align: right;
-  padding: 0 1em 0 0
+  text-align: left;
+  padding: 0 0 0 1em
 }
 
 .discordian-clock .std-time {
-  text-align: left;
-  padding: 0 0 0 1em
+  text-align: right;
+  padding: 0 1em 0 0
 }
 
 .discordian-clock tr.thud-minute td.discordian-std-divider,
@@ -131,10 +166,22 @@
   height: 0.1875em
 }
 
+.discordian-clock tr.thud-minute td.discordian-std-divider.single-row,
+.discordian-clock tr.minute td.discordian-std-divider.single-row {
+  height: 1.5em
+}
+
 .discordian-clock tbody td {
   background-color: #606060;
   vertical-align: top
 }
+
+/*.discordian-clock tbody tr.thud-minute td:first-child,
+.discordian-clock tbody tr.thud-minute td:last-child,
+.discordian-clock tbody tr.minute-on-the-hour td:first-child,
+.discordian-clock tbody tr.minute-on-the-hour td:last-child {
+  background-color: transparent;
+}*/
 
 .discordian-clock tr.thud-minute td,
 .discordian-clock tr.minute-on-the-hour td,
@@ -147,7 +194,8 @@
 }
 
 .discordian-clock tr.minute-final td.discordian-std-divider:hover {
-  border-top: 2px solid white
+  border-top: 1px solid #fff;
+  background-color: #fff;
 }
 
 .tooltip {
@@ -204,12 +252,14 @@
         <th>
           <h5 class="std-time-title">Standard</h2>
         </th>
-        <td></td>
+        <td class="discordian-std-divider"></td>
         <th>
           <h5 class="discordian-time-title">Discordian</h2>
         </th>
       </tr>
     </thead>
+  </table>
+  <table class="discordian-to-std-scale">
     <tbody>
       <tr class="thud-minute">
         <td class="std-time" rowspan="23">
@@ -587,9 +637,13 @@
         <td class="discordian-std-divider thud tooltip" title="1:54 AM = 0:4:22 THUD"><span class="tooltiptext">1:54 AM = 0:4:22 THUD</span></td>
       </tr>
       <tr class="minute">
-        <td></td>
-        <td class="discordian-std-divider tooltip" title="1:55 AM = 1:0"><span class="tooltiptext">1:55 AM = 1:0</span></td>
-        <td></td>
+        <td class="std-time">
+          1:55 AM
+        </td>
+        <td class="discordian-std-divider single-row tooltip" title="1:55 AM = 1:0"><span class="tooltiptext">1:55 AM = 1:0</span></td>
+        <td class="discordian-time">
+          1:0
+        </td>
       </tr>
       <tr class="minute minute-on-the-hour">
         <td class="std-time" rowspan="12">
@@ -1517,7 +1571,7 @@
       </tr>
       <tr class="minute minute-on-the-hour minute-final">
         <td class="std-time">11:59 PM</td>
-        <td class="discordian-std-divider tooltip" title="11:59 PM – 265:4"><span class="tooltiptext">11:59 PM – 265:4</span></td>
+        <td class="discordian-std-divider tooltip single-row" title="11:59 PM = 265:4"><span class="tooltiptext">11:59 PM = 265:4</span></td>
         <td class="discordian-time">265:4</td>
       </tr>
     </tbody>

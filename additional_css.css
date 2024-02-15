@@ -18,3 +18,23 @@
 .wp-site-blocks > main.wp-block-group {
     min-height: calc(100vh - 20.5rem);
 }
+
+hr.section-separator {
+    display: block;
+    height: 1px;
+    padding: 0;
+    margin-bottom: -50px !important;
+    margin-top: 50px !important;
+    position: relative;
+    border: none;
+    background-color: #303030;
+    background-image: -webkit-linear-gradient(left, #1e1e1e, #888 50%, #1e1e1e);
+    background-image: -o-linear-gradient(left, #1e1e1e, #888 50%, #1e1e1e);
+    background-image: linear-gradient(to right, #1e1e1e, #888 50%, #1e1e1e);
+    background-repeat: no-repeat;
+}
+
+.z-index-1 {
+    z-index: 1;
+    position: relative;
+}

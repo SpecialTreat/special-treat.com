@@ -1,33 +1,39 @@
 <style type="text/css">
 
 .discordian-calendar {
-  font-size: 1.0em;
+  font-size: 1em;
+  padding: 0 0 2em 0;
 }
 
 @media (max-width: 1000px) {
   .discordian-calendar {
-    font-size: 0.75em;
+    font-size: 0.875em;
   }
 }
 
 @media (max-width: 650px) {
   .discordian-calendar {
-    font-size: 0.5em;
+    font-size: 0.625em;
   }
 }
 
 @media (max-width: 450px) {
   .discordian-calendar {
-    font-size: 0.375em;
+    font-size: 0.5em;
   }
 }
 
+.discordian-calendar table.gregorian-to-discordian-calendar {
+  margin: 0 auto;
+  border-spacing: 0;
+}
+
 .discordian-calendar h5 {
-  font-size: 2.25em
+  font-size: 2em
 }
 
 .discordian-calendar h6 {
-  font-size: 1.5em
+  font-size: 1.25em
 }
 
 .discordian-calendar h5,
@@ -114,13 +120,19 @@
 }
 
 .discordian-calendar th h5 {
-  font-size: 1.5em;
+  font-size: 1.125em;
   margin-bottom: 0.5em
 }
 
 .discordian-calendar th h6 {
-  font-size: 1.1em;
+  font-size: 0.875em;
   margin-bottom: 0.25em
+}
+
+.discordian-calendar h5,
+.discordian-calendar h6 {
+  color: #000;
+  font-weight: normal;
 }
 
 .discordian-calendar td.month-title,
@@ -140,32 +152,39 @@
 
 .discordian-calendar td.month-title h6,
 .discordian-calendar td.season-title h6 {
-  font-size: 1.1em;
-  margin: 0
+  font-size: 1em;
+  margin: 0;
+}
+
+.discordian-calendar td.day {
+  border-top: 0 solid;
+  border-left: 0 solid;
+  border-right: 0 solid;
+  border-bottom: 1px solid;
 }
 
 .discordian-calendar td.month-even.day-even,
 .discordian-calendar td.season-even.day-even {
-  background-color: #636363;
-  border-bottom: 1px solid #484848
+  background-color: #646464;
+  border-color: #484848;
 }
 
 .discordian-calendar td.month-even.day-odd,
 .discordian-calendar td.season-even.day-odd {
-  background-color: #606060;
-  border-bottom: 1px solid #484848
+  background-color: #5b5b5b;
+  border-color: #484848
 }
 
 .discordian-calendar td.month-odd.day-even,
 .discordian-calendar td.season-odd.day-even {
   background-color: #2b2b2b;
-  border-bottom: 1px solid #000
+  border-color: #000
 }
 
 .discordian-calendar td.month-odd.day-odd,
 .discordian-calendar td.season-odd.day-odd {
-  background-color: #282828;
-  border-bottom: 1px solid #000
+  background-color: #242424;
+  border-color: #000
 }
 
 .discordian-calendar td.day,
@@ -362,6 +381,34 @@
   visibility: visible;
   opacity: 1;
 }
+
+.bod-block-popup-wrap .bod-block-popup {
+  max-height: 90%;
+  max-width: 90%;
+}
+
+.wp-block-bod-modal-block .bod-btn,
+.bod-block-close-btn .bod-btn {
+  margin: 2em;
+}
+
+.bod-block-popup-wrap button.bod-block-title-closer,
+.bod-block-popup-wrap button.bod-block-title-closer:hover {
+  padding: 0 0 0 1em;
+}
+
+.wp-block-bod-modal-block .bod-btn,
+.bod-block-close-btn .bod-btn {
+  font-size: 1em;
+  border-width: 0;
+  border-radius: 0;
+  padding: calc(0.667em + 2px) calc(1.333em + 2px);
+}
+
+.wp-block-bod-modal-block .bod-btn:hover,
+.bod-block-close-btn .bod-btn:hover {
+  opacity: 0.9;
+}
 </style>
 <div class="discordian-calendar">
   <table class="gregorian-to-discordian-calendar" role="presentation">
@@ -369,11 +416,11 @@
       <tr>
         <td></td>
         <th colspan="5">
-          <h5>Gregorian Months</h5>
+          <h5>Gregorian<br>Months</h5>
         </th>
         <td class="month-season-divider">&nbsp;</td>
         <th colspan="5">
-          <h5>Discordian Seasons</h5>
+          <h5>Discordian<br>Seasons</h5>
         </th>
         <td></td>
       </tr>
