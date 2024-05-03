@@ -1,4 +1,4 @@
-exclude: [LICENSE, Resources, Gemfile, Gemfile.lock]
+exclude: [LICENSE, Resources, Gemfile, Gemfile.lock, README.md]
 sass:
 
     # loading path from site root (defaults to _sass)
