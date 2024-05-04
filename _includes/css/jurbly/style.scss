@@ -169,7 +169,7 @@ $cloud_count: 10;
     padding: 100px 0;
 
     background-color: $body-bg;
-    @include gradient-vertical($body-bg, $body-bg-bottom);
+    @include gradient-y($body-bg, $body-bg-bottom);
 
     h1 {
         font-family: 'Luckiest Guy', $font-family-sans-serif;

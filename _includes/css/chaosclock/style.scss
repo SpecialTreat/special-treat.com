@@ -28,7 +28,7 @@ $chaosclock-logo-width: 100px;
 
     hr {
         background-color: #303030;
-        @include gradient-horizontal-three-colors(#000, #303030, 50%, #000);
+        @include gradient-x-three-colors(#000, #303030, 50%, #000);
     }
 }
 
@@ -44,7 +44,7 @@ $chaosclock-logo-width: 100px;
         margin: 0 auto;
         padding: 0;
         background-color: #303030;
-        @include gradient-horizontal-three-colors(#000, #303030, 50%, #000);
+        @include gradient-x-three-colors(#000, #303030, 50%, #000);
         width: 66%;
         position: relative;
         border: none;
