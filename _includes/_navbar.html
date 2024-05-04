@@ -1,23 +1,21 @@
-<nav id="top-navbar" class="navbar navbar-default navbar-fixed-top">
+<nav id="top-navbar" class="navbar navbar-default navbar-expand-md fixed-top navbar-fixed-top">
   <div class="container">
-    <div class="navbar-header">
-      <button
-          id="top-navbar-toggle"
-          type="button"
-          class="navbar-toggle"
-          data-toggle="collapse"
-          data-target="#top-navbar-content"
-          aria-label="Expand Menu">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand smoothScroll" href="{{ include.navbar_brand_link }}" aria-label="Special Treat Homepage">
-        <div id="company-brand" class="background-image"></div>
-      </a>
-    </div>
-    <div class="collapse navbar-collapse" id="top-navbar-content">
-      <ul class="nav navbar-nav navbar-right">
+    <a class="navbar-brand smoothScroll" href="{{ include.navbar_brand_link }}" aria-label="Special Treat Homepage">
+      <div id="company-brand" class="background-image"></div>
+    </a>
+    <button
+        id="top-navbar-toggle"
+        type="button"
+        class="navbar-toggler"
+        data-bs-toggle="collapse"
+        data-bs-target="#top-navbar-content"
+        aria-controls="top-navbar-content"
+        aria-expanded="false"
+        aria-label="Collapse/Expand Menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="top-navbar-content">
+      <ul class="navbar-nav">
         {{ include.navbar_links }}
       </ul>
     </div>

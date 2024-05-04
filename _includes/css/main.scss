@@ -1,6 +1,5 @@
 
 @import "variables";
-@import "bootstrap";
 @import "mixins";
 
 
@@ -272,6 +271,16 @@ $company_brand_width: 174px;
             @include text-shadow(0 0 4px #fff);
         }
     }
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: $navbar-default-color;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    color: $navbar-default-color;
 }
 
 .navbar-default {
