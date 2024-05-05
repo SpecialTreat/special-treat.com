@@ -1,9 +1,10 @@
 
 $company_primary: #aa0000; // rgb(170, 0, 0)
 $company_primary_dark: #7a0000; // rgb(122, 0, 0)
+$company_primary_dark_transparent: rgba(122, 0, 0, 0) !default; // #7a000000
 $company_primary_light: #cc0000; // rgb(204, 0, 0)
 $company_primary_shadow: #400220;
-$company_primary_text: #f06060;
+$company_primary_text: #ff4040;
 $company_primary_transparent: rgba(170, 0, 0, 0);
 $company_primary_dark_transparent: rgba(122, 0, 0, 0);
 $company_primary_light_transparent: rgba(204, 0, 0, 0);
@@ -17,12 +18,12 @@ $github_purple: #400440; // rgb(64,4,64)
 $home_bg_color: #920000 !default; // rgb(146, 0, 0)
 $home_bg_color_transparent: rgba(146, 0, 0, 0) !default; // #92000000
 
-$navbar_opaque: $home_bg_color !default;
-$navbar_transparent: $home_bg_color_transparent !default;
+$navbar_opaque: $company_primary_dark !default;
+$navbar_transparent: $company_primary_dark_transparent !default;
 
-$box_shadow_color: rgba(0, 0, 0, 0.5) !default;
+$box_shadow_color: rgba(0, 0, 0, 0.75) !default;
 
-$images_path: "/assets/images";
+$images_path: "/static/images";
 
 
 //-------------------------------------------------------------
@@ -35,7 +36,7 @@ $brand-info:    #5bc0de !default;
 $brand-warning: #f0ad4e !default;
 $brand-danger:  #d9534f !default;
 
-$text-color:    #555 !default;
+$text-color:    #fff !default;
 $text-shadow-color: rgba(0, 0, 0, 0.5) !default;
 $subtle-color:  lighten($text-color, 20%) !default;
 
@@ -43,7 +44,7 @@ $link-color:            $company_primary !default;
 $link-hover-color:      lighten($link-color, 10%) !default;
 $link-hover-decoration: none !default;
 
-$body-bg: $home_bg_color !default;
+$body-bg: #303030 !default;
 
 
 //-------------------------------------------------------------

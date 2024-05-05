@@ -1,3 +1,4 @@
+theme: null
 exclude: [LICENSE, Resources, Gemfile, Gemfile.lock, README.md]
 sass:
 

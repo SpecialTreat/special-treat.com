@@ -10,7 +10,6 @@
 html,
 body {
     font-family: $font-family-sans-serif;
-    font-weight: 300;
 
     margin: 0;
     padding: 0;
@@ -20,8 +19,13 @@ body {
 
 body {
     position: relative;
-    color: #fff;
-    background-color: #303030;
+    color: $text-color;
+    background-color: $body-bg;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -64,6 +68,7 @@ a {
 // Background images
 //-------------------------------------------------------------
 
+.emoji,
 .background-image {
     background-color: transparent;
     background-position: 50% 50%;
@@ -108,46 +113,16 @@ a {
 // Sections
 //-------------------------------------------------------------
 
-.section {
-    padding: 60px 0;
-
-    h1, h2 {
-        margin: 0 0 50px;
-    }
-
-    hr {
-        display: block;
-        height: 1px;
-        margin: 50px auto;
-        padding: 0;
-        background-color: #aaa;
-        @include gradient-x-three-colors(#fff, #aaa, 50%, #fff);
-        width: 50%;
-        position: relative;
-        border: none;
-    }
-
-    p {
-        margin: 0 0 25px;
-    }
-}
-
-.section-odd {
-    background-color: #fff;
-
-    hr {
-        background-color: #aaa;
-        @include gradient-x-three-colors(#fff, #aaa, 50%, #fff);
-    }
-}
-
-.section-even {
-    background-color: #f5f5f5;
-
-    hr {
-        background-color: #a0a0a0;
-        @include gradient-x-three-colors(#f5f5f5, #a0a0a0, 50%, #f5f5f5);
-    }
+hr {
+    display: block;
+    height: 1px;
+    margin: 1.5625rem auto 3.125rem auto;
+    padding: 0;
+    background-color: $text-color;
+    @include gradient-x-three-colors($body-bg, $text-color, 50%, $body-bg);
+    width: 80%;
+    position: relative;
+    border: none;
 }
 
 $sizes: ('xs', 'sm', 'md', 'lg');
@@ -285,6 +260,8 @@ $company_brand_width: 174px;
 
 .navbar-default {
 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     border-width: 0 0 0 0;
     border: 0 solid transparent;
 
@@ -324,7 +301,7 @@ $company_brand_width: 174px;
 
     &.opaque {
         background-color: $navbar_opaque;
-        @include box-shadow(0 0 32px $box_shadow_color);
+        @include box-shadow(0 0 3rem $box_shadow_color);
 
         .navbar-brand {
             visibility: visible;
@@ -335,7 +312,7 @@ $company_brand_width: 174px;
     &.expanded {
         @media (max-width: $screen-sm-max) {
             background-color: $navbar_opaque;
-            @include box-shadow(0 0 32px $box_shadow_color);
+            @include box-shadow(0 0 3rem $box_shadow_color);
         }
 
         .navbar-brand {
@@ -353,13 +330,21 @@ $company_brand_width: 174px;
     @include transition(all 0.3s ease 0s);
 }
 
+.nav-link-selected {
+    text-decoration: underline;
+}
+
 
 //-------------------------------------------------------------
 // Home
 //-------------------------------------------------------------
 
 .brand-hero {
-    padding: 12rem 0;
+    padding-top: 12rem;
+
+    &.brand-gradient-radial {
+        padding-bottom: 12rem;
+    }
 
     .company-title {
         max-width: 100%;
@@ -374,68 +359,101 @@ $company_brand_width: 174px;
 }
 
 .section-padding {
-    padding: 8rem 0;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.section-padding-top {
+    padding-top: 8rem;
+}
+
+.section-padding-bottom {
+    padding-bottom: 8rem;
 }
 
 .cupcake-naughty {
     max-width: 100%;
-    height: 256px;
-    width: 256px;
+    height: 16rem;
+    width: 16rem;
     background-position: 50% 25%;
 }
 
 .cupcake-nice {
     max-width: 100%;
-    height: 256px;
-    width: 256px;
+    height: 16rem;
+    width: 16rem;
     background-position: 50% 75%;
 }
 
-//-------------------------------------------------------------
-// 404 Not Found
-//-------------------------------------------------------------
-
-#not-found {
-    min-height: 100%;
-
-    .container {
-        a, a.focus, a.hover {
-            margin: 0;
-            text-decoration: underline;
-        }
-
-        h1 {
-            width: 100%;
-
-            a, a.focus, a.hover {
-                margin: 50px 0;
-                text-decoration: none;
-            }
-        }
-    }
-}
-
-
-#not-found-title {
+.profile {
     max-width: 100%;
-    height: 480px;
-    width: 600px;
-}
+    width: 16rem;
 
+    .avatar {
+        max-width: 100%;
+        height: 16rem;
+        width: 16rem;
+        background-position: 50% 50%;
+    }
 
-//-------------------------------------------------------------
-// About
-//-------------------------------------------------------------
-
-#about {
-
-    .logo {
-        height: 100px;
-        width: 100px;
-        margin: 25px 0;
+    h2 {
+        margin: 1em 0;
     }
 }
 
+.emoji {
+    height: 1em;
+    width: 1em;
+}
+
+.icon-socialmedia {
+    height: 2em;
+    width: 2em;
+}
+
+.icon-socialmedia-circle {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.nav-item-socialmedia {
+    padding-left: var(--bs-nav-link-padding-x);
+    padding-right: var(--bs-nav-link-padding-x);
+    padding-top: var(--bs-nav-link-padding-y);
+    padding-bottom: var(--bs-nav-link-padding-y);
+
+    @media (min-width: 768px) {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.75);
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.75)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.not-found-title {
+    height: 30rem;
+    width: 37.5rem;
+}
+
+.jurbly-title {
+    height: 10.25rem;
+    width: 37.5rem;
+}
+
+.chaosclock-title {
+    height: 5rem;
+    width: 37.5rem;
+}
 
 //-------------------------------------------------------------
 // Showcase
@@ -464,10 +482,6 @@ $company_brand_width: 174px;
         }
     }
 
-    .description {
-
-    }
-
     #jurbly-screenshot, #chaosclock-screenshot, #parsnip-screenshot {
         height: auto;
         width: 320px;
@@ -488,51 +502,6 @@ $company_brand_width: 174px;
     }
 }
 
-
-//-------------------------------------------------------------
-// Privacy
-//-------------------------------------------------------------
-
-#privacy {
-    padding: 120px 0;
-}
-
-
-//-------------------------------------------------------------
-// Contact
-//-------------------------------------------------------------
-
-#contact {
-    padding: 120px 0;
-
-    a {
-        display: inline-block;
-    }
-}
-
-.contact-logo {
-    height: 40px;
-    width: 40px;
-}
-
-
-//-------------------------------------------------------------
-// Footer
-//-------------------------------------------------------------
-
-#footer {
-    color: #c0c0c0;
-
-    padding: 20px 0;
-
-    font-size: 0.85em;
-
-    @media (min-width: $screen-xs-min) {
-        font-size: 1em;
-    }
-}
-
-
 //-------------------------------------------------------------
 // Retina images
 //-------------------------------------------------------------
@@ -544,6 +513,18 @@ $company_brand_width: 174px;
 .company-title{background-image:url(#{$images_path}/company_title.png)}
 .cupcake-naughty{background-image:url(#{$images_path}/cupcake_naughty.png)}
 .cupcake-nice{background-image:url(#{$images_path}/cupcake_nice.png)}
+.avatar-rob{background-image:url(#{$images_path}/avatar_rob.png)}
+.emoji-heart{background-image:url(#{$images_path}/emoji_heart.png)}
+.jurbly-title{background-image:url(#{$images_path}/jurbly_title.png)}
+.chaosclock-title{background-image:url(#{$images_path}/chaosclock_title.png)}
+.icon-email{background-image:url(#{$images_path}/icon_email.png)}
+.icon-github{background-image:url(#{$images_path}/icon_github.png)}
+.icon-twitter{background-image:url(#{$images_path}/icon_twitter.png)}
+.icon-youtube{background-image:url(#{$images_path}/icon_youtube.png)}
+.icon-email-circle{background-image:url(#{$images_path}/icon_email_circle.png)}
+.icon-github-circle{background-image:url(#{$images_path}/icon_github_circle.png)}
+.icon-twitter-circle{background-image:url(#{$images_path}/icon_twitter_circle.png)}
+.icon-youtube-circle{background-image:url(#{$images_path}/icon_youtube_circle.png)}
 #jurbly-logo{background-image:url(#{$images_path}/jurbly_icon.png)}
 #jurbly-screenshot{background-image:url(#{$images_path}/jurbly_screenshot.jpg)}
 #chaosclock-logo{background-image:url(#{$images_path}/chaosclock_icon.png)}
@@ -552,10 +533,7 @@ $company_brand_width: 174px;
 #parsnip-screenshot{background-image:url(#{$images_path}/parsnip_screenshot.jpg)}
 #freelance-logo{background-image:url(#{$images_path}/freelance_logo.png)}
 #handcrafted-logo{background-image:url(#{$images_path}/handcrafted_logo.png)}
-#email-logo{background-image:url(#{$images_path}/email_logo.png)}
-#github-logo{background-image:url(#{$images_path}/github_logo.png)}
-#twitter-logo{background-image:url(#{$images_path}/twitter_logo.png)}
-#not-found-title{background-image:url(#{$images_path}/not_found_title.png)}
+.not-found-title{background-image:url(#{$images_path}/not_found_title.png)}
 
 @media
 only screen and (-webkit-min-device-pixel-ratio:2),
@@ -572,6 +550,18 @@ only screen and (min-resolution:2dppx) {
     .company-title{background-image:url(#{$images_path}/company_title@2x.png)}
     .cupcake-naughty{background-image:url(#{$images_path}/cupcake_naughty@2x.png)}
     .cupcake-nice{background-image:url(#{$images_path}/cupcake_nice@2x.png)}
+    .avatar-rob{background-image:url(#{$images_path}/avatar_rob@2x.png)}
+    .emoji-heart{background-image:url(#{$images_path}/emoji_heart@2x.png)}
+    .jurbly-title{background-image:url(#{$images_path}/jurbly_title@2x.png)}
+    .chaosclock-title{background-image:url(#{$images_path}/chaosclock_title@2x.png)}
+    .icon-email{background-image:url(#{$images_path}/icon_email@2x.png)}
+    .icon-github{background-image:url(#{$images_path}/icon_github@2x.png)}
+    .icon-twitter{background-image:url(#{$images_path}/icon_twitter@2x.png)}
+    .icon-youtube{background-image:url(#{$images_path}/icon_youtube@2x.png)}
+    .icon-email-circle{background-image:url(#{$images_path}/icon_email_circle@2x.png)}
+    .icon-github-circle{background-image:url(#{$images_path}/icon_github_circle@2x.png)}
+    .icon-twitter-circle{background-image:url(#{$images_path}/icon_twitter_circle@2x.png)}
+    .icon-youtube-circle{background-image:url(#{$images_path}/icon_youtube_circle@2x.png)}
     #jurbly-logo{background-image:url(#{$images_path}/jurbly_icon@2x.png)}
     #jurbly-screenshot{background-image:url(#{$images_path}/jurbly_screenshot@2x.jpg)}
     #chaosclock-logo{background-image:url(#{$images_path}/chaosclock_icon@2x.png)}
@@ -583,5 +573,4 @@ only screen and (min-resolution:2dppx) {
     #email-logo{background-image:url(#{$images_path}/email_logo@2x.png)}
     #github-logo{background-image:url(#{$images_path}/github_logo@2x.png)}
     #twitter-logo{background-image:url(#{$images_path}/twitter_logo@2x.png)}
-    #not-found-title{background-image:url(#{$images_path}/not_found_title@2x.png)}
 }

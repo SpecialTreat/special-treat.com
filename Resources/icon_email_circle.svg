@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="40"
+   height="40"
+   fill="currentColor"
+   class="bi bi-envelope-fill"
+   viewBox="0 0 40 40"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="icon_email_circle.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#808080"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="14.75"
+     inkscape:cx="20.067797"
+     inkscape:cy="17.186441"
+     inkscape:window-width="1792"
+     inkscape:window-height="1067"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <path
+     id="path2"
+     style="fill:#ffffff;stroke-width:0.148;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     d="M 20,0 A 20,20 0 0 0 0,20 20,20 0 0 0 20,40 20,20 0 0 0 40,20 20,20 0 0 0 20,0 Z M 9.8214285,10 H 30.178571 a 3.3928571,3.3333331 0 0 1 3.307757,2.592076 L 20,20.690569 6.5136718,12.592076 A 3.3928571,3.3333331 0 0 1 9.8214285,10 Z m -3.3928571,4.494978 9.8437496,5.909598 -9.8437496,5.930525 z m 27.1428566,0 v 11.840123 l -9.84375,-5.92913 z m -11.471819,6.88616 11.146764,6.711775 A 3.3928571,3.3333331 0 0 1 30.178571,30 H 9.8214285 A 3.3928571,3.3333331 0 0 1 6.7522321,28.094308 L 17.897601,21.383928 20,22.643694 Z" />
+</svg>
