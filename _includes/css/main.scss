@@ -47,6 +47,10 @@ a {
     }
 }
 
+a.btn-danger {
+    background-color: $company_primary_text;
+}
+
 .subtle {
     color: $subtle-color;
 }
@@ -441,18 +445,25 @@ $company_brand_width: 174px;
 }
 
 .not-found-title {
+    max-width: 100%;
     height: 30rem;
     width: 37.5rem;
 }
 
 .jurbly-title {
+    max-width: 100%;
     height: 10.25rem;
     width: 37.5rem;
 }
 
 .chaosclock-title {
+    max-width: 100%;
     height: 5rem;
     width: 37.5rem;
+}
+
+.youtube-embed {
+    max-width: 100%;
 }
 
 //-------------------------------------------------------------
