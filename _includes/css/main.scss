@@ -47,8 +47,9 @@ a {
     }
 }
 
-a.btn-danger {
+.btn-danger {
     background-color: $company_primary_text;
+    border-color: $company_primary_text;
 }
 
 .subtle {
