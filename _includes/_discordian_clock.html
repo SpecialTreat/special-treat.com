@@ -4,20 +4,16 @@
 
 <p>
 The Discordian clock is an alternative time system derived from the
-<a href="http://www.tranglos.com/fnord/klock.html">Erisian Klock specification</a>.
+<a href="https://web.archive.org/web/20170301005021/http://www.tranglos.com/fnord/klock.html">Erisian Klock specification</a>.
 </p>
 <p>
 You are not supposed to understand this.
 </p>
 
 <div class="text-center">
-<button
-    type="button"
-    class="btn btn-danger btn-lg"
-    data-toggle="modal"
-    data-target="#discordian-to-std-scale-modal">
-<span class="glyphicon glyphicon-time"></span> View Standard to Discordian Time
-</button>
+    <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#discordian-to-std-scale-modal">
+      View Standard to Discordian Time &#187;
+    </button>
 </div>
 
 <h2>Hour of THUD</h2>
@@ -78,20 +74,14 @@ time zone.</p>
 </tbody>
 </table>
 
-<div
-    id="discordian-to-std-scale-modal"
-    class="modal fade"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="discordian-to-std-scale-title">
-
-  <div class="modal-dialog modal-lg">
+<div id="discordian-to-std-scale-modal" class="modal modal-lg" tabindex="-1" role="dialog" aria-labelledby="discordian-to-std-scale-title">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 id="discordian-to-std-scale-title" class="modal-title">
-            <span class="glyphicon glyphicon-time time-icon"></span> Standard to Discordian Time
+            Standard to Discordian Time
         </h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
@@ -118,7 +108,7 @@ time zone.</p>
         <td class="std-time" rowspan="23">
             {% if stdHour == 0 %}12{% else %}{{ stdHour }}{% endif %}:{% if stdMinute < 10 %}0{% endif %}{{ stdMinute }} {{ ampm }}
         </td>
-        <td class="discordian-std-divider" data-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }} THUD"></td>
+        <td class="discordian-std-divider" data-bs-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }} THUD"></td>
         <td class="discordian-time" rowspan="23">
             {{ dHour }}:{{ thudMinute }} THUD
         </td>
@@ -131,7 +121,7 @@ time zone.</p>
         {% assign strStdTime = strStdHour | append:":" | append:strStdMinute | append:" " | append:ampm %}
         {% assign strDTime = dHour | append:":" | append:thudMinute | append:":" | append:strMinute %}
         <tr class="minute">
-            <td class="discordian-std-divider" data-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }} THUD"></td>
+            <td class="discordian-std-divider" data-bs-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }} THUD"></td>
         </tr>
         {% assign stdMinute = stdMinute | plus:1 %}
         {% if stdMinute >= 60 %}
@@ -159,7 +149,7 @@ time zone.</p>
                 <td class="std-time" {% if stdMinute == 0 %}rowspan="12"{% endif %}>
                     {{ strStdTime }}
                 </td>
-                <td class="discordian-std-divider" data-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }}"></td>
+                <td class="discordian-std-divider" data-bs-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }}"></td>
                 <td class="discordian-time" {% if stdMinute == 0 %}rowspan="12"{% endif %}>
                     {{ strDTime }}
                 </td>
@@ -167,7 +157,7 @@ time zone.</p>
         {% else %}
             <tr class="minute">
                 {% if lastHour != stdHour %}<td></td>{% endif %}
-                <td class="discordian-std-divider" data-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }}"></td>
+                <td class="discordian-std-divider" data-bs-toggle="tooltip" title="{{ strStdTime }} = {{ strDTime }}"></td>
                 {% if lastHour != stdHour %}<td></td>{% endif %}
             </tr>
         {% endif %}
@@ -176,7 +166,7 @@ time zone.</p>
 {% endfor %}
         <tr class="minute minute-on-the-hour minute-final">
             <td class="std-time">11:59 PM</td>
-            <td class="discordian-std-divider" data-toggle="tooltip" title="11:59 PM – 265:4"></td>
+            <td class="discordian-std-divider" data-bs-toggle="tooltip" title="11:59 PM – 265:4"></td>
             <td class="discordian-time">265:4</td>
         </tr>
 </tbody>
@@ -184,7 +174,7 @@ time zone.</p>
 
       </div><!-- /.modal-body -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -194,7 +184,7 @@ time zone.</p>
 <ol class="references">
     <li>
         The original Discordian time specification can be found at
-        <a href="http://www.tranglos.com/fnord/klock.html">Tranglos</a>
+        <a href="https://web.archive.org/web/20170301005021/http://www.tranglos.com/fnord/klock.html">Tranglos</a>
     </li>
 </ol>
 

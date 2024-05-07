@@ -44,7 +44,7 @@
   </div>
 </div>
 
-<div class="calendar max-width-lg container section-padding-bottom">
+<div class="chaosclock-spec max-width-lg container section-padding-bottom">
   <div class="chaosclock-features-section">
     <div class="container">
       <div class="row gy-5">
@@ -62,9 +62,9 @@
 
   <div class="section-separator"><hr><div class="chaosclock-logo background-image"></div></div>
 
-  <div id="calendar" name="calendar" class="section">
+  <div class="calendar section">
     <div class="container">
-{% include discordian_calendar.html %}
+{% include _discordian_calendar.html %}
     </div>
   </div>
 
@@ -72,12 +72,17 @@
   <div class="section-separator"><hr><div class="chaosclock-logo background-image"></div></div>
 
 
-  <div id="clock" name="clock" class="section">
+  <div class="clock section">
     <div class="container">
-{% include discordian_clock.html %}
+{% include _discordian_clock.html %}
     </div>
   </div>
 
 </div>
 {% endcapture %}
-{% include _template.html content=content %}
+
+{% capture postContent %}
+<script src="/static/js/discordian.js"></script>
+{% endcapture %}
+
+{% include _template.html content=content postContent=postContent %}

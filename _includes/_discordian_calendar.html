@@ -14,13 +14,9 @@ in the Gregorian calendar – thus 2016 would be 3182 YOLD.
 </p>
 
 <div class="text-center">
-<button
-    type="button"
-    class="btn btn-danger btn-lg"
-    data-toggle="modal"
-    data-target="#gregorian-to-discordian-calendar-modal">
-<span class="glyphicon glyphicon-calendar calendar-icon"></span> View Gregorian to Discordian Calendar
-</button>
+    <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#gregorian-to-discordian-calendar-modal">
+      View Gregorian to Discordian Calendar &#187;
+    </button>
 </div>
 
 <h2>Seasons</h2>
@@ -79,20 +75,14 @@ in the Gregorian calendar – thus 2016 would be 3182 YOLD.
     and is inserted between the 59th and 60th days of the Season of Chaos</p>
 </div>
 
-<div
-    id="gregorian-to-discordian-calendar-modal"
-    class="modal fade"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="gregorian-to-discordian-calendar-title">
-
-  <div class="modal-dialog modal-lg">
+<div id="gregorian-to-discordian-calendar-modal" class="modal modal-lg" tabindex="-1" role="dialog" aria-labelledby="gregorian-to-discordian-calendar-title">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 id="gregorian-to-discordian-calendar-title" class="modal-title">
-            <span class="glyphicon glyphicon-calendar calendar-icon"></span> Gregorian to Discordian Calendar
+            Gregorian to Discordian Calendar
         </h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
@@ -109,11 +99,11 @@ in the Gregorian calendar – thus 2016 would be 3182 YOLD.
         <td></td>
         <td colspan="5"></td>
         <td class="month-season-divider">&nbsp;</td>
-        <th><h3 data-toggle="tooltip" title="Sweetmorn">SM</h3></th>
-        <th><h3 data-toggle="tooltip" title="Boomtime">BT</h3></th>
-        <th><h3 data-toggle="tooltip" title="Pungenday">PD</h3></th>
-        <th><h3 data-toggle="tooltip" title="Prickle-Prickle">PP</h3></th>
-        <th><h3 data-toggle="tooltip" title="Setting Orange">SO</h3></th>
+        <th><h3 data-bs-toggle="tooltip" title="Sweetmorn">SM</h3></th>
+        <th><h3 data-bs-toggle="tooltip" title="Boomtime">BT</h3></th>
+        <th><h3 data-bs-toggle="tooltip" title="Pungenday">PD</h3></th>
+        <th><h3 data-bs-toggle="tooltip" title="Prickle-Prickle">PP</h3></th>
+        <th><h3 data-bs-toggle="tooltip" title="Setting Orange">SO</h3></th>
         <td></td>
     </tr>
 </thead>
@@ -161,7 +151,7 @@ in the Gregorian calendar – thus 2016 would be 3182 YOLD.
             day-{{ stripe[evenOdd] }}
             day-{{ dayOfYear }}"
             data-day="{{ dayOfYear }}"
-            data-toggle="tooltip"
+            data-bs-toggle="tooltip"
             title="{{ months[monthIndex] }} {{ dayOfMonth }}">
 
             <span class="day-number">{{ dayOfMonth }}</span>
@@ -213,7 +203,7 @@ in the Gregorian calendar – thus 2016 would be 3182 YOLD.
             day-{{ stripe[evenOdd] }}
             day-{{ dayOfYear }}"
             data-day="{{ dayOfYear }}"
-            data-toggle="tooltip"
+            data-bs-toggle="tooltip"
             title="{{ seasons[seasonIndex] }} {{ dayOfSeason }}">
 
             <span class="day-number">{{ dayOfSeason }}</span>
@@ -246,7 +236,7 @@ in the Gregorian calendar – thus 2016 would be 3182 YOLD.
 
       </div><!-- /.modal-body -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
