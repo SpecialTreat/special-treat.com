@@ -123,7 +123,7 @@ hr {
     margin: 1.5625rem auto 3.125rem auto;
     padding: 0;
     background-color: $text-color;
-    @include gradient-x-three-colors($body-bg, $text-color, 50%, $body-bg);
+    @include gradient-x-three-colors($body-bg, $text-color, $body-bg);
     width: 80%;
     position: relative;
     border: none;
@@ -297,7 +297,7 @@ $company_brand_width: 174px;
         @include opacity(0);
         @include transition(all 0.3s ease 0s);
 
-        #company-brand {
+        .company-brand {
             width: $company_brand_width;
             height: $company_brand_height;
         }
@@ -305,6 +305,7 @@ $company_brand_width: 174px;
 
     &.opaque {
         background-color: $navbar_opaque;
+        @include gradient-radial($company_primary, $navbar_opaque);
         @include box-shadow(0 0 3rem $box_shadow_color);
 
         .navbar-brand {
@@ -316,6 +317,7 @@ $company_brand_width: 174px;
     &.expanded {
         @media (max-width: $screen-sm-max) {
             background-color: $navbar_opaque;
+            @include gradient-radial($company_primary, $navbar_opaque);
             @include box-shadow(0 0 3rem $box_shadow_color);
         }
 
@@ -359,7 +361,11 @@ $company_brand_width: 174px;
 }
 
 .brand-gradient-radial {
-    @include gradient-radial-three-colors($company_primary, $company_primary_dark, $company_primary_shadow);
+    @include gradient-ellipse-three-colors($company_primary, $company_primary_dark, $company_primary_shadow);
+}
+
+.brand-gradient-x {
+    @include gradient-x-three-colors($company_primary, $company_primary_dark, $company_primary_shadow);
 }
 
 .section-padding {
@@ -440,10 +446,6 @@ $company_brand_width: 174px;
     }
 }
 
-.footer {
-    margin-top: auto;
-}
-
 .not-found-title {
     max-width: 100%;
     height: 30rem;
@@ -466,85 +468,198 @@ $company_brand_width: 174px;
     max-width: 100%;
 }
 
+ul.stars {
+    display: inline-block;
+    list-style: none;
+
+    li {
+        text-align: left;
+    }
+
+    li:before {
+        content: '\2605';
+        margin-right: 0.5em;
+    }
+}
+
+$jurbly-bg:        #51aae8;
+$jurbly-bg-bottom: #7ec0ee;
+.jurbly-home {
+    background-color: $jurbly-bg;
+    @include gradient-y($jurbly-bg, $jurbly-bg-bottom);
+
+    color: #fff;
+    @include text-shadow(1px 1px 0 #345976);
+
+    padding-top: 12rem;
+
+    .jurbly-title {
+        z-index: 100;
+        margin-bottom: 2rem;
+    }
+}
+
+.jurblies {
+    margin: 1rem -15%;
+}
+
+.chaosclock-home {
+    padding-top: 12rem;
+
+    .chaosclock-title {
+        z-index: 100;
+        margin-bottom: 2rem;
+    }
+}
+
+.chaosclock-watch {
+    max-width: 100%;
+    width: 17.25rem;
+    height: 29.6875rem;
+}
+
+.chaosclock-widget {
+    max-width: 100%;
+    width: 18.75rem;
+    height: 8.5rem;
+}
+
 //-------------------------------------------------------------
-// Showcase
+// Clouds
 //-------------------------------------------------------------
 
-.showcase {
+.clouds {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-    .logo {
-        height: 80px;
-        width: 80px;
-        margin: 25px 0 10px;
+    overflow: hidden;
+}
+
+.cloud {
+    background: #fff;
+
+    width: 25%;
+
+    max-width: 400px;
+    max-height: 120px;
+
+    position: absolute;
+
+    @include border-radius(400px);
+
+    .spacer {
+        padding-top: 30%;
     }
+}
 
-    a {
-        display: inline-block;
+.cloud:before, .cloud:after {
+    background: #fff;
+    content: '';
+    position: absolute;
 
-        h2 {
-            color: $text-color;
-            font-size: 40px;
-        }
+    @include border-radius(200px);
+}
 
-        &:hover, &:focus {
-            h2 {
-                color: $link-color;
-            }
-        }
+.cloud:before {
+    width: 50%;
+    padding-top: 40%;
+
+    max-width: 200px;
+    max-height: 160px;
+
+    top: -25%;
+    left: 5%;
+
+    @include transform(rotate(30deg));
+}
+
+.cloud:after {
+    width: 60%;
+    padding-top: 60%;
+
+    max-width: 240px;
+    max-height: 240px;
+
+    top: -92%;
+    left: auto;
+    right: 7.5%;
+}
+
+
+$cloud_count: 10;
+@for $i from 1 through $cloud_count {
+    $variance: random(70);
+    $left: random(45);
+    @if $i % 2 == 0 {
+        $left: $left + 45;
+        $variance: $variance + 30;
     }
+    $top: (80.0 / $cloud_count) * $i;
+    $percent: ($left * 0.8) + 20.0;
+    $time: 30 - ($variance / 6.667);
+    $delay: (1.0 - ($percent / 100.0)) * $time;
 
-    #jurbly-screenshot, #chaosclock-screenshot, #parsnip-screenshot {
-        height: auto;
-        width: 320px;
-        max-width: 100%;
-
-        > .spacer {
-            padding-top: 177.5%;
-        }
-
-        @media (min-width: $screen-xs-min) {
-            width: 320px;
-            height: 568px;
-        }
-
-        margin: 0 0 50px;
-
-        @include box-shadow(0 4px 16px $box_shadow_color);
+    .cloud-#{$i} {
+        top: $top * 1%;
+        left: $left * 1%;
+        opacity: 0.3 + ($variance / 250.0);
+        @include transform(scale(0.3 + ($variance / 160.0)));
+        @include animation(moveclouds #{$time}s linear -#{$delay}s infinite);
     }
+}
+
+
+@-webkit-keyframes moveclouds {
+    0% { left: 100% }
+    100% { left: -25%; }
+}
+@-moz-keyframes moveclouds {
+    0% { left: 100% }
+    100% { left: -25%; }
+}
+@-o-keyframes moveclouds {
+    0% { left: 100% }
+    100% { left: -25%; }
+}
+@keyframes moveclouds {
+    0% { left: 100% }
+    100% { left: -25%; }
 }
 
 //-------------------------------------------------------------
 // Retina images
 //-------------------------------------------------------------
 
-.iphone{background-image:url(#{$images_path}/iphone.png)}
+.not-found-title{background-image:url(#{$images_path}/not_found_title.png)}
+
 .appstore-badge{background-image:url(#{$images_path}/appstore_badge.png)}
-.github-badge{background-image:url(#{$images_path}/github_badge.png)}
-#company-brand{background-image:url(#{$images_path}/company_brand_shadow.png)}
+.avatar-rob{background-image:url(#{$images_path}/avatar_rob.png)}
+.chaosclock-title{background-image:url(#{$images_path}/chaosclock_title.png)}
+.chaosclock-watch{background-image:url(#{$images_path}/chaosclock_watch.png)}
+.chaosclock-widget{background-image:url(#{$images_path}/chaosclock_widget.png)}
+.company-brand{background-image:url(#{$images_path}/company_brand_shadow.png)}
 .company-title{background-image:url(#{$images_path}/company_title.png)}
 .cupcake-naughty{background-image:url(#{$images_path}/cupcake_naughty.png)}
 .cupcake-nice{background-image:url(#{$images_path}/cupcake_nice.png)}
-.avatar-rob{background-image:url(#{$images_path}/avatar_rob.png)}
 .emoji-heart{background-image:url(#{$images_path}/emoji_heart.png)}
-.jurbly-title{background-image:url(#{$images_path}/jurbly_title.png)}
-.chaosclock-title{background-image:url(#{$images_path}/chaosclock_title.png)}
-.icon-email{background-image:url(#{$images_path}/icon_email.png)}
-.icon-github{background-image:url(#{$images_path}/icon_github.png)}
-.icon-twitter{background-image:url(#{$images_path}/icon_twitter.png)}
-.icon-youtube{background-image:url(#{$images_path}/icon_youtube.png)}
+.github-badge{background-image:url(#{$images_path}/github_badge.png)}
 .icon-email-circle{background-image:url(#{$images_path}/icon_email_circle.png)}
+.icon-email{background-image:url(#{$images_path}/icon_email.png)}
 .icon-github-circle{background-image:url(#{$images_path}/icon_github_circle.png)}
+.icon-github{background-image:url(#{$images_path}/icon_github.png)}
 .icon-twitter-circle{background-image:url(#{$images_path}/icon_twitter_circle.png)}
+.icon-twitter{background-image:url(#{$images_path}/icon_twitter.png)}
 .icon-youtube-circle{background-image:url(#{$images_path}/icon_youtube_circle.png)}
+.icon-youtube{background-image:url(#{$images_path}/icon_youtube.png)}
+.iphone{background-image:url(#{$images_path}/iphone.png)}
+.jurbly-title{background-image:url(#{$images_path}/jurbly_title.png)}
 #jurbly-logo{background-image:url(#{$images_path}/jurbly_icon.png)}
 #jurbly-screenshot{background-image:url(#{$images_path}/jurbly_screenshot.jpg)}
 #chaosclock-logo{background-image:url(#{$images_path}/chaosclock_icon.png)}
 #chaosclock-screenshot{background-image:url(#{$images_path}/chaosclock_screenshot.jpg)}
-#parsnip-logo{background-image:url(#{$images_path}/parsnip_icon.png)}
-#parsnip-screenshot{background-image:url(#{$images_path}/parsnip_screenshot.jpg)}
-#freelance-logo{background-image:url(#{$images_path}/freelance_logo.png)}
-#handcrafted-logo{background-image:url(#{$images_path}/handcrafted_logo.png)}
-.not-found-title{background-image:url(#{$images_path}/not_found_title.png)}
 
 @media
 only screen and (-webkit-min-device-pixel-ratio:2),
@@ -554,34 +669,29 @@ only screen and (-o-min-device-pixel-ratio:2/1),
 only screen and (min-device-pixel-ratio:2),
 only screen and (min-resolution:192dpi),
 only screen and (min-resolution:2dppx) {
-    .iphone{background-image:url(#{$images_path}/iphone@2x.png)}
     .appstore-badge{background-image:url(#{$images_path}/appstore_badge@2x.png)}
-    .github-badge{background-image:url(#{$images_path}/github_badge@2x.png)}
-    #company-brand{background-image:url(#{$images_path}/company_brand_shadow@2x.png)}
+    .avatar-rob{background-image:url(#{$images_path}/avatar_rob@2x.png)}
+    .chaosclock-title{background-image:url(#{$images_path}/chaosclock_title@2x.png)}
+    .chaosclock-watch{background-image:url(#{$images_path}/chaosclock_watch@2x.png)}
+    .chaosclock-widget{background-image:url(#{$images_path}/chaosclock_widget@2x.png)}
+    .company-brand{background-image:url(#{$images_path}/company_brand_shadow@2x.png)}
     .company-title{background-image:url(#{$images_path}/company_title@2x.png)}
     .cupcake-naughty{background-image:url(#{$images_path}/cupcake_naughty@2x.png)}
     .cupcake-nice{background-image:url(#{$images_path}/cupcake_nice@2x.png)}
-    .avatar-rob{background-image:url(#{$images_path}/avatar_rob@2x.png)}
     .emoji-heart{background-image:url(#{$images_path}/emoji_heart@2x.png)}
-    .jurbly-title{background-image:url(#{$images_path}/jurbly_title@2x.png)}
-    .chaosclock-title{background-image:url(#{$images_path}/chaosclock_title@2x.png)}
-    .icon-email{background-image:url(#{$images_path}/icon_email@2x.png)}
-    .icon-github{background-image:url(#{$images_path}/icon_github@2x.png)}
-    .icon-twitter{background-image:url(#{$images_path}/icon_twitter@2x.png)}
-    .icon-youtube{background-image:url(#{$images_path}/icon_youtube@2x.png)}
+    .github-badge{background-image:url(#{$images_path}/github_badge@2x.png)}
     .icon-email-circle{background-image:url(#{$images_path}/icon_email_circle@2x.png)}
+    .icon-email{background-image:url(#{$images_path}/icon_email@2x.png)}
     .icon-github-circle{background-image:url(#{$images_path}/icon_github_circle@2x.png)}
+    .icon-github{background-image:url(#{$images_path}/icon_github@2x.png)}
     .icon-twitter-circle{background-image:url(#{$images_path}/icon_twitter_circle@2x.png)}
+    .icon-twitter{background-image:url(#{$images_path}/icon_twitter@2x.png)}
     .icon-youtube-circle{background-image:url(#{$images_path}/icon_youtube_circle@2x.png)}
+    .icon-youtube{background-image:url(#{$images_path}/icon_youtube@2x.png)}
+    .iphone{background-image:url(#{$images_path}/iphone@2x.png)}
+    .jurbly-title{background-image:url(#{$images_path}/jurbly_title@2x.png)}
     #jurbly-logo{background-image:url(#{$images_path}/jurbly_icon@2x.png)}
     #jurbly-screenshot{background-image:url(#{$images_path}/jurbly_screenshot@2x.jpg)}
     #chaosclock-logo{background-image:url(#{$images_path}/chaosclock_icon@2x.png)}
     #chaosclock-screenshot{background-image:url(#{$images_path}/chaosclock_screenshot@2x.jpg)}
-    #parsnip-logo{background-image:url(#{$images_path}/parsnip_icon@2x.png)}
-    #parsnip-screenshot{background-image:url(#{$images_path}/parsnip_screenshot@2x.jpg)}
-    #freelance-logo{background-image:url(#{$images_path}/freelance_logo@2x.png)}
-    #handcrafted-logo{background-image:url(#{$images_path}/handcrafted_logo@2x.png)}
-    #email-logo{background-image:url(#{$images_path}/email_logo@2x.png)}
-    #github-logo{background-image:url(#{$images_path}/github_logo@2x.png)}
-    #twitter-logo{background-image:url(#{$images_path}/twitter_logo@2x.png)}
 }

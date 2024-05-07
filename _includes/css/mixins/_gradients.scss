@@ -29,20 +29,24 @@
   background-image: linear-gradient($deg, $start-color, $end-color);
 }
 
-@mixin gradient-x-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
-  background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+@mixin gradient-x-three-colors($start-color: #0000ff, $mid-color: #c000c0, $end-color: #ff0000) {
+  background-image: linear-gradient(to right, $start-color, $mid-color, $end-color);
 }
 
-@mixin gradient-y-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
-  background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
+@mixin gradient-y-three-colors($start-color: #0000ff, $mid-color: #c000c0, $end-color: #ff0000) {
+  background-image: linear-gradient($start-color, $mid-color, $end-color);
 }
 
 @mixin gradient-radial($inner-color: $gray-700, $outer-color: $gray-800) {
   background-image: radial-gradient(circle, $inner-color, $outer-color);
 }
 
-@mixin gradient-radial-three-colors($start-color: $blue, $mid-color: $purple, $end-color: $red) {
+@mixin gradient-ellipse-three-colors($start-color: #0000ff, $mid-color: #c000c0, $end-color: #ff0000) {
   background-image: radial-gradient(ellipse, $start-color, $mid-color, $end-color);
+}
+
+@mixin gradient-circle-three-colors($start-color: #0000ff, $mid-color: #c000c0, $end-color: #ff0000) {
+  background-image: radial-gradient(circle, $start-color, $mid-color, $end-color);
 }
 
 @mixin gradient-striped($color: rgba($white, .15), $angle: 45deg) {
