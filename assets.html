@@ -1,9 +1,84 @@
 ---
 ---
 {% capture content %}
-<div class="assets container-md section-padding text-center">
-  <h1>Assets free to use!</h1>
-  <hr>
+<div class="assets container-lg section-padding">
+  <div class="text-center">
+    <h1>Assets free to use!</h1>
+    <hr>
+  </div>
+  <div class="max-width-lg mx-auto text-start">
+    <p>
+      Introducing the <a href="https://robruana.itch.io/pixica-fonts">Pixica Font</a> family!
+      Pixica was designed with clarity in mind, while retaining a pixel art aesthetic,
+      making it readable at small resolutions and perfect for retro video games.
+    </p>
+    <p>
+      Pixica comes in four varieties: Regular, Bold, Monospace, and Micro.
+      The Pixica character set includes accents, sub/superscripts, common symbols, and Cyrillic.
+    </p>
+
+    <a class="btn btn-danger" href="https://robruana.itch.io/pixica-fonts" role="button">Download on itch.io</a>
+
+    <div class="font-sample">
+      <div class="font-title">
+        <a class="collapsed text-nowrap" data-bs-toggle="collapse" href="#pixica-regular-body" aria-expanded="false" aria-controls="pixica-regular-body">
+          <span class="plus-btn">+</span>
+          <span class="minus-btn">-</span>
+          <img class="img-crisp" src="/static/images/pixica_regular.png">
+        </a>
+      </div>
+      <div class="font-body collapse" id="pixica-regular-body">
+        <div class="card card-body d-block overflow-x-auto">
+          <img class="img-crisp" src="/static/images/pixica_regular_sample.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="font-sample">
+      <div class="font-title">
+        <a class="collapsed text-nowrap" data-bs-toggle="collapse" href="#pixica-bold-body" aria-expanded="false" aria-controls="pixica-bold-body">
+          <span class="plus-btn">+</span>
+          <span class="minus-btn">-</span>
+          <img class="img-crisp" src="/static/images/pixica_bold.png">
+        </a>
+      </div>
+      <div class="font-body collapse" id="pixica-bold-body">
+        <div class="card card-body d-block overflow-x-auto">
+          <img class="img-crisp" src="/static/images/pixica_bold_sample.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="font-sample">
+      <div class="font-title">
+        <a class="collapsed text-nowrap" data-bs-toggle="collapse" href="#pixica-mono-body" aria-expanded="false" aria-controls="pixica-mono-body">
+          <span class="plus-btn">+</span>
+          <span class="minus-btn">-</span>
+          <img class="img-crisp" src="/static/images/pixica_mono.png">
+        </a>
+      </div>
+      <div class="font-body collapse" id="pixica-mono-body">
+        <div class="card card-body d-block overflow-x-auto">
+          <img class="img-crisp" src="/static/images/pixica_mono_sample.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="font-sample">
+      <div class="font-title">
+        <a class="collapsed text-nowrap" data-bs-toggle="collapse" href="#pixica-micro-body" aria-expanded="false" aria-controls="pixica-micro-body">
+          <span class="plus-btn">+</span>
+          <span class="minus-btn">-</span>
+          <img class="img-crisp" src="/static/images/pixica_micro.png">
+        </a>
+      </div>
+      <div class="font-body collapse" id="pixica-micro-body">
+        <div class="card card-body d-block overflow-x-auto">
+          <img class="img-crisp" src="/static/images/pixica_micro_sample.png">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endcapture %}
 {% include _template.html content=content navPage="assets" %}

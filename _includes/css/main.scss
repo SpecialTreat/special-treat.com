@@ -40,7 +40,6 @@ a {
     text-decoration: none;
 
     &:hover, &:focus {
-
         .background-image {
             @include opacity(0.8);
         }
@@ -776,6 +775,51 @@ $chaosclock-logo-width: 6.25rem;
             }
         }
     }
+}
+
+.font-title {
+    margin: 4rem 0 2rem 0;
+
+    .plus-btn,
+    .minus-btn {
+        color: #fff;
+        font-size: 2em;
+        width: 2rem;
+        height: 2rem;
+    }
+
+
+    &:hover, &:focus {
+        @include opacity(0.8);
+    }
+
+    .plus-btn {
+        display: none;
+    }
+    .minus-btn {
+        display: inline-block;
+    }
+
+    .collapsed {
+        .plus-btn {
+            display: inline-block;
+        }
+        .minus-btn {
+            display: none;
+        }
+    }
+}
+
+.font-body {
+    margin-left: 2rem;
+
+    .card-body {
+        background-color: #202020;
+    }
+}
+
+.img-crisp {
+    image-rendering: crisp-edges;
 }
 
 //-------------------------------------------------------------
