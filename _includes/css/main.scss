@@ -789,7 +789,7 @@ $chaosclock-logo-width: 6.25rem;
     }
 
 
-    &:hover, &:focus {
+    a:hover, a:focus {
         @include opacity(0.8);
     }
 
