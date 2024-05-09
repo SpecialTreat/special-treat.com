@@ -1,0 +1,57 @@
+---
+---
+{% capture content %}
+<div class="jurbly-home section-padding">
+
+  <div class="clouds">
+    {% for i in (1..10) %}
+      <div class="cloud cloud-{{ i }}"><span class="spacer"></span></div>
+    {% endfor %}
+  </div>
+
+  <div class="container-md position-relative">
+    <div class="row gy-5">
+      <div class="col-md-6 text-md-end text-center">
+        <h1><div class="jurbly-title background-image" role="img" aria-label="Jurbly"></div></h1>
+        <div class="fs-5">
+          <p>
+            An incredibly simple, insanely addictive game of skill.
+            Match colors and collect Jurpees to win prizes.
+            It's a Fruit Ninja + Candy Crush mashup.
+          </p>
+          <ul class="stars">
+            <li>Collect Jurpees</li>
+            <li>Win prizes</li>
+            <li>Beat your high score</li>
+          </ul>
+          <p>With music by <a href="https://soundcloud.com/megaenx">MegaEnx</a></p>
+        </div>
+        <div class="badge-container">
+          <a
+            class="badge-link"
+            href="https://apps.apple.com/us/app/jurbly/id991684088"
+            aria-label="Download Jurbly on the App Store">
+            <div class="appstore-badge background-image"></div>
+          </a>
+        </div>
+        <img src="/static/images/jurblies.png" class="jurblies mw-100">
+      </div>
+
+      <div class="col-md-6 text-center">
+        <div class="iphone background-image float-md-start">
+          <span class="spacer"></span>
+          <div class="iphone-screen background-image">
+            <video autoplay muted controls loop
+              poster="/static/images/jurbly_screenshot01.jpg"
+              class="demovideo">
+              <source src="/static/images/jurbly_demo01.webm" type="video/webm"></source>
+              <source src="/static/images/jurbly_demo01.mp4" type="video/mp4"></source>
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+{% include _template.html content=content navPage="apps" %}

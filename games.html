@@ -1,0 +1,35 @@
+---
+---
+{% capture content %}
+<div class="games container-md section-padding text-center max-width-xl">
+  <h1>Games made with <span class="emoji emoji-heart"></span>!</h1>
+  <hr>
+  <div class="overview-dunki container section-padding-bottom">
+    <div class="row">
+      <h2 class="pt-3 pb-5">
+        <img src="/static/images/dunki_title.png">
+      </h2>
+    </div>
+    <div class="row gy-3">
+      <div class="col-lg">
+        <!-- <iframe class="youtube-embed" width="560" height="315" src="https://www.youtube.com/embed/RCGI18YydTQ?si=hma74XZ7SHimXBX2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+      </div>
+      <div class="col-md text-start">
+        <div class="pb-3">
+          <p>
+            Help Biggy defeat the evil Pie King and restore the Candy Kingdom to peace!
+          </p>
+          <p>
+            No one knows why the Pie King went bad, but it all started when he got that scoop of ice cream.
+          </p>
+        </div>
+        <div class="d-flex gap-2 justify-content-center">
+          <a class="btn btn-danger" href="https://robruana.itch.io/dunki-dunki-panic" role="button">Play on itch.io &#187;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+{% endcapture %}
+{% include _template.html content=content navPage="games" %}

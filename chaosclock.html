@@ -1,0 +1,88 @@
+---
+---
+{% capture content %}
+
+<div class="chaosclock-home pb-5">
+  <div class="container-md position-relative">
+    <div class="row gy-5 pb-5">
+      <div class="col-md-6 text-md-end text-center">
+        <h1><div class="chaosclock-title background-image" role="img" aria-label="Chaos Clock"></div></h1>
+        <div class="fs-5">
+          <p>Date &amp; time measurement for <a href="http://en.wikipedia.org/wiki/Discordianism">Discordians</a>.</p>
+          <p>
+            Order? Disorder? Mere illusions imposed on a chaotic universe by the human mind. Today's date when viewed through one calendar might be completely different when viewed through another calendar. The True Date is irrelevant to calendars entirely.
+          </p>
+          <p>
+            Presented in stark black and white, Chaos Clock conveys maximum information with minimal color.
+          </p>
+          <p>Hail Eris!</p>
+        </div>
+        <div class="badge-container">
+          <a
+            class="badge-link"
+            href="https://apps.apple.com/us/app/chaos-clock/id977164677"
+            aria-label="Download Chaos Clock on the App Store">
+            <div class="appstore-badge background-image"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 text-center">
+        <div class="iphone background-image float-md-start">
+          <span class="spacer"></span>
+          <div class="iphone-screen background-image">
+            <video autoplay muted controls loop
+              poster="/static/images/chaosclock_screenshot01.png"
+              class="demovideo">
+              <source src="/static/images/chaosclock_demo01.webm" type="video/webm"></source>
+              <source src="/static/images/chaosclock_demo01.mp4" type="video/mp4"></source>
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chaosclock-spec max-width-lg container section-padding-bottom">
+  <div class="chaosclock-features-section">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-md-6 widget-col text-center pb-5">
+          <h1>Widget</h1>
+          <div class="chaosclock-widget background-image"></div>
+        </div>
+        <div class="col-md-6 watch-col text-center">
+          <h1>Apple Watch</h1>
+          <div class="chaosclock-watch background-image"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-separator"><hr><div class="chaosclock-logo background-image"></div></div>
+
+  <div class="calendar section">
+    <div class="container">
+{% include _discordian_calendar.html %}
+    </div>
+  </div>
+
+
+  <div class="section-separator"><hr><div class="chaosclock-logo background-image"></div></div>
+
+
+  <div class="clock section">
+    <div class="container">
+{% include _discordian_clock.html %}
+    </div>
+  </div>
+
+</div>
+{% endcapture %}
+
+{% capture postContent %}
+<script src="/static/js/discordian.js"></script>
+{% endcapture %}
+
+{% include _template.html content=content postContent=postContent navPage="apps" %}
