@@ -474,7 +474,29 @@ $company_brand_width: 174px;
 }
 
 .youtube-embed {
+    iframe {
+        max-width: 100%;
+    }
+}
+
+.game-title {
     max-width: 100%;
+}
+
+.overview-dunki {
+    .biggie-gif {
+        margin: -64px -4px -4px -4px;
+    }
+}
+
+.overview-judi {
+    h2 img {
+        width: 35.625rem;
+        max-width: 100%;
+    }
+    .judi-gif {
+        margin: -4px -4px -20px -4px;
+    }
 }
 
 ul.stars {
@@ -779,6 +801,20 @@ $chaosclock-logo-width: 6.25rem;
 
 .font-title {
     margin: 4rem 0 2rem 0;
+    max-width: 100%;
+
+    a {
+        display: inline-block;
+        max-width: 100%;
+
+        img {
+            max-width: calc(100% - 2rem);
+        }
+    }
+
+    a:hover, a:focus {
+        @include opacity(0.8);
+    }
 
     .plus-btn,
     .minus-btn {
@@ -786,11 +822,6 @@ $chaosclock-logo-width: 6.25rem;
         font-size: 2em;
         width: 2rem;
         height: 2rem;
-    }
-
-
-    a:hover, a:focus {
-        @include opacity(0.8);
     }
 
     .plus-btn {
